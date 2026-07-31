@@ -586,9 +586,15 @@ a:hover {
   margin: 0 0 1rem;
 }
 
-.doc ul {
+.doc ul,
+.doc ol {
   margin: 0 0 1.25rem;
   padding-left: 1.15rem;
+}
+
+/* Lettered sub-clauses, so a paragraph can cite one: "clause 13(b)". */
+.doc ol.alpha {
+  list-style: lower-alpha;
 }
 
 .doc li {
