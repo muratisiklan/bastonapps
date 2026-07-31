@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img"
+     aria-label="Baston Apps">
+  <!--
+    The house mark: a baston — a walking stick.
+
+    Not decoration. A cane steadies you without doing the walking for you, which
+    is the whole argument these apps make: one job, then out of the way. It also
+    rhymes with the first app's icon, since a microphone on a stand is the same
+    silhouette — a shaft with a weighted top.
+
+    Mostly shaft, small crook. An earlier draft inverted that and read as an
+    umbrella handle.
+
+    The brass is the ferrule, the tip that actually bears the weight. One accent,
+    in the only place on the object where the metal belongs. Same brass as the
+    app's design system (colors.brass), so the house and its apps share a metal.
+  -->
+  <style>
+    .shaft { stroke: #241f1c; }
+    /* The tab strip a favicon sits in follows the browser, not the site. The
+       site itself is light-only, but the mark still has to hold on dark chrome. */
+    @media (prefers-color-scheme: dark) {
+      .shaft { stroke: #f8f3ec; }
+    }
+  </style>
+  <path class="shaft" d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20"
+        fill="none" stroke-width="6.5" stroke-linecap="round" />
+  <path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5"
+        stroke-linecap="round" />
+</svg>

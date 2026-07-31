@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" data-app="karaoke-mic">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Karaoke Mic — your phone is the microphone</title>
+    <meta
+      name="description"
+      content="Karaoke Mic turns your iPhone into a live microphone for any Bluetooth speaker. Eleven character voices. Your audio is never recorded, stored, or sent anywhere."
+    />
+    <link rel="icon" href="../assets/karaoke-mic-icon.png" />
+    <link rel="apple-touch-icon" href="../assets/karaoke-mic-icon.png" />
+    <link rel="stylesheet" href="../assets/site.css" />
+    <meta property="og:title" content="Karaoke Mic — your phone is the microphone" />
+    <meta
+      property="og:description"
+      content="Sing through any Bluetooth speaker you already own. Eleven character voices. Nothing is recorded."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bastonapps.com/karaoke-mic/" />
+    <meta property="og:image" content="https://bastonapps.com/assets/karaoke-mic-icon.png" />
+  </head>
+  <body>
+    <div class="shell">
+      <div class="topline">
+        <a class="topline-mark" href="../"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a>
+        <span class="topline-here">Karaoke Mic</span>
+      </div>
+
+      <main>
+        <section class="hero">
+          <div>
+            <p class="eyebrow rise">iPhone · Bluetooth or AirPlay</p>
+            <h1 class="hero-title rise rise-2">Your phone is the microphone.</h1>
+            <p class="lede rise rise-3">
+              Tap the button and your voice comes out of the speaker across the room. No
+              cable, no mixer, nothing to sign up for — just you, loud. Start a song in
+              your own music app and sing straight over it.
+            </p>
+
+            <div class="voices">
+              <p class="voices-label">Eleven voices — Chipmunk and Megaphone are free</p>
+              <div class="voice-list" id="voices" role="group" aria-label="Preview a voice colour">
+                <button class="voice" type="button" data-hue="#6E645B" aria-pressed="false">
+                  Plain
+                </button>
+                <button class="voice" type="button" data-hue="#D9A21B" aria-pressed="false">
+                  Chipmunk
+                </button>
+                <button class="voice" type="button" data-hue="#E8502E" aria-pressed="true">
+                  Megaphone
+                </button>
+                <button class="voice" type="button" data-hue="#3B8FA8" aria-pressed="false">
+                  Robot
+                </button>
+                <button class="voice" type="button" data-hue="#4E7A44" aria-pressed="false">
+                  Monster
+                </button>
+                <button class="voice" type="button" data-hue="#7B6CC4" aria-pressed="false">
+                  Alien
+                </button>
+                <button class="voice" type="button" data-hue="#4A3F7A" aria-pressed="false">
+                  Giant
+                </button>
+                <button class="voice" type="button" data-hue="#8A6A2E" aria-pressed="false">
+                  Walkie-talkie
+                </button>
+                <button class="voice" type="button" data-hue="#4A6FA5" aria-pressed="false">
+                  Telephone
+                </button>
+                <button class="voice" type="button" data-hue="#C2622B" aria-pressed="false">
+                  Stadium
+                </button>
+                <button class="voice" type="button" data-hue="#8A8FA8" aria-pressed="false">
+                  Ghost
+                </button>
+                <button class="voice" type="button" data-hue="#2F6B63" aria-pressed="false">
+                  Cave
+                </button>
+              </div>
+            </div>
+
+            <div class="cta-row">
+              <a class="cta" href="https://apps.apple.com/app/id6796284317">
+                Download on the App Store
+              </a>
+              <span class="caption">Free to use · Premium unlocks nine more voices</span>
+            </div>
+          </div>
+
+          <div class="hero-stage">
+            <svg class="mic" viewBox="0 0 260 320" aria-hidden="true">
+              <path class="mic-ring mic-ring-outer" d="M34 96 C10 148 10 208 34 260" />
+              <path class="mic-ring mic-ring-outer" d="M226 96 C250 148 250 208 226 260" />
+              <path class="mic-ring" d="M58 118 C42 156 42 200 58 238" />
+              <path class="mic-ring" d="M202 118 C218 156 218 200 202 238" />
+
+              <path class="mic-yoke" d="M74 156 C74 212 100 240 130 240" />
+              <path class="mic-yoke" d="M186 156 C186 212 160 240 130 240" />
+
+              <rect class="mic-body" x="122" y="236" width="16" height="44" rx="3" />
+              <rect class="mic-body" x="86" y="274" width="88" height="22" rx="11" />
+
+              <rect class="mic-body" x="88" y="44" width="84" height="124" rx="42" />
+              <rect class="mic-grille" x="104" y="80" width="52" height="9" rx="4.5" />
+              <rect class="mic-grille" x="104" y="101" width="52" height="9" rx="4.5" />
+              <rect class="mic-grille" x="104" y="122" width="52" height="9" rx="4.5" />
+
+              <circle class="mic-stud" cx="74" cy="156" r="13" />
+              <circle class="mic-stud" cx="186" cy="156" r="13" />
+            </svg>
+          </div>
+        </section>
+
+        <hr class="rule" />
+
+        <section class="band">
+          <h2 class="section-title">Three things, in order</h2>
+          <ol class="steps">
+            <li>
+              <span class="step-num">01</span>
+              <h3 class="step-name">Pair your speaker</h3>
+              <p class="step-text">
+                Any Bluetooth speaker, soundbar, or AirPlay device. Pair it in iOS Settings
+                first — the app shows you which output it's using and lets you switch.
+              </p>
+            </li>
+            <li>
+              <span class="step-num">02</span>
+              <h3 class="step-name">Allow the microphone</h3>
+              <p class="step-text">
+                Asked once, on first launch. Without it there's nothing to send to the
+                speaker.
+              </p>
+            </li>
+            <li>
+              <span class="step-num">03</span>
+              <h3 class="step-name">Tap and talk</h3>
+              <p class="step-text">
+                One tap goes live, another mutes you — muted is the resting state, so
+                you're never live by accident. Set the level with the fader, pick a voice,
+                and the whole screen takes on its colour.
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <hr class="rule" />
+
+        <section class="band">
+          <h2 class="section-title">What it is, and what it isn't</h2>
+          <div class="facts">
+            <div>
+              <p class="facts-head">It is</p>
+              <ul class="facts-list">
+                <li>A live microphone that plays through a speaker you already own</li>
+                <li>Eleven character voices, applied to your voice as you speak</li>
+                <li>Happy to share the speaker — keep playing music from any other app
+                  and sing over the top of it</li>
+                <li>A level fader, a noise gate, and feedback warnings when the mic
+                  starts to hear itself</li>
+                <li>Live only while it's open, so nothing listens in the background</li>
+                <li>Four app icons you can switch between</li>
+                <li>Free, with an optional Premium subscription</li>
+              </ul>
+            </div>
+            <div>
+              <p class="facts-head">It isn't</p>
+              <ul class="facts-list facts-no">
+                <li>A karaoke library — it supplies no songs, lyrics, or backing tracks;
+                  bring your own from the music app you already pay for</li>
+                <li>A recorder. Nothing is captured or saved, by design</li>
+                <li>A scoring game</li>
+                <li>Latency-free — Bluetooth adds a short delay no app can remove</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <hr class="rule" />
+
+        <section class="band">
+          <h2 class="section-title">Your voice doesn't go anywhere</h2>
+          <p class="lede lede-wide">
+            Audio is processed on the device and played straight out again. It is never
+            recorded to a file, never stored, and never transmitted — not to us, not to
+            anyone. The only thing the app measures is loudness, as a number, to move the
+            meter and open the noise gate.
+          </p>
+          <p class="link-row">
+            <a href="privacy/">Read the privacy policy</a>
+          </p>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <div class="foot-links">
+          <a href="privacy/">Privacy</a>
+          <a href="terms/">Terms</a>
+          <a href="support/">Support</a>
+          <a href="../">Baston Apps</a>
+        </div>
+        <span>© 2026 Baston Apps</span>
+      </footer>
+    </div>
+
+    <script>
+      // The app's signature: choosing a voice re-tints everything. Same hues as
+      // src/ui/theme.ts, kept in data-hue on each button.
+      (function () {
+        var list = document.getElementById('voices');
+        if (!list) return;
+        list.addEventListener('click', function (event) {
+          var button = event.target.closest('.voice');
+          if (!button) return;
+          var buttons = list.querySelectorAll('.voice');
+          for (var i = 0; i < buttons.length; i++) {
+            buttons[i].setAttribute('aria-pressed', String(buttons[i] === button));
+          }
+          document.documentElement.style.setProperty('--accent', button.dataset.hue);
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Baston Apps</title>
+    <meta
+      name="description"
+      content="Small, single-purpose iPhone apps. Independently made, no accounts, nothing that needs explaining twice."
+    />
+    <link rel="icon" href="assets/bastonapps-mark.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/bastonapps-touch.png" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <meta name="theme-color" content="#f8f3ec" />
+    <meta property="og:title" content="Baston Apps" />
+    <meta property="og:description" content="Small, single-purpose iPhone apps." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bastonapps.com/" />
+    <meta property="og:image" content="https://bastonapps.com/assets/og-bastonapps.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div class="shell">
+      <!-- No second slot here. The right side of the topline reports where you
+           are, and on the index you are simply at Baston Apps. -->
+      <div class="topline">
+        <span class="topline-mark"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></span>
+      </div>
+
+      <main>
+        <section class="masthead">
+          <h1 class="masthead-title rise">Small apps that do one thing.</h1>
+          <p class="masthead-lede rise rise-2">
+            Independently made for iPhone. No accounts, no dashboards, nothing that needs
+            explaining twice.
+          </p>
+        </section>
+
+        <section>
+          <!-- Says the quiet part out loud. A catalogue of one looks like an
+               accident unless it admits it's a catalogue of one, and "so far"
+               turns the thin shelf into a statement of intent. -->
+          <p class="eyebrow">One app, so far</p>
+
+          <ul class="rack">
+            <li class="specimen" data-tint="#e8502e">
+              <div class="specimen-stage">
+                <span class="specimen-figure">
+                  <span class="specimen-glow" aria-hidden="true"></span>
+                  <img
+                    class="specimen-icon"
+                    src="assets/karaoke-mic-icon.png"
+                    width="512"
+                    height="512"
+                    alt="Karaoke Mic app icon"
+                  />
+                </span>
+              </div>
+
+              <div>
+                <h2 class="specimen-name">
+                  <a href="karaoke-mic/">Karaoke Mic</a>
+                </h2>
+                <p class="specimen-line">
+                  Your phone becomes the microphone. Tap the button and your voice comes
+                  out of the Bluetooth speaker across the room — no cable, no mixer, and
+                  nothing is ever recorded.
+                </p>
+
+                <div class="specimen-try">
+                  <p class="voices-label" id="km-voices-label">
+                    Eleven voices — try one
+                  </p>
+                  <!-- Six of the eleven, not all of them: this is a sample that
+                       has to fit one line, and the full set lives on the app
+                       page. Chosen for colour spread — grey, yellow, orange,
+                       blue, violet, teal — so the tint visibly travels. -->
+                  <div class="chip-row" role="group" aria-labelledby="km-voices-label">
+                    <button class="chip" type="button" data-hue="#6E645B" aria-pressed="false">Plain</button>
+                    <button class="chip" type="button" data-hue="#D9A21B" aria-pressed="false">Chipmunk</button>
+                    <button class="chip" type="button" data-hue="#E8502E" aria-pressed="true">Megaphone</button>
+                    <button class="chip" type="button" data-hue="#3B8FA8" aria-pressed="false">Robot</button>
+                    <button class="chip" type="button" data-hue="#7B6CC4" aria-pressed="false">Alien</button>
+                    <button class="chip" type="button" data-hue="#2F6B63" aria-pressed="false">Cave</button>
+                  </div>
+                </div>
+
+                <a class="specimen-open" href="karaoke-mic/">
+                  Open Karaoke Mic <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </li>
+
+            <!-- Each further app is another <li class="specimen">, with its own
+                 data-tint and its own miniature of whatever single thing it
+                 does. Give it a folder too: index / privacy / support / terms.
+                 Each app needs its OWN privacy policy — a shared one won't match
+                 its App Privacy answers. -->
+          </ul>
+        </section>
+
+        <section class="band-after-rack">
+          <h2 class="section-title">What “small” means here</h2>
+          <div class="creed">
+            <div>
+              <h3 class="creed-name">One job</h3>
+              <p class="creed-text">
+                If it needs a tutorial, it's the wrong app. Each one does a single thing
+                and then gets out of the way.
+              </p>
+            </div>
+            <div>
+              <h3 class="creed-name">Nothing to sign in to</h3>
+              <p class="creed-text">
+                No account, no profile, no password to forget. Open the app and it works.
+              </p>
+            </div>
+            <div>
+              <h3 class="creed-name">Plain about money</h3>
+              <p class="creed-text">
+                Free where it can be. Where there's a subscription, you're told exactly
+                what it unlocks, and what it costs, before you pay for it.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <div class="foot-links">
+          <a href="mailto:support@bastonapps.com">support@bastonapps.com</a>
+        </div>
+        <span>© 2026 Baston Apps</span>
+      </footer>
+    </div>
+
+    <script>
+      // Each specimen tints itself, not the document — so a rack of several apps
+      // shows several colours at once and the house stays ink on paper.
+      (function () {
+        var specimens = document.querySelectorAll('.specimen');
+        for (var s = 0; s < specimens.length; s++) {
+          (function (specimen) {
+            var seed = specimen.dataset.tint;
+            if (seed) specimen.style.setProperty('--tint', seed);
+
+            specimen.addEventListener('click', function (event) {
+              var chip = event.target.closest('.chip');
+              if (!chip || !specimen.contains(chip)) return;
+              var chips = specimen.querySelectorAll('.chip');
+              for (var i = 0; i < chips.length; i++) {
+                chips[i].setAttribute('aria-pressed', String(chips[i] === chip));
+              }
+              specimen.style.setProperty('--tint', chip.dataset.hue);
+            });
+          })(specimens[s]);
+        }
+      })();
+    </script>
+  </body>
+</html>

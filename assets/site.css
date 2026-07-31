@@ -1,0 +1,965 @@
+/* ---------------------------------------------------------------------------
+   Baston Apps — shared stylesheet.
+
+   The palette, type scale and spacing come from Karaoke Mic's design system
+   (src/ui/theme.ts) so the site and the app read as one thing. Three rules are
+   inherited from it deliberately:
+
+     · The canvas never changes; the accent does. --accent is the only colour
+       that moves, and voice buttons move it.
+     · No borders, no boxes, no shadows. Structure comes from space and the
+       occasional hairline.
+     · No monospace. It's what makes software look like instrumentation.
+
+   Light only, also on purpose: the app declares userInterfaceStyle 'light' and
+   has no dark variant to match.
+--------------------------------------------------------------------------- */
+
+/* Jost — a geometric sans in Futura's tradition, self-hosted.
+
+   Futura still comes first in --font-display, so Apple devices render the real
+   thing. Jost is here for everyone else: Futura ships on macOS and iOS but on
+   no other platform, and without a webfont the display face — which carries the
+   whole identity — degraded to Trebuchet on Windows and Roboto on Android.
+
+   One file per subset covers every weight: Jost is a variable font, which is
+   why Google serves the same URL for 400 and 500. latin-ext is listed so the
+   Turkish set (ğ ş İ) doesn't fall back mid-word; browsers fetch it only if a
+   character in that range actually appears, so English pages never pay for it.
+
+   SIL Open Font License 1.1 — self-hosting is permitted. */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('jost-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('jost-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  --paper: #f8f3ec;
+  --paper-raised: #fffbf6;
+  --paper-sunk: #efe8df;
+
+  --ink: #241f1c;
+  --ink-soft: #5c534c;
+  /* Darkened from the app's #9A9088 (2.8:1). That reads fine on a 3x phone
+     panel but fails WCAG AA for the 13px type it's used on here; #726960 is
+     4.87:1 on paper and keeps the same warm grey character. */
+  --muted: #726960;
+  --hairline: #e2d9ce;
+
+  --brass: #c08a3e;
+  --brass-light: #efcb8c;
+  --cone: #3a2e26;
+
+  /* The house accent, worn by the umbrella site and anything not inside an app
+     folder. A deeper brass than --brass on purpose: --accent gets used on thin
+     graphics, and #c08a3e is only 2.7:1 on paper, under the 3:1 that non-text
+     contrast asks for. #a87524 is 3.63:1 and stays in the same family.
+
+     Each app overrides this for its own pages (see below). The umbrella must
+     not wear any single app's colour — that stops reading as a house style the
+     moment there are three apps.
+
+     --accent only ever colours GRAPHICS: rings, list bullets, rules, the
+     pressed-chip wash, link hover. Never type — several of Karaoke Mic's eleven
+     hues fall below 4.5:1 on paper (chipmunk is 2.08:1), so accent-coloured
+     small text would be unreadable for whichever voice happened to be chosen. */
+  --accent: #a87524;
+
+  --font-display: 'Futura', 'Futura PT', 'Jost', 'Century Gothic', 'URW Gothic',
+    'Avenir Next', 'Trebuchet MS', sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+
+  --measure: 34rem;
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+}
+
+/* Per-app accent. Set with data-app on <html>, so every page inside an app's
+   folder — index, privacy, terms, support — picks it up from one attribute.
+   Karaoke Mic leads with hues.megaphone: a free voice, so it's honest to open
+   on it, and it shows the tinting mechanism straight away instead of a grey.
+   Its voice buttons then overwrite --accent inline, which outranks this. */
+[data-app='karaoke-mic'] {
+  --accent: #e8502e;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--hairline);
+  text-underline-offset: 0.22em;
+}
+
+a:hover {
+  text-decoration-color: var(--accent);
+}
+
+/* Ink, not --accent. The focus ring is a non-text graphic, so it needs 3:1
+   against paper, and --accent is switchable at runtime by the voice buttons —
+   pick Chipmunk and an accent-coloured ring drops to 2.08:1, i.e. a keyboard
+   user loses their cursor because of a colour choice made elsewhere on the
+   page. Ink is fixed and 14:1, so the ring is never the thing that fails. */
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --- shell ---------------------------------------------------------------- */
+
+.shell {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.band {
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.band-tight {
+  padding-block: clamp(2rem, 5vw, 3.25rem);
+}
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  margin: 0;
+}
+
+/* --- utility line -------------------------------------------------------- */
+
+.topline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.topline-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* The baston, at wordmark scale. Sized in em so it tracks the type rather than
+   being pinned to a pixel value, and `currentColor` on the shaft so it inherits
+   ink — only the brass ferrule is ever a fixed colour. */
+.mark {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+  /* The glyph's mass hangs low against uppercase letterforms; a hair of lift
+     puts the crook on the cap line where the eye expects it. */
+  transform: translateY(-0.04em);
+}
+
+.topline-here {
+  color: var(--muted);
+}
+
+/* Matches .topline-mark on the other side of the line — the utility row reads as
+   a location, not as a set of links to click. */
+.topline-here a {
+  text-decoration: none;
+}
+
+.topline-here a:hover {
+  color: var(--ink);
+}
+
+/* --- type ---------------------------------------------------------------- */
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.25rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.5rem, 7.4vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.005em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.45rem, 3.2vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  margin: 0 0 1.5rem;
+}
+
+.lede {
+  font-size: clamp(1.0625rem, 1.6vw, 1.1875rem);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 26rem;
+  margin: 1.5rem 0 0;
+}
+
+.caption {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+/* A lede that carries a full paragraph rather than a hero subtitle, so it gets
+   a wider measure and sits flush with the heading above it. */
+.lede-wide {
+  max-width: 34rem;
+  margin-top: 0;
+}
+
+.title-short {
+  max-width: 30rem;
+}
+
+/* A single link trailing a paragraph. */
+.link-row {
+  margin: 1.5rem 0 0;
+}
+
+/* --- hero ---------------------------------------------------------------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 6vw, 4rem);
+  align-items: center;
+  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(2rem, 5vw, 3rem);
+}
+
+@media (min-width: 56rem) {
+  .hero {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+
+.hero-stage {
+  display: flex;
+  justify-content: center;
+  order: -1;
+}
+
+@media (min-width: 56rem) {
+  .hero-stage {
+    order: 0;
+  }
+}
+
+.mic {
+  width: clamp(11rem, 34vw, 16rem);
+  height: auto;
+}
+
+/* The rings are the only thing that carries the selected voice's colour at any
+   size, so they own --accent and animate on it. */
+.mic-ring {
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 11;
+  stroke-linecap: round;
+  transition: stroke 320ms ease;
+  /* Static values are the base, not the animation's start frame, so the rings
+     still read correctly when motion is switched off below. */
+  opacity: 0.7;
+  animation: breathe 4.5s ease-in-out infinite;
+}
+
+.mic-ring-outer {
+  opacity: 0.26;
+  animation: breathe-outer 4.5s ease-in-out 280ms infinite;
+}
+
+.mic-body {
+  fill: var(--cone);
+}
+
+.mic-grille {
+  fill: var(--paper);
+}
+
+.mic-stud {
+  fill: var(--brass);
+}
+
+.mic-yoke {
+  stroke: var(--cone);
+  fill: none;
+  stroke-width: 13;
+  stroke-linecap: round;
+}
+
+/* --- voices -------------------------------------------------------------- */
+
+.voices {
+  margin-top: 2.25rem;
+}
+
+.voices-label {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.875rem;
+}
+
+.voice-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.voice {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.voice:hover {
+  background: var(--paper-sunk);
+  color: var(--ink);
+}
+
+/* The wash behind an active effect, as in the app — accent at low alpha, ink
+   text on top, so contrast never depends on which hue is selected. The flat
+   fallback comes first so the pressed state stays visible without color-mix. */
+.voice[aria-pressed='true'] {
+  background: var(--paper-sunk);
+  color: var(--ink);
+}
+
+@supports (background: color-mix(in srgb, red 16%, white)) {
+  .voice[aria-pressed='true'] {
+    background: color-mix(in srgb, var(--accent) 16%, var(--paper-raised));
+  }
+}
+
+/* --- call to action ------------------------------------------------------ */
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  margin-top: 2.5rem;
+}
+
+/* Ink, never accent: the one element that must stay legible whatever voice is
+   selected, and the one thing on the page you're meant to press. */
+.cta {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper-raised);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.cta:hover {
+  background: var(--cone);
+}
+
+.cta-pending {
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  cursor: default;
+}
+
+/* --- steps --------------------------------------------------------------- */
+
+/* Numbered because these genuinely are a sequence — you cannot hold the button
+   before the speaker is paired. */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 48rem) {
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.step-num {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.step-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.4rem;
+}
+
+.step-text {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+/* --- honest two-column list --------------------------------------------- */
+
+.facts {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (min-width: 48rem) {
+  .facts {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+}
+
+.facts-head {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.facts-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.facts-list li {
+  padding-left: 1.4rem;
+  position: relative;
+  color: var(--ink-soft);
+}
+
+.facts-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: background-color 260ms ease;
+}
+
+.facts-no li::before {
+  background: none;
+  box-shadow: inset 0 0 0 1px var(--muted);
+}
+
+/* --- documents ----------------------------------------------------------- */
+
+.doc {
+  max-width: var(--measure);
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(3rem, 8vw, 5rem);
+  /* Legal pages carry email addresses and the occasional long term; none should
+     be able to push the page sideways on a narrow phone. */
+  overflow-wrap: break-word;
+}
+
+.doc-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.05;
+  margin: 0 0 0.75rem;
+}
+
+.doc-date {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 2.5rem;
+}
+
+.doc h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.3125rem;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 2.75rem 0 0.875rem;
+}
+
+.doc h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.0625rem;
+  letter-spacing: 0.03em;
+  margin: 1.75rem 0 0.5rem;
+}
+
+.doc p,
+.doc li {
+  color: var(--ink-soft);
+}
+
+.doc p {
+  margin: 0 0 1rem;
+}
+
+.doc ul {
+  margin: 0 0 1.25rem;
+  padding-left: 1.15rem;
+}
+
+.doc li {
+  margin-bottom: 0.5rem;
+}
+
+.doc strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* The plain-language summary that opens each legal page. A hairline and space,
+   not a box. */
+.summary {
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
+  margin: 0 0 2.5rem;
+}
+
+.summary-head {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+
+.summary ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.summary li {
+  margin: 0;
+  color: var(--ink);
+}
+
+/* --- masthead ------------------------------------------------------------ */
+
+/* Set far larger and tighter than the app pages' hero. This page has one job —
+   say what the studio is — and the type is the only thing doing it, so it gets
+   the whole top of the screen rather than sharing it with an illustration. */
+.masthead {
+  padding-block: clamp(3rem, 11vw, 7.5rem) clamp(2.5rem, 6vw, 4rem);
+}
+
+.masthead-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.75rem, 10.5vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  max-width: 11ch;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.masthead-lede {
+  font-size: clamp(1.0625rem, 1.7vw, 1.25rem);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 30rem;
+  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+}
+
+/* --- the rack ------------------------------------------------------------ */
+
+/* Apps as specimens, not list rows. Each carries a working miniature of the one
+   thing it does, so the index demonstrates the catalogue instead of describing
+   it — which is the only honest way to show apps whose whole pitch is that they
+   do a single thing well.
+
+   --tint is per-specimen, not global: at three apps the page wears three
+   colours at once, and the house itself stays ink on paper. */
+.rack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.specimen {
+  --tint: var(--accent);
+  border-top: 1px solid var(--hairline);
+  padding-block: clamp(2.75rem, 6vw, 4.25rem);
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.specimen:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+
+@media (min-width: 52rem) {
+  .specimen {
+    grid-template-columns: minmax(0, 15rem) 1fr;
+  }
+}
+
+.specimen-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Sized to the icon, not to the column. The glow is positioned against this, so
+   it stays a halo around the artwork at every width instead of growing with the
+   grid track and smearing across the rule on a phone. */
+.specimen-figure {
+  position: relative;
+  display: block;
+  width: clamp(7rem, 21vw, 10.5rem);
+}
+
+/* The borrowed colour, as light rather than as a fill — the icon is already a
+   dark slab, so a wash behind it reads as the app glowing rather than as a box
+   drawn around it. Blur + opacity instead of colour-mix: no fallback needed. */
+.specimen-glow {
+  position: absolute;
+  inset: -20%;
+  border-radius: 50%;
+  background: var(--tint);
+  opacity: 0.26;
+  filter: blur(30px);
+  transition:
+    background-color 340ms ease,
+    opacity 340ms ease;
+}
+
+.specimen-icon {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Apple's icon mask is a superellipse, not a rounded rect; 23% is the closest
+     a plain border-radius gets at these sizes. */
+  border-radius: 23%;
+}
+
+.specimen-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.75rem, 5vw, 2.625rem);
+  line-height: 1.05;
+  letter-spacing: 0.005em;
+  margin: 0;
+}
+
+.specimen-name a {
+  text-decoration: none;
+  transition: color 220ms ease;
+}
+
+.specimen-name a:hover {
+  color: var(--tint);
+}
+
+.specimen-line {
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.5;
+  margin: 0.65rem 0 0;
+  max-width: 34rem;
+}
+
+.specimen-try {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+.specimen-open {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 0.3rem;
+  transition: border-color 220ms ease;
+}
+
+.specimen-open:hover {
+  border-bottom-color: var(--tint);
+}
+
+/* The arrow is the only thing that moves on hover — the row is already carrying
+   a colour change, and two moving parts would compete. */
+.specimen-open span {
+  display: inline-block;
+  transition: transform 220ms cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+
+.specimen-open:hover span {
+  transform: translateX(0.3rem);
+}
+
+/* Chips inside a specimen: same mechanism as the app page's voice buttons, at
+   index scale, and tinting their own row rather than the document. */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.chip:hover {
+  background: var(--paper-sunk);
+  color: var(--ink);
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--paper-sunk);
+  color: var(--ink);
+}
+
+@supports (background: color-mix(in srgb, red 16%, white)) {
+  .chip[aria-pressed='true'] {
+    background: color-mix(in srgb, var(--tint) 18%, var(--paper-raised));
+  }
+}
+
+/* --- the creed ----------------------------------------------------------- */
+
+/* The rack already ends on a rule and its own bottom padding, so a full .band
+   above stacks two gaps into one dead band. Half the top, full bottom. */
+.band-after-rack {
+  padding-block: clamp(1.75rem, 4vw, 3rem) clamp(3rem, 8vw, 6rem);
+}
+
+.creed {
+  display: grid;
+  gap: 2.25rem;
+}
+
+@media (min-width: 48rem) {
+  .creed {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+.creed-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.125rem;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.5rem;
+}
+
+.creed-text {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+/* --- footer -------------------------------------------------------------- */
+
+.foot {
+  border-top: 1px solid var(--hairline);
+  padding-block: 2rem 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.foot a {
+  text-decoration: none;
+}
+
+.foot a:hover {
+  color: var(--ink);
+}
+
+/* --- motion -------------------------------------------------------------- */
+
+.rise {
+  animation: rise 620ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.rise-2 {
+  animation-delay: 90ms;
+}
+
+.rise-3 {
+  animation-delay: 180ms;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.32;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes breathe-outer {
+  0%,
+  100% {
+    opacity: 0.14;
+  }
+  50% {
+    opacity: 0.44;
+  }
+}
+
+/* The index's one orchestrated moment: the masthead rises, then each app's
+   colour blooms in behind its icon. Ends on the same 0.22 the static rule sets,
+   so switching motion off leaves the glow exactly where it belongs. */
+.specimen-glow {
+  animation: bloom 900ms cubic-bezier(0.2, 0.7, 0.25, 1) 260ms both;
+}
+
+@keyframes bloom {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 0.22;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 1ms !important;
+  }
+}
