@@ -30,6 +30,13 @@
       <main>
         <section class="hero">
           <div>
+            <img
+              class="app-mark rise"
+              src="../assets/karaoke-mic-icon.svg"
+              alt="The Karaoke Mic app icon"
+              width="52"
+              height="52"
+            />
             <p class="eyebrow rise">iPhone · Bluetooth or AirPlay</p>
             <h1 class="hero-title rise rise-2">Your phone is the microphone.</h1>
             <p class="lede rise rise-3">
@@ -81,33 +88,64 @@
             </div>
 
             <div class="cta-row">
-              <a class="cta" href="https://apps.apple.com/app/id6796284317">
-                Download on the App Store
+              <a class="badge" href="https://apps.apple.com/app/id6796284317">
+                <img
+                  src="../assets/app-store-badge.svg"
+                  alt="Download on the App Store"
+                  width="120"
+                  height="40"
+                />
               </a>
               <span class="caption">Free to use · Premium unlocks nine more voices</span>
             </div>
           </div>
 
-          <div class="hero-stage">
-            <svg class="mic" viewBox="0 0 260 320" aria-hidden="true">
-              <path class="mic-ring mic-ring-outer" d="M34 96 C10 148 10 208 34 260" />
-              <path class="mic-ring mic-ring-outer" d="M226 96 C250 148 250 208 226 260" />
-              <path class="mic-ring" d="M58 118 C42 156 42 200 58 238" />
-              <path class="mic-ring" d="M202 118 C218 156 218 200 202 238" />
+          <div class="hero-stage hero-stage-tall">
+            <svg class="screen hero-screen" viewBox="0 0 360 782" role="img"
+                 aria-label="The Karaoke Mic screen while live: the talk button is filled with the chosen voice’s colour and the microphone rings are lit.">
+              <rect class="s-paper" x="0" y="0" width="360" height="782" />
 
-              <path class="mic-yoke" d="M74 156 C74 212 100 240 130 240" />
-              <path class="mic-yoke" d="M186 156 C186 212 160 240 130 240" />
+              <text class="s-time" x="30" y="36">9:41</text>
+              <rect class="s-batt" x="308" y="25" width="24" height="12" rx="3.5" />
 
-              <rect class="mic-body" x="122" y="236" width="16" height="44" rx="3" />
-              <rect class="mic-body" x="86" y="274" width="88" height="22" rx="11" />
+              <rect class="s-pill" x="24" y="56" width="312" height="56" rx="18" />
+              <circle class="s-dot" cx="48" cy="84" r="5" />
+              <text class="s-name" x="66" y="80">Kitchen Speaker</text>
+              <text class="s-detail" x="66" y="98">Bluetooth · 180 ms</text>
+              <path class="s-chev" d="M310 78 L316 84 L310 90" />
 
-              <rect class="mic-body" x="88" y="44" width="84" height="124" rx="42" />
-              <rect class="mic-grille" x="104" y="80" width="52" height="9" rx="4.5" />
-              <rect class="mic-grille" x="104" y="101" width="52" height="9" rx="4.5" />
-              <rect class="mic-grille" x="104" y="122" width="52" height="9" rx="4.5" />
+              <g transform="translate(42,120) scale(1.0625)">
+                <path class="s-ring s-ring-outer" d="M34 96 C10 148 10 208 34 260" />
+                <path class="s-ring s-ring-outer" d="M226 96 C250 148 250 208 226 260" />
+                <path class="s-ring" d="M58 118 C42 156 42 200 58 238" />
+                <path class="s-ring" d="M202 118 C218 156 218 200 202 238" />
+                <path class="s-yoke" d="M74 156 C74 212 100 240 130 240" />
+                <path class="s-yoke" d="M186 156 C186 212 160 240 130 240" />
+                <rect class="s-body" x="122" y="236" width="16" height="44" rx="3" />
+                <rect class="s-body" x="86" y="274" width="88" height="22" rx="11" />
+                <rect class="s-body" x="88" y="44" width="84" height="124" rx="42" />
+                <rect class="s-grille" x="104" y="80" width="52" height="9" rx="4.5" />
+                <rect class="s-grille" x="104" y="101" width="52" height="9" rx="4.5" />
+                <rect class="s-grille" x="104" y="122" width="52" height="9" rx="4.5" />
+                <circle class="s-stud" cx="74" cy="156" r="13" />
+                <circle class="s-stud" cx="186" cy="156" r="13" />
+              </g>
 
-              <circle class="mic-stud" cx="74" cy="156" r="13" />
-              <circle class="mic-stud" cx="186" cy="156" r="13" />
+              <rect class="s-talk s-talk-on" x="80" y="500" width="200" height="58" rx="29" />
+              <text class="s-talk-label s-talk-label-on" x="180" y="536">Live</text>
+
+              <rect class="s-track" x="60" y="580" width="240" height="44" rx="22" />
+              <rect class="s-track-fill" x="60" y="580" width="150" height="44" rx="22" />
+
+              <rect class="s-card" x="18" y="650" width="72" height="74" rx="18" />
+              <text class="s-card-label" x="54" y="694">Plain</text>
+              <rect class="s-card" x="102" y="650" width="72" height="74" rx="18" />
+              <text class="s-card-label" x="138" y="694">Chipmunk</text>
+              <rect class="s-card s-card-on" x="186" y="650" width="72" height="74" rx="18" />
+              <text class="s-card-label s-card-on" x="222" y="694">Megaphone</text>
+              <rect class="s-card" x="270" y="650" width="72" height="74" rx="18" />
+              <text class="s-card-label" x="306" y="694">Robot</text>
+              <rect class="s-home" x="130" y="756" width="100" height="5" rx="2.5" />
             </svg>
           </div>
         </section>
@@ -201,6 +239,11 @@
           <a href="../">Baston Apps</a>
         </div>
         <span>© 2026 Baston Apps</span>
+        <p class="foot-legal">
+          Apple and the Apple logo are trademarks of Apple Inc., registered in the
+          U.S. and other countries and regions. App Store is a service mark of
+          Apple Inc.
+        </p>
       </footer>
     </div>
 

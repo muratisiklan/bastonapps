@@ -100,6 +100,15 @@
   --accent: #e8502e;
 }
 
+/* Speedometer Lite leads with its Cyberpunk cyan, darkened to the paper. The
+   app's own #22d3ee is 1.64:1 here — the same failure as --brass above — so it
+   is stepped down to #0891b2 at 3.34:1, which sits beside Karaoke Mic's 3.39:1
+   and still reads as the same cyan. Its theme swatches then overwrite --accent
+   inline, which outranks this. */
+[data-app='speedometer-lite'] {
+  --accent: #0891b2;
+}
+
 *,
 *::before,
 *::after {
@@ -304,56 +313,41 @@ a:hover {
   }
 }
 
-.mic {
-  width: clamp(11rem, 34vw, 16rem);
+/* The app icon, small and top left: the page says whose it is once, at the
+   size a Home Screen shows it, and then gets out of the way. Vector, from the
+   app's own source (assets/icons/B-badge.svg), so it and the App Store listing
+   can never drift apart. The corner radius is iOS's own proportion, 22.37% of
+   the width, so it reads as an icon rather than as the one square box on a
+   page with no boxes. */
+.app-mark {
+  display: block;
+  width: clamp(2.75rem, 6vw, 3.25rem);
   height: auto;
+  border-radius: 22.37%;
+  margin-bottom: 1.25rem;
 }
 
-/* The rings are the only thing that carries the selected voice's colour at any
-   size, so they own --accent and animate on it. */
-.mic-ring {
-  stroke: var(--accent);
-  fill: none;
-  stroke-width: 11;
-  stroke-linecap: round;
-  transition: stroke 320ms ease;
-  /* Static values are the base, not the animation's start frame, so the rings
-     still read correctly when motion is switched off below. */
-  opacity: 0.7;
-  animation: breathe 4.5s ease-in-out infinite;
+/* A phone screen is too tall to lead with on a narrow window — the headline
+   would start below the fold — so this stage waits under the copy until there
+   are two columns to put it beside. */
+.hero-stage-tall {
+  order: 0;
 }
 
-.mic-ring-outer {
-  opacity: 0.26;
-  animation: breathe-outer 4.5s ease-in-out 280ms infinite;
-}
+/* --- voices and swatches ------------------------------------------------- */
 
-.mic-body {
-  fill: var(--cone);
-}
+/* One mechanism, two names. Karaoke Mic previews a voice, Speedometer Lite
+   previews a theme; both are a row of pills that re-tint the page on press.
+   The classes are paired rather than renamed so each app's markup says what it
+   actually shows. */
 
-.mic-grille {
-  fill: var(--paper);
-}
-
-.mic-stud {
-  fill: var(--brass);
-}
-
-.mic-yoke {
-  stroke: var(--cone);
-  fill: none;
-  stroke-width: 13;
-  stroke-linecap: round;
-}
-
-/* --- voices -------------------------------------------------------------- */
-
-.voices {
+.voices,
+.swatches {
   margin-top: 2.25rem;
 }
 
-.voices-label {
+.voices-label,
+.swatches-label {
   font-family: var(--font-display);
   font-size: 0.8125rem;
   letter-spacing: 0.09em;
@@ -362,13 +356,15 @@ a:hover {
   margin: 0 0 0.875rem;
 }
 
-.voice-list {
+.voice-list,
+.swatch-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.voice {
+.voice,
+.swatch {
   appearance: none;
   border: 0;
   background: transparent;
@@ -384,7 +380,8 @@ a:hover {
     color 200ms ease;
 }
 
-.voice:hover {
+.voice:hover,
+.swatch:hover {
   background: var(--paper-sunk);
   color: var(--ink);
 }
@@ -392,13 +389,15 @@ a:hover {
 /* The wash behind an active effect, as in the app — accent at low alpha, ink
    text on top, so contrast never depends on which hue is selected. The flat
    fallback comes first so the pressed state stays visible without color-mix. */
-.voice[aria-pressed='true'] {
+.voice[aria-pressed='true'],
+.swatch[aria-pressed='true'] {
   background: var(--paper-sunk);
   color: var(--ink);
 }
 
 @supports (background: color-mix(in srgb, red 16%, white)) {
-  .voice[aria-pressed='true'] {
+  .voice[aria-pressed='true'],
+  .swatch[aria-pressed='true'] {
     background: color-mix(in srgb, var(--accent) 16%, var(--paper-raised));
   }
 }
@@ -431,11 +430,245 @@ a:hover {
   background: var(--cone);
 }
 
+/* Apple's badge, served exactly as Apple's Marketing Tools ships it: the
+   guidelines forbid recolouring, redrawing, or otherwise altering it, so it is
+   the one black on this page that isn't --ink. Height is held above Apple's
+   40 px digital minimum, and the row's 1rem gap clears the required free space
+   (a tenth of the badge's height) on every side with room to spare. */
+.badge {
+  display: inline-block;
+  line-height: 0;
+}
+
+.badge img {
+  display: block;
+  width: auto;
+  height: 3rem;
+}
+
 .cta-pending {
   background: transparent;
   color: var(--ink);
   box-shadow: inset 0 0 0 1px var(--hairline);
   cursor: default;
+}
+
+/* --- device views -------------------------------------------------------- */
+
+/* Real screens, shown at the size you'd actually hold them. No bezel art and no
+   drop shadow — the house has neither. A screen is bounded by one hairline, the
+   same device the rules use elsewhere, which is all a light screenshot needs to
+   sit on paper and all a dark one needs not to float. */
+.phones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: clamp(1.25rem, 3.5vw, 2.25rem);
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+}
+
+.phone {
+  margin: 0;
+}
+
+/* Locked to the aspect of the source captures, so a slow-loading image never
+   reflows the row under it. */
+.phone-screen {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 720 / 1565;
+  object-fit: cover;
+  border: 1px solid var(--hairline);
+  border-radius: clamp(0.9rem, 2.6vw, 1.5rem);
+  background: var(--paper-sunk);
+}
+
+.phone-caption {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0.875rem 0 0;
+}
+
+.phone-caption b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+/* --- the rebuilt screen --------------------------------------------------- */
+
+/* Karaoke Mic has no screenshots in the repository, so its screen is redrawn
+   here from the same values the app uses (src/ui/theme.ts): paper, ink, brass,
+   cone, and the twelve hues. Drawn as SVG rather than CSS so it scales with the
+   column and the type scales with it.
+
+   It is a drawing of the app, not a capture of it. Swap in real screenshots the
+   moment there are any — nothing outside this block depends on it. The hero
+   shows it live rather than at rest, because live is the state that carries the
+   selected voice's colour, and the voices sit directly beside it. */
+.screen {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--hairline);
+  border-radius: clamp(0.9rem, 2.6vw, 1.5rem);
+}
+
+/* The phone in a hero stage, drawn (.screen) or captured (.phone-screen).
+   Defined after both so it wins the width: big enough to read the interface
+   across the fold, still a phone rather than a column-wide poster. */
+.hero-screen {
+  width: clamp(13rem, 38vw, 18rem);
+}
+
+.s-paper {
+  fill: var(--paper);
+}
+
+.s-time,
+.s-name,
+.s-detail,
+.s-talk-label,
+.s-card-label {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.s-time {
+  font-size: 15px;
+  fill: var(--ink);
+}
+
+.s-batt {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.5;
+}
+
+.s-pill {
+  fill: var(--paper-raised);
+}
+
+/* The route dot is the one place the accent appears above the fold, exactly as
+   in the app: connected is coloured, disconnected is not. */
+.s-dot {
+  fill: var(--accent);
+  transition: fill 320ms ease;
+}
+
+.s-name {
+  font-size: 15px;
+  fill: var(--ink);
+}
+
+.s-detail {
+  font-size: 12px;
+  fill: var(--muted);
+}
+
+.s-chev {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* The mic, at screen scale. */
+.s-ring {
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 11;
+  stroke-linecap: round;
+  opacity: 0.7;
+  transition: stroke 320ms ease;
+}
+
+.s-ring-outer {
+  opacity: 0.26;
+}
+
+.s-body {
+  fill: var(--cone);
+}
+
+.s-grille {
+  fill: var(--paper);
+}
+
+.s-stud {
+  fill: var(--brass);
+}
+
+.s-yoke {
+  stroke: var(--cone);
+  fill: none;
+  stroke-width: 13;
+  stroke-linecap: round;
+}
+
+/* Muted is the resting state, so the unfilled pill is the default and the
+   filled one is the exception — the same way round as the app. */
+.s-talk {
+  fill: var(--paper-sunk);
+}
+
+.s-talk-on {
+  fill: var(--accent);
+  transition: fill 320ms ease;
+}
+
+.s-talk-label {
+  font-size: 17px;
+  text-anchor: middle;
+  fill: var(--ink-soft);
+}
+
+.s-talk-label-on {
+  fill: var(--paper-raised);
+}
+
+.s-track {
+  fill: var(--paper-sunk);
+}
+
+.s-track-fill {
+  fill: var(--accent);
+  opacity: 0.28;
+  transition: fill 320ms ease;
+}
+
+.s-card {
+  fill: var(--paper-sunk);
+}
+
+.s-card-on {
+  fill: var(--paper-sunk);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  transition: stroke 320ms ease;
+}
+
+.s-card-label {
+  font-size: 11px;
+  text-anchor: middle;
+  fill: var(--ink-soft);
+}
+
+.s-card-label.s-card-on {
+  stroke: none;
+  fill: var(--ink);
+}
+
+.s-home {
+  fill: var(--ink);
+  opacity: 0.22;
 }
 
 /* --- steps --------------------------------------------------------------- */
@@ -890,6 +1123,16 @@ a:hover {
   gap: 0.75rem 1.25rem;
 }
 
+/* Apple's Identity Guidelines ask for this attribution wherever their marks
+   appear in marketing, which the App Store badge does on both app pages. Its
+   own line under the row, at the footer's size — it is a legal notice, not a
+   thing to read. */
+.foot-legal {
+  flex-basis: 100%;
+  margin: 0;
+  line-height: 1.5;
+}
+
 .foot a {
   text-decoration: none;
 }
@@ -920,26 +1163,6 @@ a:hover {
   to {
     opacity: 1;
     transform: none;
-  }
-}
-
-@keyframes breathe {
-  0%,
-  100% {
-    opacity: 0.32;
-  }
-  50% {
-    opacity: 0.85;
-  }
-}
-
-@keyframes breathe-outer {
-  0%,
-  100% {
-    opacity: 0.14;
-  }
-  50% {
-    opacity: 0.44;
   }
 }
 
