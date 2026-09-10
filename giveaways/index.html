@@ -44,8 +44,10 @@
         <section>
           <!-- One row per offer code. Everything the script needs is on the
                row: data-from is the day the code was created in App Store
-               Connect, data-until its expiry date, and the script turns the
-               pair into "N days left" and a draining track. Only the two dates
+               Connect, data-until the last day the code can be redeemed — one
+               day BEFORE the expiration date App Store Connect shows, since
+               Apple may cut a code off as that date begins — and the script
+               turns the pair into "N days left" and a draining track. Only the two dates
                ever need editing when a code is replaced; the rest is copy.
 
                Rows are never deleted when a code expires — the script greys the
@@ -63,7 +65,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="offer" data-tint="#e8502e" data-from="2026-09-10" data-until="2027-01-01">
+              <tr class="offer" data-tint="#e8502e" data-from="2026-09-10" data-until="2026-12-31">
                 <td class="offer-app">
                   <img class="offer-icon" src="../assets/karaoke-mic-icon.png" width="512" height="512" alt="" />
                   <span class="offer-name">Karaoke Mic</span>
@@ -79,7 +81,7 @@
                 <td class="offer-left" data-label="Time left">
                   <span class="offer-count" hidden><b data-days></b> <span data-days-word>days left</span></span>
                   <span class="offer-closed-word">Closed</span>
-                  <span class="offer-ends">Ends <time datetime="2027-01-01">1 Jan 2027</time></span>
+                  <span class="offer-ends">Ends <time datetime="2026-12-31">31 Dec 2026</time></span>
                   <span class="offer-track" aria-hidden="true"><span class="offer-track-fill"></span></span>
                 </td>
                 <td class="offer-code">
@@ -91,7 +93,7 @@
                 </td>
               </tr>
 
-              <tr class="offer" data-tint="#0891b2" data-from="2026-09-10" data-until="2027-01-01">
+              <tr class="offer" data-tint="#0891b2" data-from="2026-09-10" data-until="2026-12-31">
                 <td class="offer-app">
                   <img class="offer-icon" src="../assets/speedometer-lite-icon.png" width="512" height="512" alt="" />
                   <span class="offer-name">Speedometer Lite</span>
@@ -108,7 +110,7 @@
                 <td class="offer-left" data-label="Time left">
                   <span class="offer-count" hidden><b data-days></b> <span data-days-word>days left</span></span>
                   <span class="offer-closed-word">Closed</span>
-                  <span class="offer-ends">Ends <time datetime="2027-01-01">1 Jan 2027</time></span>
+                  <span class="offer-ends">Ends <time datetime="2026-12-31">31 Dec 2026</time></span>
                   <span class="offer-track" aria-hidden="true"><span class="offer-track-fill"></span></span>
                 </td>
                 <td class="offer-code">
