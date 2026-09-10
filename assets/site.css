@@ -1141,6 +1141,534 @@ a:hover {
   color: var(--ink);
 }
 
+/* --- the ledger ---------------------------------------------------------- */
+
+/* The giveaways page. A real table, because it is one — screen readers get
+   the column headers — restyled to the house rules: hairlines between rows,
+   no cell borders, the display face on anything that has to be read at a
+   glance. Below 52rem the same table stacks: each row becomes a small card
+   of labelled facts with the button across the bottom, since almost everyone
+   who can redeem a code is holding an iPhone.
+
+   --tint is per row, as on the index: the pill's wash, the drop arrow and
+   the time-left track wear the app's colour; the type stays ink. */
+
+/* The giveaways masthead keeps the index's scale but says what the page is,
+   so it needs room for a plain, longer title. */
+.masthead-plain .masthead-title {
+  font-size: clamp(2.5rem, 7.5vw, 5rem);
+  max-width: 14ch;
+}
+
+.masthead-plain .masthead-lede {
+  max-width: 34rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* The renewal, said once under the offers rather than on every row — the
+   disclosure has to sit near the offer, and the number itself is in the
+   terms a scroll away. */
+.ledger-note {
+  max-width: 34rem;
+  margin: 1.25rem 0 clamp(3rem, 6vw, 4.5rem);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.ledger caption {
+  text-align: left;
+  margin-bottom: 1.25rem;
+}
+
+.ledger th {
+  text-align: left;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0 1.5rem 0.875rem 0;
+  border-bottom: 1px solid var(--ink);
+}
+
+.ledger th:last-child {
+  padding-right: 0;
+}
+
+.offer {
+  --tint: var(--accent);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.offer td {
+  vertical-align: middle;
+  padding: 1.375rem 1.5rem 1.375rem 0;
+}
+
+.offer td:last-child {
+  padding-right: 0;
+}
+
+.offer-app {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.offer-icon {
+  width: 3rem;
+  height: 3rem;
+  flex: none;
+  border-radius: 23%;
+}
+
+.offer-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.375rem;
+  line-height: 1.1;
+  letter-spacing: 0.005em;
+}
+
+.offer-deal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.375rem;
+}
+
+/* Free or priced, in the app's wash — the pressed-chip treatment, so it reads
+   as a state rather than as a button. */
+.offer-kind {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--paper-sunk);
+}
+
+@supports (background: color-mix(in srgb, red 16%, white)) {
+  .offer-kind {
+    background: color-mix(in srgb, var(--tint) 18%, var(--paper-raised));
+  }
+}
+
+.offer-tier {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.offer-price {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  letter-spacing: 0.01em;
+}
+
+/* A price drop reads old → new: the old price struck and muted, the arrow in
+   the app's colour, the new price the heaviest thing in the cell. */
+.offer-drop {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.offer-drop s {
+  color: var(--muted);
+}
+
+.offer-drop b {
+  font-weight: 500;
+}
+
+.offer-arrow {
+  color: var(--tint);
+}
+
+/* The renewal, on the row itself — the one line Apple's 3.1.2 asks to be
+   next to the offer, not only in the terms. */
+.offer-renew {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.offer-length {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.offer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* The count is the loudest thing in the row. Filled in by the script; until
+   then, and without it, the row still says the date. */
+.offer-count {
+  display: flex;
+  align-items: baseline;
+  gap: 0.375rem;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Author display on .offer-count would otherwise beat the hidden attribute. */
+.offer-count[hidden] {
+  display: none;
+}
+
+.offer-count b {
+  font-weight: 500;
+  font-size: 1.875rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.offer-closed-word {
+  display: none;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.875rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.offer-ends {
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+
+/* Two pixels of hairline that drain in the app's colour as the window closes.
+   Colour on a graphic, so contrast never depends on which app it is. */
+.offer-track {
+  display: block;
+  position: relative;
+  width: 7.5rem;
+  height: 2px;
+  background: var(--hairline);
+}
+
+.offer-track-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 0;
+  background: var(--tint);
+  transition: width 600ms cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+
+.offer-code {
+  text-align: right;
+}
+
+/* Ink, like every CTA on the site: the one thing on the row you're meant to
+   press, legible whatever the app's colour is. */
+.offer-redeem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--ink);
+  color: var(--paper-raised);
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  letter-spacing: 0.06em;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.offer-redeem:hover {
+  background: var(--cone);
+}
+
+.offer-redeem span {
+  color: var(--tint);
+}
+
+.offer-closed {
+  display: none;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  letter-spacing: 0.06em;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  color: var(--muted);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  white-space: nowrap;
+}
+
+/* An expired code stays on the page, greyed, with the button swapped for the
+   word. Nothing is removed: a link someone shared still answers. */
+.is-closed {
+  color: var(--muted);
+}
+
+.is-closed .offer-icon {
+  opacity: 0.55;
+}
+
+.is-closed .offer-kind {
+  background: var(--paper-sunk);
+}
+
+.is-closed .offer-arrow,
+.is-closed .offer-drop b,
+.is-closed .offer-renew,
+.is-closed .offer-ends {
+  color: var(--muted);
+}
+
+.is-closed .offer-closed-word,
+.is-closed .offer-closed {
+  display: inline-block;
+}
+
+.is-closed .offer-count,
+.is-closed .offer-track,
+.is-closed .offer-redeem {
+  display: none;
+}
+
+/* Wide: five real columns. The flex cells above need to be grid items here,
+   and a <td> can't be both, so the row is the grid and the cells are placed
+   into its tracks. */
+@media (min-width: 52rem) {
+  .ledger thead tr,
+  .offer {
+    display: grid;
+    grid-template-columns: 1.4fr 1.4fr 0.8fr 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .ledger th,
+  .offer td {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .offer-code {
+    justify-self: end;
+  }
+}
+
+/* Narrow: the row stacks into labelled facts. The column headers go, and each
+   cell brings its own label from data-label, so the facts read the same
+   whether or not there is a header row to line them up with. */
+@media (max-width: 51.99rem) {
+  .ledger thead {
+    display: none;
+  }
+
+  .ledger,
+  .ledger tbody {
+    display: block;
+  }
+
+  .ledger caption {
+    display: block;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ink);
+    margin-bottom: 0;
+  }
+
+  .offer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      'app app'
+      'deal deal'
+      'length left'
+      'code code';
+    gap: 1.125rem 1rem;
+    padding-block: 1.5rem;
+  }
+
+  .offer td {
+    padding: 0;
+  }
+
+  .offer td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .offer-app {
+    grid-area: app;
+    gap: 0.875rem;
+  }
+
+  .offer-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .offer-name {
+    flex-grow: 1;
+  }
+
+  /* The pill moves up beside the name; the tier and price take the label. */
+  .offer-deal {
+    grid-area: deal;
+    display: block;
+  }
+
+  .offer {
+    position: relative;
+  }
+
+  /* Sits on the name line, top right of the card: the row's 1.5rem top
+     padding plus half the difference between the 2.75rem icon and the pill. */
+  .offer-deal .offer-kind {
+    position: absolute;
+    right: 0;
+    top: 2.05rem;
+  }
+
+  .offer-tier {
+    display: inline;
+  }
+
+  .offer-tier::after {
+    content: '|';
+    color: var(--hairline);
+    margin: 0 0.6rem;
+  }
+
+  .offer-price {
+    font-size: 1.25rem;
+  }
+
+  .offer-renew {
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .offer-length {
+    grid-area: length;
+    font-weight: 500;
+    font-size: 1.625rem;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .offer-left {
+    grid-area: left;
+    display: block;
+  }
+
+  .offer-count b,
+  .offer-closed-word {
+    font-size: 1.625rem;
+  }
+
+  .offer-ends {
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  .offer-track {
+    margin-top: 0.5rem;
+    width: 6.25rem;
+  }
+
+  .offer-code {
+    grid-area: code;
+    text-align: left;
+  }
+
+  .offer-redeem,
+  .offer-closed {
+    display: flex;
+    width: 100%;
+    /* A 44 px target, as the app's own buttons are. */
+    min-height: 2.75rem;
+    font-size: 1rem;
+  }
+
+  .is-closed .offer-closed {
+    display: flex;
+  }
+}
+
+/* --- terms --------------------------------------------------------------- */
+
+.terms {
+  border-top: 1px solid var(--hairline);
+  padding-block: clamp(2.5rem, 5vw, 3.5rem) clamp(3rem, 6vw, 4rem);
+}
+
+.terms-title {
+  margin-bottom: 0.375rem;
+}
+
+.terms .doc-date {
+  margin-bottom: 1.75rem;
+}
+
+.terms-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem 3rem;
+  max-width: 55rem;
+}
+
+@media (min-width: 48rem) {
+  .terms-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.terms h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  margin: 0 0 0.375rem;
+}
+
+.terms p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
 /* --- motion -------------------------------------------------------------- */
 
 .rise {
