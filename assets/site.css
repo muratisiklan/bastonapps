@@ -1154,9 +1154,12 @@ a:hover {
    the time-left track wear the app's colour; the type stays ink. */
 
 /* The giveaways masthead keeps the index's scale but says what the page is,
-   so it needs room for a plain, longer title. */
+   so it needs room for a plain, longer title. That title runs to two lines,
+   which the index's 0.9 leading was never asked to hold: at that setting the
+   g of "giveaways" hangs into the d of "discounts". */
 .masthead-plain .masthead-title {
   font-size: clamp(2.5rem, 7.5vw, 5rem);
+  line-height: 1.04;
   max-width: 14ch;
 }
 
