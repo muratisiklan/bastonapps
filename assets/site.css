@@ -109,6 +109,13 @@
   --accent: #0891b2;
 }
 
+/* Gym Notes writes in one ink. Its accent is the app's own #1f4fe0, which is
+   the record ink on paper there too — 6.1:1 here, so it needs no stepping
+   down and has nothing to switch to. */
+[data-app='gym-notes'] {
+  --accent: #1f4fe0;
+}
+
 *,
 *::before,
 *::after {
