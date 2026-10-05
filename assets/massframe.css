@@ -1,0 +1,570 @@
+/* ---------------------------------------------------------------------------
+   MassFrame — the app's own notebook, on the web.
+
+   Loaded after site.css on MassFrame's pages only, and every rule is scoped to
+   [data-app='massframe'], so the house style the other apps wear is untouched.
+
+   The app's rules, carried over:
+     · One hand. Patrick Hand for everything, numbers included, as in the app.
+     · Paper, not cards. A warm ground with a dot grid; things are taped, stamped
+       or ruled onto it, never floated on a shadow.
+     · Lines are drawn, not set: a border is two strokes a hair apart.
+     · Ink means something. Blue for the record and its actions, green for the
+       body, ochre for records and Plus, plum for the plate's carbs.
+--------------------------------------------------------------------------- */
+
+/* Patrick Hand — SIL Open Font License 1.1, self-hosted; the licence is in
+   OFL-PatrickHand.txt beside the file. */
+@font-face {
+  font-family: 'Patrick Hand';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('patrick-hand.ttf') format('truetype');
+}
+
+[data-app='massframe'] {
+  --paper: #fbf7ee;
+  --paper-raised: #fffcf6;
+  --paper-mount: #f5f2ec;
+  --ink: #000000;
+  --ink-soft: #3a3835;
+  --muted: #5a5752;
+  --hairline: #999999;
+  --accent: #0033cc;
+  --accent-deep: #002cb1;
+  --body-ink: #006a5b;
+  --record-ink: #805517;
+  --grain-ink: #7a3e78;
+  --tape: rgba(122, 104, 196, 0.42);
+
+  --hand: 'Patrick Hand', 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
+  --font-display: var(--hand);
+  --font-body: var(--hand);
+  --measure: 36rem;
+}
+
+[data-app='massframe'] body {
+  background-color: var(--paper);
+  /* The app's dot grid: a point every 22, faint enough to write over. */
+  background-image: radial-gradient(rgba(0, 0, 0, 0.16) 1px, transparent 1.3px);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: var(--hand);
+  font-size: 1.1875rem;
+  line-height: 1.5;
+}
+
+[data-app='massframe'] a {
+  color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+[data-app='massframe'] :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* --- the head of the page ------------------------------------------------- */
+
+[data-app='massframe'] .topline {
+  font-family: var(--hand);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  border-bottom: 0;
+  position: relative;
+}
+
+/* The app's heavy rule under a page's name: two strokes, one a touch off true. */
+[data-app='massframe'] .topline::after,
+[data-app='massframe'] .ruled::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  transform: rotate(-0.15deg);
+  opacity: 0.85;
+}
+
+[data-app='massframe'] .rule {
+  border-top: 1px solid var(--hairline);
+  opacity: 0.7;
+}
+
+/* --- drawn things --------------------------------------------------------- */
+
+/* A sketched box: a stroke, and a second a hair off it. */
+[data-app='massframe'] .sketch {
+  position: relative;
+  background: var(--paper-raised);
+  border: 1.5px solid var(--ink);
+}
+
+[data-app='massframe'] .sketch::before {
+  content: '';
+  position: absolute;
+  inset: -3px -2px -2px -3px;
+  border: 1px solid var(--ink);
+  opacity: 0.55;
+  transform: rotate(-0.35deg);
+  pointer-events: none;
+}
+
+/* A print taped into the notebook: the screenshot, a mount round it, a strip
+   of tape across its head. */
+[data-app='massframe'] .print {
+  position: relative;
+  margin: 0;
+  padding: 10px 10px 12px;
+  background: var(--paper-raised);
+  border: 1.5px solid var(--ink);
+  transform: rotate(var(--tilt, -1.2deg));
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+[data-app='massframe'] .print img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--hairline);
+}
+
+[data-app='massframe'] .print::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 92px;
+  height: 24px;
+  margin-left: -46px;
+  background: var(--tape);
+  transform: rotate(-3deg);
+  border-radius: 2px;
+}
+
+/* A stamp: perforated paper, its own ink, stuck down a degree or two off. */
+[data-app='massframe'] .stamp {
+  --stamp-ink: var(--accent);
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 72px;
+  background: color-mix(in srgb, var(--stamp-ink) 12%, var(--paper-raised));
+  border: 2px dashed color-mix(in srgb, var(--stamp-ink) 55%, transparent);
+  outline: 5px solid var(--paper-raised);
+  outline-offset: -9px;
+  transform: rotate(var(--tilt, -3deg));
+  color: var(--stamp-ink);
+}
+
+[data-app='massframe'] .stamp svg {
+  width: 40px;
+  height: 42px;
+}
+
+[data-app='massframe'] .ink-body {
+  --stamp-ink: var(--body-ink);
+}
+[data-app='massframe'] .ink-record {
+  --stamp-ink: var(--record-ink);
+}
+[data-app='massframe'] .ink-grain {
+  --stamp-ink: var(--grain-ink);
+}
+
+/* The rubber stamp the app strikes: a word in a ruled box, tilted. */
+[data-app='massframe'] .postmark {
+  display: inline-block;
+  padding: 0.35rem 0.9rem 0.25rem;
+  border: 2.5px solid var(--record-ink);
+  color: var(--record-ink);
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  background: color-mix(in srgb, var(--record-ink) 8%, transparent);
+}
+
+/* The app's filled ink button: the face, and its deep under-edge. */
+[data-app='massframe'] .ink-button {
+  display: inline-block;
+  padding: 0.85rem 1.6rem 0.75rem;
+  background: var(--accent);
+  color: var(--paper-raised);
+  font-size: 1.25rem;
+  text-decoration: none;
+  box-shadow: 0 3px 0 var(--accent-deep);
+  border-radius: 2px;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+[data-app='massframe'] .ink-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--accent-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-app='massframe'] .ink-button {
+    transition: none;
+  }
+}
+
+/* --- the landing page ----------------------------------------------------- */
+
+[data-app='massframe'] .mf-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 6vw, 4.5rem);
+  align-items: center;
+  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3rem, 8vw, 5.5rem);
+}
+
+[data-app='massframe'] .mf-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  border: 1.5px solid var(--ink);
+  transform: rotate(-2deg);
+}
+
+[data-app='massframe'] .mf-title {
+  margin: 1.1rem 0 0;
+  font-size: clamp(2.6rem, 6.4vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+[data-app='massframe'] .mf-lede {
+  margin: 1.3rem 0 0;
+  max-width: var(--measure);
+  font-size: 1.3rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+[data-app='massframe'] .mf-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem 1.6rem;
+  margin-top: 2rem;
+}
+
+[data-app='massframe'] .mf-cta p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+[data-app='massframe'] .mf-hero .print {
+  --tilt: 2deg;
+  max-width: 330px;
+  justify-self: center;
+}
+
+[data-app='massframe'] .mf-band {
+  padding-block: clamp(3rem, 8vw, 5.5rem);
+}
+
+[data-app='massframe'] .mf-band h2 {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 2rem;
+  padding-bottom: 0.5rem;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* The three steps, which are a sequence: numbered, each its own leaf. */
+[data-app='massframe'] .mf-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-app='massframe'] .mf-steps li {
+  padding: 1.2rem 1.25rem 1.3rem;
+}
+
+[data-app='massframe'] .mf-steps li:nth-child(2) {
+  transform: rotate(0.6deg);
+}
+[data-app='massframe'] .mf-steps li:nth-child(3) {
+  transform: rotate(-0.5deg);
+}
+
+[data-app='massframe'] .mf-step-num {
+  display: block;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+[data-app='massframe'] .mf-steps h3 {
+  margin: 0.4rem 0 0.35rem;
+  font-size: 1.45rem;
+  font-weight: 400;
+}
+
+[data-app='massframe'] .mf-steps p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* The prints, three across, each taped at its own angle. */
+[data-app='massframe'] .mf-prints {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.4rem 2rem;
+  margin: 0;
+  padding: 1rem 0 0;
+  list-style: none;
+}
+
+[data-app='massframe'] .mf-prints li:nth-child(1) .print {
+  --tilt: -1.6deg;
+}
+[data-app='massframe'] .mf-prints li:nth-child(2) .print {
+  --tilt: 1deg;
+}
+[data-app='massframe'] .mf-prints li:nth-child(3) .print {
+  --tilt: -0.6deg;
+}
+
+[data-app='massframe'] .mf-prints h3 {
+  margin: 1.3rem 0 0.2rem;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+[data-app='massframe'] .mf-prints p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+/* The ledger of what is in it: a stamp, a name, a line. */
+[data-app='massframe'] .mf-ledger {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-app='massframe'] .mf-ledger li {
+  display: flex;
+  gap: 1.1rem;
+  align-items: center;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--hairline) 70%, transparent);
+}
+
+[data-app='massframe'] .mf-ledger h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+[data-app='massframe'] .mf-ledger p {
+  margin: 0.1rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.4;
+}
+
+[data-app='massframe'] .plus-tag {
+  display: inline-block;
+  margin-left: 0.45rem;
+  padding: 0 0.35rem;
+  border: 1.5px solid var(--record-ink);
+  color: var(--record-ink);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  vertical-align: 0.2em;
+  transform: rotate(-3deg);
+}
+
+/* What it is and what it isn't: two leaves side by side. */
+[data-app='massframe'] .mf-facts {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+[data-app='massframe'] .mf-facts > div {
+  padding: 1.3rem 1.4rem 1.2rem;
+}
+
+[data-app='massframe'] .mf-facts h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.45rem;
+  font-weight: 400;
+}
+
+[data-app='massframe'] .mf-facts ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-app='massframe'] .mf-facts li {
+  position: relative;
+  padding: 0.35rem 0 0.35rem 1.7rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+/* The app's tick, and its dash for what it is not. */
+[data-app='massframe'] .mf-facts li::before {
+  content: '';
+  position: absolute;
+  left: 0.15rem;
+  top: 0.75rem;
+  width: 0.7rem;
+  height: 0.38rem;
+  border-left: 2.2px solid var(--body-ink);
+  border-bottom: 2.2px solid var(--body-ink);
+  transform: rotate(-48deg);
+}
+
+[data-app='massframe'] .mf-facts .is-not li::before {
+  top: 1rem;
+  height: 0;
+  border-left: 0;
+  border-bottom: 2.2px solid var(--muted);
+  transform: rotate(-4deg);
+}
+
+[data-app='massframe'] .mf-note {
+  max-width: var(--measure);
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+}
+
+/* --- the documents: privacy, terms, support -------------------------------- */
+
+[data-app='massframe'] .doc {
+  max-width: 44rem;
+}
+
+[data-app='massframe'] .doc-title {
+  font-family: var(--hand);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  letter-spacing: -0.01em;
+}
+
+[data-app='massframe'] .doc-date {
+  font-family: var(--hand);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--muted);
+}
+
+[data-app='massframe'] .doc h2 {
+  font-family: var(--hand);
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin-top: 2.6rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1.5px solid var(--ink);
+}
+
+[data-app='massframe'] .doc h3 {
+  font-family: var(--hand);
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+[data-app='massframe'] .doc p,
+[data-app='massframe'] .doc li {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* The hand has no bold; a defined term or a key line reads in full ink
+   against the body's, which is enough. */
+[data-app='massframe'] .doc strong {
+  font-weight: 400;
+  color: var(--ink);
+}
+
+[data-app='massframe'] .summary {
+  position: relative;
+  background: var(--paper-raised);
+  border: 1.5px solid var(--ink);
+  border-left-width: 1.5px;
+  padding: 1.2rem 1.4rem 1rem;
+}
+
+[data-app='massframe'] .summary::before {
+  content: '';
+  position: absolute;
+  inset: -3px -2px -2px -3px;
+  border: 1px solid var(--ink);
+  opacity: 0.55;
+  transform: rotate(-0.35deg);
+  pointer-events: none;
+}
+
+[data-app='massframe'] .summary-head {
+  font-family: var(--hand);
+  font-size: 1.35rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--accent);
+}
+
+/* --- the foot ------------------------------------------------------------- */
+
+[data-app='massframe'] .foot {
+  font-family: var(--hand);
+  font-size: 1.05rem;
+  border-top: 1.5px solid var(--ink);
+}
+
+[data-app='massframe'] .foot-legal {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* --- small screens -------------------------------------------------------- */
+
+@media (max-width: 760px) {
+  [data-app='massframe'] .mf-hero,
+  [data-app='massframe'] .mf-facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-app='massframe'] .mf-hero .print {
+    max-width: 290px;
+  }
+
+  [data-app='massframe'] .mf-steps,
+  [data-app='massframe'] .mf-ledger {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-app='massframe'] .mf-prints {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 320px;
+    margin-inline: auto;
+  }
+}

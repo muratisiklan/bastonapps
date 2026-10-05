@@ -11,6 +11,7 @@
     <link rel="icon" href="../assets/massframe-icon.png" />
     <link rel="apple-touch-icon" href="../assets/massframe-icon.png" />
     <link rel="stylesheet" href="../assets/site.css" />
+    <link rel="stylesheet" href="../assets/massframe.css" />
     <meta property="og:title" content="MassFrame — a training notebook that stays on your phone" />
     <meta
       property="og:description"
@@ -21,6 +22,58 @@
     <meta property="og:image" content="https://bastonapps.com/assets/massframe-icon.png" />
   </head>
   <body>
+    <!-- The paywall's six marks, drawn once and used by reference below. -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <g id="g-meal" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 9V3h6M24 3h6v6M30 25v6h-6M8 31H2v-6" />
+          <path d="M8 18h16a8 8 0 0 1-16 0z" fill="currentColor" fill-opacity="0.18" />
+          <path d="M13 15c-2.5-2.5 2.5-4.5 0-7M19 15c-2.5-2.5 2.5-4.5 0-7" stroke-width="1.4" />
+        </g>
+        <g id="g-lift" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 19l7-5 5 2 6-7 6-4" />
+          <circle cx="27" cy="5" r="3.5" fill="#fffcf6" stroke-width="1.6" />
+          <path d="M7 28h18" />
+          <rect x="5" y="23.5" width="4" height="9" rx="1" fill="currentColor" stroke="none" />
+          <rect x="23" y="23.5" width="4" height="9" rx="1" fill="currentColor" stroke="none" />
+        </g>
+        <g id="g-widgets" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="7" y="1.5" width="18" height="31" rx="4" />
+          <path d="M14 4.5h4" stroke-width="1.4" />
+          <rect x="10" y="8" width="12" height="7" rx="1.2" fill="currentColor" stroke="none" />
+          <rect x="10" y="17" width="5" height="5" rx="1.2" fill="currentColor" stroke="none" />
+          <rect x="17" y="17" width="5" height="5" rx="1.2" fill="currentColor" stroke="none" />
+          <path d="M10 25.5h12" stroke-width="1.4" stroke-opacity="0.5" />
+        </g>
+        <g id="g-week" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="5" width="28" height="26" rx="3" />
+          <path d="M2 11h28M9 2v5M23 2v5" />
+          <path d="M6 17l2 2 3.5-5M22 17l2 2 3.5-5M14 25l2 2 3.5-5" />
+          <g fill="currentColor" fill-opacity="0.45" stroke="none">
+            <circle cx="16.75" cy="16.75" r="1.25" />
+            <circle cx="8.75" cy="24.75" r="1.25" />
+            <circle cx="24.75" cy="24.75" r="1.25" />
+          </g>
+        </g>
+        <g id="g-compare" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="7" cy="5.8" r="2.8" />
+          <path d="M2.5 11h9l-2 11h-5z" />
+          <path d="M5.2 22l-.6 9M8.8 22l.6 9" />
+          <circle cx="25" cy="5.8" r="2.8" />
+          <path d="M18.5 11h13l-4 11h-5z" fill="currentColor" fill-opacity="0.25" />
+          <path d="M23.2 22l-.6 9M26.8 22l.6 9" />
+          <path d="M12.5 18h4M14.5 15.5l2 2.5-2 2.5" stroke-width="1.5" />
+        </g>
+        <g id="g-report" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 1.5h15l7 7v24H5z" fill="#fffcf6" />
+          <path d="M20 1.5v7h7" />
+          <path d="M9 7h7M9 11.5h13" stroke-width="1.4" stroke-opacity="0.55" />
+          <path d="M9 17v12h14" stroke-width="1.2" stroke-opacity="0.55" />
+          <path d="M9 27l4-4 4 2 6-8" />
+        </g>
+      </defs>
+    </svg>
+
     <div class="shell">
       <div class="topline">
         <a class="topline-mark" href="../"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a>
@@ -28,68 +81,59 @@
       </div>
 
       <main>
-        <section class="hero">
+        <section class="mf-hero">
           <div>
-            <img
-              class="app-mark rise"
-              src="../assets/massframe-icon.png"
-              alt="The MassFrame app icon"
-              width="52"
-              height="52"
-            />
-            <p class="eyebrow rise">iPhone · Apple Health</p>
-            <h1 class="hero-title rise rise-2">A training notebook. Every session a stamp.</h1>
-            <p class="lede rise rise-3">
-              Open today's page, log the sets, stamp it done. The month fills up as an
-              album of stamps you can see across the room. Plans print the days ahead,
-              trends read the months behind, a progress photograph is read for how you
-              are building and a photographed meal for what is in it — from a phone that
-              never asks you to sign in.
+            <img class="mf-icon" src="../assets/massframe-icon.png" alt="The MassFrame app icon" width="60" height="60" />
+            <h1 class="mf-title">A training notebook. Every session a stamp.</h1>
+            <p class="mf-lede">
+              Open today's page, log the sets, stamp it done. The month fills up as an album
+              you can read across the room. Plans print the days ahead, a progress photo is
+              read for how you're building, and a photographed meal for what's on the plate —
+              on a phone that never asks you to sign in.
             </p>
-
-            <div class="cta-row">
-              <span class="caption">On TestFlight soon — the invitation link will be here.</span>
+            <div class="mf-cta">
+              <span class="postmark">Coming to TestFlight</span>
+              <p>The invitation link goes here as soon as the beta opens.</p>
             </div>
           </div>
 
-          <div class="hero-stage hero-stage-tall">
-<img
-              class="phone-screen hero-screen"
+          <figure class="print">
+            <img
               src="../assets/massframe-day.webp"
               width="720"
               height="1565"
               alt="A day's page: the totals under the date, the session with each movement's top set and last time's under it, the bodyweight card with its trend, the plate of meals against the protein target, and the check-in."
             />
-          </div>
+          </figure>
         </section>
 
         <hr class="rule" />
 
-        <section class="band">
-          <h2 class="section-title">Three things, in order</h2>
-          <ol class="steps">
-            <li>
-              <span class="step-num">01</span>
-              <h3 class="step-name">Open today's page</h3>
-              <p class="step-text">
-                A day is a loose page: the session the plan prescribes, a weigh-in, a
-                note, a photograph if you took one. Any past day can be written on too.
+        <section class="mf-band">
+          <h2 class="ruled">Three things, in order</h2>
+          <ol class="mf-steps">
+            <li class="sketch">
+              <span class="mf-step-num">1</span>
+              <h3>Open today's page</h3>
+              <p>
+                The session your plan asks for is already printed on it, with a weigh-in, a
+                note and a photo if you take one. Any past day can be written on too.
               </p>
             </li>
-            <li>
-              <span class="step-num">02</span>
-              <h3 class="step-name">Log the sets</h3>
-              <p class="step-text">
-                Last time's numbers are already pencilled in. Change what changed, and a
-                personal record gets its postmark the moment it happens.
+            <li class="sketch">
+              <span class="mf-step-num">2</span>
+              <h3>Log the sets</h3>
+              <p>
+                Last time's numbers are pencilled in. Change what changed, and a personal
+                record gets its postmark the moment it happens.
               </p>
             </li>
-            <li>
-              <span class="step-num">03</span>
-              <h3 class="step-name">Stamp it done</h3>
-              <p class="step-text">
-                The day goes into the album as a stamp. A month of training is a page you
-                can read at a glance, and Apple Health gets the workout if you let it.
+            <li class="sketch">
+              <span class="mf-step-num">3</span>
+              <h3>Stamp it done</h3>
+              <p>
+                The day goes into the album as a stamp, and Apple Health gets the workout if
+                you let it. A month of training reads at a glance.
               </p>
             </li>
           </ol>
@@ -97,86 +141,133 @@
 
         <hr class="rule" />
 
-        <section class="band">
-          <h2 class="section-title">What it actually looks like</h2>
-          <ul class="phones">
-            <li class="phone">
-              <img
-                class="phone-screen"
-                src="../assets/massframe-album.webp"
-                width="720"
-                height="1565"
-                loading="lazy"
-                decoding="async"
-                alt="The album: a month of training days as stamps on a page under the MassFrame masthead, today's with a progress photograph mounted on it, the days joined by the plan they belong to."
-              />
-              <p class="phone-caption">
-                <b>The album</b>
-                Every day you trained, as a stamp on the month — the weeks you kept,
-                readable from across the room.
-              </p>
+        <section class="mf-band">
+          <h2 class="ruled">What it looks like</h2>
+          <ul class="mf-prints">
+            <li>
+              <figure class="print">
+                <img
+                  src="../assets/massframe-album.webp"
+                  width="720"
+                  height="1565"
+                  loading="lazy"
+                  decoding="async"
+                  alt="The album: a month of training days as stamps on a page, today's with a progress photograph mounted on it, the days joined by the plan they belong to."
+                />
+              </figure>
+              <h3>The album</h3>
+              <p>Every day you trained, as a stamp on the month.</p>
             </li>
-            <li class="phone">
-              <img
-                class="phone-screen"
-                src="../assets/massframe-trends.webp"
-                width="720"
-                height="1565"
-                loading="lazy"
-                decoding="async"
-                alt="Trends: a drawn figure of the body with each muscle group's score, body fat and lean mass, and the projection for the months ahead."
-              />
-              <p class="phone-caption">
-                <b>Your body, read</b>
-                Each part of you scored from your photographs, with body fat, lean mass
-                and where the line is heading.
-              </p>
+            <li>
+              <figure class="print">
+                <img
+                  src="../assets/massframe-trends.webp"
+                  width="720"
+                  height="1565"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Trends: a drawn figure of the body with each muscle group's score, body fat and lean mass, and the projection for the months ahead."
+                />
+              </figure>
+              <h3>Your body, read</h3>
+              <p>Each part scored from your photos, with body fat, lean mass and where it's heading.</p>
             </li>
-            <li class="phone">
-              <img
-                class="phone-screen"
-                src="../assets/massframe-report.webp"
-                width="720"
-                height="1565"
-                loading="lazy"
-                decoding="async"
-                alt="A progress report: the figure shaded by development, the scores for each part, the band and body fat."
-              />
-              <p class="phone-caption">
-                <b>The progress report</b>
-                One photograph, read: which part leads, which is furthest behind, and the
-                figures worked out on your phone.
-              </p>
+            <li>
+              <figure class="print">
+                <img
+                  src="../assets/massframe-report.webp"
+                  width="720"
+                  height="1565"
+                  loading="lazy"
+                  decoding="async"
+                  alt="A progress report: the figure shaded by development, the scores for each part, the band and body fat."
+                />
+              </figure>
+              <h3>The progress report</h3>
+              <p>One photo, read: what leads, what's furthest behind, and the figures behind it.</p>
             </li>
           </ul>
         </section>
 
         <hr class="rule" />
 
-        <section class="band">
-          <h2 class="section-title">What it is, and what it isn't</h2>
-          <div class="facts">
-            <div>
-              <p class="facts-head">It is</p>
-              <ul class="facts-list">
+        <section class="mf-band">
+          <h2 class="ruled">What MassFrame+ adds</h2>
+          <p class="mf-note">
+            Logging, plans that fit your week, eating targets, meals you write in, progress
+            reports and a drawing of your future self are free. MassFrame+ adds these, by the
+            month or once for life.
+          </p>
+          <ul class="mf-ledger">
+            <li>
+              <span class="stamp ink-record" style="--tilt: -4deg"><svg viewBox="0 0 32 34" aria-hidden="true"><use href="#g-meal" /></svg></span>
+              <div>
+                <h3>Snap a meal, get the macros</h3>
+                <p>A photo is read for calories and macros in about ten seconds.</p>
+              </div>
+            </li>
+            <li>
+              <span class="stamp" style="--tilt: 3deg"><svg viewBox="0 0 32 34" aria-hidden="true"><use href="#g-lift" /></svg></span>
+              <div>
+                <h3>Every lift, its own curve</h3>
+                <p>Estimated one-rep max, records and progress for each movement.</p>
+              </div>
+            </li>
+            <li>
+              <span class="stamp ink-body" style="--tilt: -2deg"><svg viewBox="0 0 32 34" aria-hidden="true"><use href="#g-widgets" /></svg></span>
+              <div>
+                <h3>Widgets on Home and Lock Screen</h3>
+                <p>Today's plate, the plan's week and your body, at a glance.</p>
+              </div>
+            </li>
+            <li>
+              <span class="stamp" style="--tilt: 4deg"><svg viewBox="0 0 32 34" aria-hidden="true"><use href="#g-week" /></svg></span>
+              <div>
+                <h3>Every training plan</h3>
+                <p>Strength, size, specialisation and programmes for a busy week.</p>
+              </div>
+            </li>
+            <li>
+              <span class="stamp ink-body" style="--tilt: -3deg"><svg viewBox="0 0 32 34" aria-hidden="true"><use href="#g-compare" /></svg></span>
+              <div>
+                <h3>Compare any two check-ins</h3>
+                <p>Two photos side by side, months apart, with what changed.</p>
+              </div>
+            </li>
+            <li>
+              <span class="stamp ink-grain" style="--tilt: 2deg"><svg viewBox="0 0 32 34" aria-hidden="true"><use href="#g-report" /></svg></span>
+              <div>
+                <h3>Progress report as a PDF</h3>
+                <p>A period of training, body and eating, ready to print or send to a coach.</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <hr class="rule" />
+
+        <section class="mf-band">
+          <h2 class="ruled">What it is, and what it isn't</h2>
+          <div class="mf-facts">
+            <div class="sketch">
+              <h3>It is</h3>
+              <ul>
                 <li>A notebook that keeps every session, set and personal record on your phone</li>
                 <li>An album of stamps — the month at a glance, the years behind it</li>
-                <li>Training plans that print the days ahead, from ten built in or your own</li>
-                <li>Trends: strength per movement, bodyweight and body fat over time</li>
-                <li>A progress report from one photograph — read for muscular development, with body fat, lean mass and an FFMI band worked out from your own figures</li>
-                <li>Meals from a photograph — the foods, calories and macros, against daily targets worked out from your body and your goal</li>
-                <li>Reads and writes Apple Health, each direction only with your permission</li>
-                <li>A notebook you can take out whole, to a file, whenever you like</li>
-                <li>Free while we are testing — nothing in it is for sale</li>
+                <li>Fifteen training plans matched to your week, or your own</li>
+                <li>Eating targets worked out from your body and the phase you're in</li>
+                <li>A progress report from one photo, with body fat, lean mass and an estimate of where you're heading</li>
+                <li>Apple Health, read and written, each only with your permission</li>
+                <li>Your whole notebook exported to a file whenever you like, free</li>
               </ul>
             </div>
-            <div>
-              <p class="facts-head">It isn't</p>
-              <ul class="facts-list facts-no">
-                <li>A coach, a dietitian or a doctor — it records what you did and works out estimates; nothing in it is medical advice</li>
-                <li>An account. There is nothing to sign up for and no server holding your notebook</li>
+            <div class="sketch is-not">
+              <h3>It isn't</h3>
+              <ul>
+                <li>A coach, a dietitian or a doctor — its numbers are estimates, not medical advice</li>
+                <li>An account. Nothing to sign up for, no server holding your notebook</li>
                 <li>A social network. Nobody sees your album but you</li>
-                <li>Watching you. No analytics, no tracking, no advertising</li>
+                <li>Watching you. No analytics, no tracking, no ads</li>
               </ul>
             </div>
           </div>
@@ -184,18 +275,16 @@
 
         <hr class="rule" />
 
-        <section class="band">
-          <h2 class="section-title">Your notebook doesn't go anywhere</h2>
-          <p class="lede lede-wide">
-            Everything you write stays in the app on your phone, protected by its passcode.
-            The exceptions are photographs you ask to have read: a progress photo, with four
-            body figures, or a meal. Each goes through a relay we run to a model at OpenAI,
-            after the app has asked you and you have agreed — and each can be turned off in
-            Settings at any time. Apple Health is never used for advertising or sold.
+        <section class="mf-band">
+          <h2 class="ruled">Your notebook doesn't go anywhere</h2>
+          <p class="mf-note">
+            Everything you write stays in the app on your phone, behind its passcode. A photo
+            leaves only when you ask for it to be read — a progress photo with four body
+            figures, or a meal — and only after you've agreed once to AI readings, which you
+            can turn off in Settings. Purchases go through Apple; we never see your name or
+            card. Apple Health is never used for advertising or sold.
           </p>
-          <p class="link-row">
-            <a href="privacy/">Read the privacy policy</a>
-          </p>
+          <p><a href="privacy/">Read the privacy policy</a></p>
         </section>
       </main>
 
@@ -208,9 +297,8 @@
         </div>
         <span>© 2026 Baston Apps</span>
         <p class="foot-legal">
-          Apple, the Apple logo and Apple Health are trademarks of Apple Inc., registered
-          in the U.S. and other countries and regions. App Store is a service mark of
-          Apple Inc.
+          Apple, the Apple logo and Apple Health are trademarks of Apple Inc., registered in
+          the U.S. and other countries and regions. App Store is a service mark of Apple Inc.
         </p>
       </footer>
     </div>
