@@ -21,7 +21,7 @@
 
       <main class="doc">
         <h1 class="doc-title">Privacy Policy</h1>
-        <p class="doc-date">MassFrame · Effective 5 October 2026</p>
+        <p class="doc-date">MassFrame · Effective 6 October 2026</p>
 
         <div class="summary">
           <p class="summary-head">The short version</p>
@@ -201,10 +201,13 @@
           does; it forwards the request to <strong>OpenAI, L.L.C.</strong> ("OpenAI"),
           whose models read the photograph or draw from it, and returns the result to your
           device. The relay stores nothing, keeps no copy of any request or response, and
-          logs no content — on a failure it records only a status code. To limit use, it
-          keeps in memory, for no more than a day, a count of requests per network address
-          and, for meals, per the random number above; the counts are not written to
-          storage and are discarded when the relay restarts.
+          logs no content — on a failure it records only a status code. To limit use — four
+          readings a day, one picture a week and twelve meals a day — every request carries
+          the random number above, and the relay keeps, in a database it holds with
+          Supabase, a count of how many of each that number has used in the current day or
+          week. The count is all that is kept: no photograph, no figure and nothing that
+          names you. Counts older than forty days are deleted. Without the number, the
+          count is kept against the network address instead, briefly and in memory.
         </p>
 
         <p>
@@ -393,8 +396,7 @@
           deletes them on request where the law allows; we retain no other personal data. Photographs and figures sent
           for a reading or a picture are held by OpenAI for no longer than thirty days for
           abuse monitoring and then deleted, and are not stored by the relay at all; the
-          relay's request counts described in clause 5 are held in memory for no more than
-          a day.
+          relay's usage counts described in clause 5 are kept for no more than forty days.
         </p>
 
         <h2>12. Security</h2>
