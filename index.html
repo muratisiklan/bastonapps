@@ -12,7 +12,7 @@
     <link rel="icon" href="assets/bastonapps-icon-48.png" sizes="48x48" type="image/png" />
     <link rel="icon" href="assets/bastonapps-icon-192.png" sizes="192x192" type="image/png" />
     <link rel="apple-touch-icon" href="assets/bastonapps-touch.png" />
-    <link rel="stylesheet" href="assets/site.css" />
+    <link rel="stylesheet" href="assets/home.css" />
     <meta name="theme-color" content="#f8f3ec" />
     <meta property="og:title" content="Baston Apps" />
     <meta property="og:description" content="Small, single-purpose iPhone apps." />
@@ -24,225 +24,147 @@
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
-    <div class="shell">
-      <!-- No second slot here. The right side of the topline reports where you
-           are, and on the index you are simply at Baston Apps. -->
-      <div class="topline">
-        <span class="topline-mark"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></span>
-      </div>
+    <div class="page">
+      <div class="shaft" aria-hidden="true"></div>
+      <div class="ferrule" aria-hidden="true"></div>
+
+      <header class="topline">
+        <span class="house">Baston Apps</span>
+        <a href="mailto:support@bastonapps.com">Support</a>
+      </header>
 
       <main>
         <section class="masthead">
-          <h1 class="masthead-title rise">Small apps that do one thing.</h1>
-          <p class="masthead-lede rise rise-2">
+          <!-- The house mark, large: the hook of the cane whose shaft runs down the page. -->
+          <svg class="hook" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M40 64 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="#241f1c" stroke-width="3.9" stroke-linecap="round" vector-effect="none" />
+          </svg>
+          <h1>Small apps that do one thing.</h1>
+          <p>
             Independently made for iPhone. No accounts, no dashboards, nothing that needs
             explaining twice.
           </p>
         </section>
 
-        <section>
-          <!-- "So far" carried the shelf when there was one app on it and it
-               needed to admit as much. Two is a shelf, so the line can just
-               count them and keep the same forward lean. -->
-          <p class="eyebrow">Three apps, so far</p>
+        <p class="count">Three apps, so far.</p>
 
-          <ul class="rack">
-            <li class="specimen" data-tint="#e8502e">
-              <div class="specimen-stage">
-                <span class="specimen-figure">
-                  <span class="specimen-glow" aria-hidden="true"></span>
-                  <img
-                    class="specimen-icon"
-                    src="assets/karaoke-mic-icon.png"
-                    width="512"
-                    height="512"
-                    alt="Karaoke Mic app icon"
-                  />
-                </span>
+        <ul class="tags">
+          <li class="tag tag--karaoke">
+            <div>
+              <div class="tag-head">
+                <img class="tag-icon" src="assets/karaoke-mic-icon.png" width="512" height="512" alt="" />
+                <h2><a href="karaoke-mic/">Karaoke Mic</a></h2>
               </div>
-
-              <div>
-                <h2 class="specimen-name">
-                  <a href="karaoke-mic/">Karaoke Mic</a>
-                </h2>
-                <p class="specimen-line">
-                  Your phone becomes the microphone. Tap the button and your voice comes
-                  out of the Bluetooth speaker across the room — no cable, no mixer, and
-                  nothing is ever recorded.
-                </p>
-
-                <div class="specimen-try">
-                  <p class="voices-label" id="km-voices-label">
-                    Eleven voices — try one
-                  </p>
-                  <!-- Six of the eleven, not all of them: this is a sample that
-                       has to fit one line, and the full set lives on the app
-                       page. Chosen for colour spread — grey, yellow, orange,
-                       blue, violet, teal — so the tint visibly travels. -->
-                  <div class="chip-row" role="group" aria-labelledby="km-voices-label">
-                    <button class="chip" type="button" data-hue="#6E645B" aria-pressed="false">Plain</button>
-                    <button class="chip" type="button" data-hue="#D9A21B" aria-pressed="false">Chipmunk</button>
-                    <button class="chip" type="button" data-hue="#E8502E" aria-pressed="true">Megaphone</button>
-                    <button class="chip" type="button" data-hue="#3B8FA8" aria-pressed="false">Robot</button>
-                    <button class="chip" type="button" data-hue="#7B6CC4" aria-pressed="false">Alien</button>
-                    <button class="chip" type="button" data-hue="#2F6B63" aria-pressed="false">Cave</button>
-                  </div>
+              <p class="tag-line">
+                Your phone becomes the microphone. Tap the button and your voice comes out
+                of the Bluetooth speaker across the room — no cable, no mixer, and nothing
+                is ever recorded.
+              </p>
+              <div class="try">
+                <p class="try-label" id="km-voices">Eleven voices. Try one:</p>
+                <div class="chips" role="group" aria-labelledby="km-voices">
+                  <button class="chip" type="button" data-hue="#b9aa98" aria-pressed="false">Plain</button>
+                  <button class="chip" type="button" data-hue="#e6b325" aria-pressed="false">Chipmunk</button>
+                  <button class="chip" type="button" data-hue="#e8502e" aria-pressed="true">Megaphone</button>
+                  <button class="chip" type="button" data-hue="#4fb3cf" aria-pressed="false">Robot</button>
+                  <button class="chip" type="button" data-hue="#9a8cf0" aria-pressed="false">Alien</button>
+                  <button class="chip" type="button" data-hue="#4fa596" aria-pressed="false">Cave</button>
                 </div>
-
-                <a class="specimen-open" href="karaoke-mic/">
-                  Open Karaoke Mic <span aria-hidden="true">→</span>
-                </a>
               </div>
-            </li>
+              <a class="open" href="karaoke-mic/">Visit Karaoke Mic</a>
+            </div>
+            <div class="stage" aria-hidden="true">
+              <img src="assets/karaoke-mic-icon.png" width="512" height="512" alt="" />
+            </div>
+          </li>
 
-            <li class="specimen" data-tint="#0891b2">
-              <div class="specimen-stage">
-                <span class="specimen-figure">
-                  <span class="specimen-glow" aria-hidden="true"></span>
-                  <img
-                    class="specimen-icon"
-                    src="assets/speedometer-lite-icon.png"
-                    width="512"
-                    height="512"
-                    alt="Speedometer Lite app icon"
-                  />
-                </span>
+          <li class="tag tag--speedometer">
+            <div>
+              <div class="tag-head">
+                <img class="tag-icon" src="assets/speedometer-lite-icon.png" width="512" height="512" alt="" />
+                <h2><a href="speedometer-lite/">Speedometer Lite</a></h2>
               </div>
-
-              <div>
-                <h2 class="specimen-name">
-                  <a href="speedometer-lite/">Speedometer Lite</a>
-                </h2>
-                <p class="specimen-line">
-                  Your speed, read off the GPS and shown on a dial you pick. Record a
-                  drive and get the route back on a map. It works with the phone
-                  offline, and your trips stay on it.
-                </p>
-
-                <div class="specimen-try">
-                  <p class="voices-label" id="sl-themes-label">
-                    Fifteen themes — try one
-                  </p>
-                  <!-- Six of the fifteen, matching the app page's row. Each hue is
-                       that theme's identity darkened to paper; the app is dark-first
-                       and its raw accents are far too light for this background. -->
-                  <div class="chip-row" role="group" aria-labelledby="sl-themes-label">
-                    <button class="chip" type="button" data-hue="#6E645B" aria-pressed="false">Pure Minimal</button>
-                    <button class="chip" type="button" data-hue="#0891b2" aria-pressed="true">Cyberpunk</button>
-                    <button class="chip" type="button" data-hue="#d0500f" aria-pressed="false">Track Day</button>
-                    <button class="chip" type="button" data-hue="#b07408" aria-pressed="false">Aviation</button>
-                    <button class="chip" type="button" data-hue="#c02b2b" aria-pressed="false">Stealth</button>
-                    <button class="chip" type="button" data-hue="#1a8c46" aria-pressed="false">Eco Touring</button>
-                  </div>
+              <p class="tag-line">
+                Your speed, read off the GPS and shown on a dial you pick. Record a drive
+                and get the route back on a map. It works with the phone offline, and your
+                trips stay on it.
+              </p>
+              <div class="try">
+                <p class="try-label" id="sl-themes">Fifteen themes. Try one:</p>
+                <div class="chips" role="group" aria-labelledby="sl-themes">
+                  <button class="chip" type="button" data-hue="#c7d0e0" aria-pressed="false">Pure Minimal</button>
+                  <button class="chip" type="button" data-hue="#22d3ee" aria-pressed="true">Cyberpunk</button>
+                  <button class="chip" type="button" data-hue="#ff7a2f" aria-pressed="false">Track Day</button>
+                  <button class="chip" type="button" data-hue="#f2b134" aria-pressed="false">Aviation</button>
+                  <button class="chip" type="button" data-hue="#ff4d4d" aria-pressed="false">Stealth</button>
+                  <button class="chip" type="button" data-hue="#3ddc84" aria-pressed="false">Eco Touring</button>
                 </div>
-
-                <a class="specimen-open" href="speedometer-lite/">
-                  Open Speedometer Lite <span aria-hidden="true">→</span>
-                </a>
               </div>
-            </li>
+              <a class="open" href="speedometer-lite/">Visit Speedometer Lite</a>
+            </div>
+            <div class="phone">
+              <img src="assets/speedometer-lite-main.webp" width="720" height="1565" alt="Speedometer Lite showing a speed dial" loading="lazy" />
+            </div>
+          </li>
 
-            <li class="specimen" data-tint="#1f4fe0">
-              <div class="specimen-stage">
-                <span class="specimen-figure">
-                  <span class="specimen-glow" aria-hidden="true"></span>
-                  <img
-                    class="specimen-icon"
-                    src="assets/massframe-icon.png"
-                    width="512"
-                    height="512"
-                    alt="MassFrame app icon"
-                  />
-                </span>
+          <li class="tag tag--massframe">
+            <div>
+              <div class="tag-head">
+                <img class="tag-icon" src="assets/massframe-icon.png" width="512" height="512" alt="" />
+                <h2><a href="massframe/">MassFrame</a></h2>
               </div>
-
-              <div>
-                <h2 class="specimen-name">
-                  <a href="massframe/">MassFrame</a>
-                </h2>
-                <p class="specimen-line">
-                  A training notebook. Log the sets, stamp the day, and the month fills
-                  up as an album you can read across the room. A photograph of you is
-                  read for how you are building, a photograph of a meal for what is in
-                  it, and the whole notebook stays on your phone.
-                </p>
-
-                <!-- No chips: the app has one ink and no theme to try. Its
-                     miniature is the album on the app page. -->
-                <p class="caption">On TestFlight soon.</p>
-
-                <a class="specimen-open" href="massframe/">
-                  Open MassFrame <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </li>
-
-            <!-- Each further app is another <li class="specimen">, with its own
-                 data-tint and its own miniature of whatever single thing it
-                 does. Give it a folder too: index / privacy / support / terms.
-                 Each app needs its OWN privacy policy — a shared one won't match
-                 its App Privacy answers. -->
-          </ul>
-        </section>
-
-        <section class="band-after-rack">
-          <h2 class="section-title">What “small” means here</h2>
-          <div class="creed">
-            <div>
-              <h3 class="creed-name">One job</h3>
-              <p class="creed-text">
-                If it needs a tutorial, it's the wrong app. Each one does a single thing
-                and then gets out of the way.
+              <p class="tag-line">
+                Train, eat, and see it work — in one app. Log your workouts, track your
+                meals, and read your progress from a photo, in a hand-drawn notebook that
+                stays on your phone.
               </p>
+              <p class="status">Coming soon to the App Store.</p>
+              <a class="open" href="massframe/">Visit MassFrame</a>
             </div>
-            <div>
-              <h3 class="creed-name">Nothing to sign in to</h3>
-              <p class="creed-text">
-                No account, no profile, no password to forget. Open the app and it works.
-              </p>
+            <div class="phone">
+              <img src="assets/massframe-report.webp" width="720" height="1564" alt="MassFrame's progress report from a photo" loading="lazy" />
             </div>
-            <div>
-              <h3 class="creed-name">Plain about money</h3>
-              <p class="creed-text">
-                Free where it can be. Where there's a subscription, you're told exactly
-                what it unlocks, and what it costs, before you pay for it.
-              </p>
-            </div>
+          </li>
+        </ul>
+
+        <section class="creed">
+          <h2 class="creed-title">What small means here</h2>
+          <div>
+            <h3>One job</h3>
+            <p>If it needs a tutorial, it's the wrong app. Each one does a single thing and then gets out of the way.</p>
+          </div>
+          <div>
+            <h3>Nothing to sign in to</h3>
+            <p>No account, no profile, no password to forget. Open the app and it works.</p>
+          </div>
+          <div>
+            <h3>Plain about money</h3>
+            <p>Free where it can be. Where there's a subscription, you're told exactly what it unlocks, and what it costs, before you pay.</p>
           </div>
         </section>
       </main>
 
       <footer class="foot">
-        <div class="foot-links">
+        <nav>
           <a href="giveaways/">Giveaways</a>
           <a href="mailto:support@bastonapps.com">support@bastonapps.com</a>
-        </div>
+        </nav>
         <span>© 2026 Baston Apps</span>
       </footer>
     </div>
 
     <script>
-      // Each specimen tints itself, not the document — so a rack of several apps
-      // shows several colours at once and the house stays ink on paper.
-      (function () {
-        var specimens = document.querySelectorAll('.specimen');
-        for (var s = 0; s < specimens.length; s++) {
-          (function (specimen) {
-            var seed = specimen.dataset.tint;
-            if (seed) specimen.style.setProperty('--tint', seed);
-
-            specimen.addEventListener('click', function (event) {
-              var chip = event.target.closest('.chip');
-              if (!chip || !specimen.contains(chip)) return;
-              var chips = specimen.querySelectorAll('.chip');
-              for (var i = 0; i < chips.length; i++) {
-                chips[i].setAttribute('aria-pressed', String(chips[i] === chip));
-              }
-              specimen.style.setProperty('--tint', chip.dataset.hue);
-            });
-          })(specimens[s]);
-        }
-      })();
+      // A chip retints only its own tag, so each app keeps its own colours.
+      document.querySelectorAll('.tag').forEach(function (tag) {
+        tag.addEventListener('click', function (event) {
+          var chip = event.target.closest('.chip');
+          if (!chip) return;
+          tag.querySelectorAll('.chip').forEach(function (c) {
+            c.setAttribute('aria-pressed', String(c === chip));
+          });
+          tag.style.setProperty('--tint', chip.dataset.hue);
+        });
+      });
     </script>
   </body>
 </html>

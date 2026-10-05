@@ -1,0 +1,547 @@
+/* The index only. The house mark is a baston — a walking stick — so the
+   page is one: the hook beside the title, the shaft down the left margin,
+   each app hung from it as a tag in its own colours, and the brass ferrule
+   at the foot. Other pages keep site.css. */
+
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('jost-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Patrick Hand';
+  font-display: swap;
+  src: url('patrick-hand.ttf') format('truetype');
+}
+
+:root {
+  --stone: #f1efe9;
+  --ink: #241f1c;
+  --ink-soft: #5c534c;
+  --brass: #c08a3e;
+  --brass-deep: #8f5f1f;
+  --rule: rgba(36, 31, 28, 0.14);
+  --spine-x: 64px;
+  --shaft: 8px;
+  --display: 'Jost', 'Futura', 'Avenir Next', system-ui, sans-serif;
+  --body: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--stone);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.page {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px 0 calc(var(--spine-x) + 56px);
+}
+
+/* The shaft: from under the hook to the ferrule, behind everything. */
+.shaft {
+  position: absolute;
+  left: calc(var(--spine-x) + 32px);
+  top: 200px;
+  bottom: 118px;
+  width: var(--shaft);
+  margin-left: calc(var(--shaft) / -2);
+  background: var(--ink);
+  border-radius: var(--shaft);
+}
+
+.ferrule {
+  position: absolute;
+  left: calc(var(--spine-x) + 32px);
+  bottom: 74px;
+  width: var(--shaft);
+  height: 50px;
+  margin-left: calc(var(--shaft) / -2);
+  background: var(--brass);
+  border-radius: 0 0 var(--shaft) var(--shaft);
+}
+
+/* ---- Top line ---- */
+
+.topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 0;
+  font-family: var(--display);
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+.topline a {
+  text-decoration: none;
+  color: var(--ink-soft);
+}
+
+.topline a:hover {
+  color: var(--ink);
+}
+
+.house {
+  font-weight: 500;
+}
+
+/* ---- Masthead: the hook ---- */
+
+.masthead {
+  position: relative;
+  padding: 56px 0 96px;
+}
+
+.hook {
+  position: absolute;
+  /* The path's shaft is at 40/64 of the box: 82.5px of 132. */
+  left: calc(var(--spine-x) + 32px - 82.5px - (var(--spine-x) + 56px));
+  top: 40px;
+  width: 132px;
+  height: 132px;
+  overflow: visible;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(48px, 8.4vw, 112px);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  max-width: 11ch;
+}
+
+.masthead p {
+  margin: 28px 0 0;
+  max-width: 34em;
+  font-size: 19px;
+  color: var(--ink-soft);
+}
+
+.count {
+  margin: 0 0 28px;
+  font-family: var(--display);
+  font-size: 17px;
+  color: var(--ink-soft);
+}
+
+/* ---- The tags ---- */
+
+.tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 72px;
+}
+
+.tag {
+  position: relative;
+  border-radius: 28px;
+  padding: 44px 48px 44px 64px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: center;
+  background: var(--tag-bg);
+  color: var(--tag-ink);
+  --tint: var(--tag-accent);
+}
+
+/* The eyelet the string runs through, and the string to the shaft. */
+.tag::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 50px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--stone);
+  box-shadow: 0 0 0 3px var(--brass);
+}
+
+.tag::after {
+  content: '';
+  position: absolute;
+  top: 57px;
+  left: -24px;
+  width: 46px;
+  height: 2px;
+  background: var(--brass);
+  transform: rotate(-3deg);
+  transform-origin: left center;
+}
+
+.tag-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tag-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 15px;
+  flex: none;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.tag h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.tag h2 a {
+  text-decoration: none;
+}
+
+.tag-line {
+  margin: 22px 0 0;
+  max-width: 30em;
+  color: var(--tag-soft);
+}
+
+.try {
+  margin: 24px 0 0;
+}
+
+.try-label {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--tag-soft);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  font: inherit;
+  font-size: 14px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--tag-rule);
+  background: transparent;
+  color: var(--tag-ink);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--tint);
+  border-color: var(--tint);
+  color: var(--tag-on-tint);
+}
+
+.open {
+  display: inline-block;
+  margin-top: 28px;
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid var(--tint);
+  transition: border-color 0.2s;
+}
+
+.status {
+  margin: 20px 0 0;
+  font-size: 15px;
+  color: var(--tag-soft);
+}
+
+/* A phone, drawn: a screenshot in a rounded frame. */
+.phone {
+  width: 236px;
+  aspect-ratio: 720 / 1565;
+  border-radius: 34px;
+  padding: 7px;
+  background: var(--phone-frame);
+  box-shadow: 0 24px 48px -18px rgba(0, 0, 0, 0.45);
+  transform: rotate(var(--tilt, 2deg));
+}
+
+.phone img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+}
+
+/* Karaoke Mic has no screenshot here; its stage is the icon, lit by the voice. */
+.stage {
+  width: 236px;
+  height: 236px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, color-mix(in srgb, var(--tint) 38%, transparent) 0%, transparent 68%);
+  transition: background 0.35s;
+}
+
+.stage img {
+  width: 148px;
+  height: 148px;
+  border-radius: 34px;
+  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* Each app's own world. */
+.tag--karaoke {
+  --tag-bg: #1e1814;
+  --tag-ink: #f4eadb;
+  --tag-soft: #c9bba8;
+  --tag-rule: rgba(244, 234, 219, 0.24);
+  --tag-accent: #e8502e;
+  --tag-on-tint: #1e1814;
+}
+
+.tag--speedometer {
+  --tag-bg: #0b1226;
+  --tag-ink: #eaf2ff;
+  --tag-soft: #a9b6cf;
+  --tag-rule: rgba(234, 242, 255, 0.22);
+  --tag-accent: #22d3ee;
+  --tag-on-tint: #0b1226;
+  --phone-frame: #1c2540;
+  --tilt: -2deg;
+}
+
+.tag--massframe {
+  --tag-bg: #fbf8f1;
+  --tag-ink: #1b1b1b;
+  --tag-soft: #4e4a44;
+  --tag-rule: rgba(0, 0, 0, 0.18);
+  --tag-accent: #0033cc;
+  --tag-on-tint: #fff;
+  --phone-frame: #1b1b1b;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.13) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  border: 2px solid #1b1b1b;
+}
+
+.tag--massframe h2 {
+  font-family: 'Patrick Hand', var(--display);
+  font-weight: 400;
+  font-size: clamp(38px, 4.6vw, 54px);
+  letter-spacing: 0;
+}
+
+.tag--massframe .tag-line {
+  font-size: 18px;
+}
+
+/* ---- Creed ---- */
+
+.creed {
+  margin: 120px 0 0;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.creed h3 {
+  margin: 0 0 8px;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.creed p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+.creed-title {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 38px);
+}
+
+/* ---- Foot ---- */
+
+.foot {
+  margin-top: 112px;
+  padding: 28px 0 64px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.foot nav {
+  display: flex;
+  gap: 24px;
+}
+
+.foot a {
+  text-decoration: none;
+}
+
+.foot a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+/* ---- One orchestrated moment: the cane is drawn once on load ---- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .hook path {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: draw 0.9s ease-out 0.1s forwards;
+  }
+
+  .shaft {
+    transform-origin: top;
+    animation: drop 1.4s cubic-bezier(0.3, 0.7, 0.2, 1) 0.6s backwards;
+  }
+
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes drop {
+    from {
+      transform: scaleY(0);
+    }
+  }
+}
+
+/* ---- Narrow ---- */
+
+@media (max-width: 860px) {
+  :root {
+    --spine-x: 0px;
+    --shaft: 5px;
+  }
+
+  .page {
+    padding: 0 16px 0 44px;
+  }
+
+  .shaft,
+  .ferrule {
+    left: 22px;
+  }
+
+  .shaft {
+    top: 120px;
+  }
+
+  /* 72px box: the shaft at 45px. Page shaft at 22px, content at 44px. */
+  .hook {
+    left: calc(22px - 45px - 44px);
+    top: 22px;
+    width: 72px;
+    height: 72px;
+  }
+
+  .masthead {
+    padding: 28px 0 64px;
+  }
+
+  .masthead p {
+    font-size: 17px;
+  }
+
+  .tags {
+    gap: 48px;
+  }
+
+  .tag {
+    grid-template-columns: 1fr;
+    padding: 32px 22px 32px 44px;
+    gap: 28px;
+    border-radius: 22px;
+  }
+
+  .tag::before {
+    left: 14px;
+    top: 40px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .tag::after {
+    left: -22px;
+    top: 45px;
+    width: 36px;
+  }
+
+  .tag-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+  }
+
+  .phone,
+  .stage {
+    justify-self: center;
+  }
+
+  .phone {
+    width: 200px;
+  }
+
+  .stage {
+    width: 200px;
+    height: 200px;
+  }
+
+  .creed {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 80px;
+  }
+}
