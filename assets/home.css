@@ -545,3 +545,266 @@ a {
     margin-top: 80px;
   }
 }
+
+/* ---- Round 2: the house mark, the giveaways tag, the crook's tag ---- */
+
+.house {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.house-mark {
+  width: 22px;
+  height: 22px;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* Giveaways as a brass luggage tag: a notched end with an eyelet. */
+.giveaway-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px 8px 28px;
+  background: var(--brass);
+  color: #2a1a06 !important;
+  font-weight: 500;
+  clip-path: polygon(12px 0, 100% 0, 100% 100%, 12px 100%, 0 50%);
+  border-radius: 0 8px 8px 0;
+  transition: background 0.2s, transform 0.25s;
+  transform-origin: 6px 50%;
+}
+
+.giveaway-tag:hover {
+  background: #d39b4c;
+  transform: rotate(-3deg);
+}
+
+.giveaway-hole {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: var(--stone);
+}
+
+.giveaway-sub {
+  font-weight: 400;
+  opacity: 0.8;
+  margin-left: 0.35em;
+}
+
+/* The count hangs from the crook's open end on a string. */
+.crook-tag {
+  position: absolute;
+  /* The crook's tip is at (24, 20) of the hook's 64-unit box. */
+  left: calc(var(--spine-x) + 32px - 82.5px - (var(--spine-x) + 56px) + 49.5px - 29px);
+  top: calc(40px + 41px + 44px);
+  width: 58px;
+  padding: 10px 4px 8px;
+  background: #fffdf8;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px 6px 10px 10px;
+  font-family: var(--display);
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+  display: grid;
+  transform-origin: 50% -44px;
+}
+
+.crook-tag::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -45px;
+  width: 1.5px;
+  height: 45px;
+  background: var(--ink);
+}
+
+.crook-tag::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+}
+
+.crook-tag span:first-child {
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 4px;
+}
+
+.crook-tag span:last-child {
+  color: var(--ink-soft);
+}
+
+/* The crook carries the count on wide screens; the line stays for narrow ones. */
+.count {
+  display: none;
+}
+
+/* A sticker on an app's tag pointing at its giveaway. */
+.sticker {
+  display: inline-block;
+  margin: 28px 0 0 18px;
+  padding: 4px 11px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #2a1a06;
+  background: #efcb8c;
+  border-radius: 4px;
+  transform: rotate(-2.5deg);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+}
+
+.sticker:hover {
+  transform: rotate(0deg) scale(1.04);
+}
+
+/* Where the ferrule meets the ground. */
+.ground {
+  position: absolute;
+  left: calc(var(--spine-x) + 32px);
+  bottom: 70px;
+  width: 0;
+  height: 0;
+}
+
+.ground span {
+  position: absolute;
+  left: -16px;
+  top: -4px;
+  width: 32px;
+  height: 8px;
+  border: 1.5px solid var(--brass);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+/* ---- Motion ---- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .crook-tag {
+    animation: sway 5s ease-in-out 1.2s infinite;
+  }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(-4deg); }
+    50% { transform: rotate(4deg); }
+  }
+
+  /* The eyelet is the pivot: a tag hangs from where its string is tied. */
+  .tag {
+    transform-origin: 30px 58px;
+  }
+
+  .js .tag {
+    opacity: 0;
+    transform: rotate(-5deg) translateY(12px);
+  }
+
+  .js .tag.in {
+    opacity: 1;
+    animation: hang 1.6s cubic-bezier(0.25, 0.8, 0.3, 1) both;
+  }
+
+  @keyframes hang {
+    0% { opacity: 0; transform: rotate(-6deg) translateY(14px); }
+    30% { opacity: 1; transform: rotate(2.2deg) translateY(0); }
+    55% { transform: rotate(-1.1deg); }
+    78% { transform: rotate(0.45deg); }
+    100% { opacity: 1; transform: rotate(0deg); }
+  }
+
+  .tag.in:hover {
+    animation: nudge 1.1s ease-in-out;
+  }
+
+  @keyframes nudge {
+    0%, 100% { transform: rotate(0deg); }
+    30% { transform: rotate(0.8deg); }
+    65% { transform: rotate(-0.4deg); }
+  }
+
+  .page:has(.foot.in) .ferrule {
+    animation: tap 0.6s cubic-bezier(0.3, 0, 0.3, 1) 0.2s;
+  }
+
+  @keyframes tap {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    70% { transform: translateY(0); }
+  }
+
+  .page:has(.foot.in) .ground span {
+    animation: ripple 0.9s ease-out 0.62s both;
+  }
+
+  .page:has(.foot.in) .ground span + span {
+    animation-delay: 0.78s;
+  }
+
+  @keyframes ripple {
+    0% { opacity: 0.9; transform: scale(0.4); }
+    100% { opacity: 0; transform: scale(2.4); }
+  }
+}
+
+@media (min-width: 861px) and (max-width: 1080px) {
+  .crook-tag {
+    display: none;
+  }
+
+  .count {
+    display: block;
+  }
+}
+
+@media (max-width: 860px) {
+  .crook-tag {
+    display: none;
+  }
+
+  .count {
+    display: block;
+  }
+
+  .ground {
+    left: 22px;
+  }
+
+  .giveaway-sub {
+    display: none;
+  }
+
+  .top-nav {
+    gap: 14px;
+  }
+
+  .sticker {
+    margin-left: 0;
+    display: table;
+    margin-top: 18px;
+  }
+
+  .tag {
+    transform-origin: 20px 46px;
+  }
+}

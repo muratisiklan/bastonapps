@@ -29,8 +29,14 @@
       <div class="ferrule" aria-hidden="true"></div>
 
       <header class="topline">
-        <span class="house">Baston Apps</span>
-        <a href="mailto:support@bastonapps.com">Support</a>
+        <span class="house">
+          <svg class="house-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" /><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round" /></svg>
+          Baston Apps
+        </span>
+        <nav class="top-nav">
+          <a class="top-link" href="mailto:support@bastonapps.com">Support</a>
+          <a class="giveaway-tag" href="giveaways/"><span class="giveaway-hole" aria-hidden="true"></span>Giveaways<span class="giveaway-sub">· free codes</span></a>
+        </nav>
       </header>
 
       <main>
@@ -39,6 +45,8 @@
           <svg class="hook" viewBox="0 0 64 64" aria-hidden="true">
             <path d="M40 64 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="#241f1c" stroke-width="3.9" stroke-linecap="round" vector-effect="none" />
           </svg>
+          <!-- A tag on the crook: the count hangs from the stick like the apps do. -->
+          <div class="crook-tag" aria-hidden="true"><span>3 apps</span><span>so far</span></div>
           <h1>Small apps that do one thing.</h1>
           <p>
             Independently made for iPhone. No accounts, no dashboards, nothing that needs
@@ -72,6 +80,7 @@
                 </div>
               </div>
               <a class="open" href="karaoke-mic/">Visit Karaoke Mic</a>
+              <a class="sticker" href="giveaways/">Free lifetime Premium code</a>
             </div>
             <div class="stage" aria-hidden="true">
               <img src="assets/karaoke-mic-icon.png" width="512" height="512" alt="" />
@@ -101,6 +110,7 @@
                 </div>
               </div>
               <a class="open" href="speedometer-lite/">Visit Speedometer Lite</a>
+              <a class="sticker" href="giveaways/">Free lifetime Pro code</a>
             </div>
             <div class="phone">
               <img src="assets/speedometer-lite-main.webp" width="720" height="1565" alt="Speedometer Lite showing a speed dial" loading="lazy" />
@@ -144,6 +154,7 @@
         </section>
       </main>
 
+      <div class="ground" aria-hidden="true"><span></span><span></span></div>
       <footer class="foot">
         <nav>
           <a href="giveaways/">Giveaways</a>
@@ -154,6 +165,22 @@
     </div>
 
     <script>
+      // Tags swing in on their strings as they come into view, and the cane
+      // taps the ground when the foot arrives. Classes only; the CSS decides
+      // whether anything moves (it doesn't under reduced motion).
+      (function () {
+        if (!('IntersectionObserver' in window)) return;
+        document.documentElement.classList.add('js');
+        var seen = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('in');
+            seen.unobserve(entry.target);
+          });
+        }, { threshold: 0.25 });
+        document.querySelectorAll('.tag, .foot').forEach(function (el) { seen.observe(el); });
+      })();
+
       // A chip retints only its own tag, so each app keeps its own colours.
       document.querySelectorAll('.tag').forEach(function (tag) {
         tag.addEventListener('click', function (event) {
