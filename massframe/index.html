@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MassFrame — a training notebook that stays on your phone</title>
+    <title>MassFrame — training, nutrition and your body in one app</title>
     <meta
       name="description"
-      content="MassFrame is a paper-feeling training notebook for iPhone: every session a stamp in the album, plans that fill the month, progress photographs and meals read for you. No account, no server — your notebook stays on your phone."
+      content="MassFrame brings your training, your nutrition and your body together on iPhone: plans that fit your week, calorie and macro targets from your body, meals read from a photo, and a progress report from one check-in photo. No account, everything on your phone."
     />
     <link rel="icon" href="../assets/massframe-icon.png" />
     <link rel="apple-touch-icon" href="../assets/massframe-icon.png" />
     <link rel="stylesheet" href="../assets/site.css" />
     <link rel="stylesheet" href="../assets/massframe.css" />
-    <meta property="og:title" content="MassFrame — a training notebook that stays on your phone" />
+    <meta property="og:title" content="MassFrame — train, eat, and see it work, in one app" />
     <meta
       property="og:description"
-      content="Every session a stamp in the album. Plans that fill the month. Your progress photos and your meals read for you. No account, no server."
+      content="Log your workouts, track your meals, and read your progress from a photo. MassFrame connects the three."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://bastonapps.com/massframe/" />
@@ -84,12 +84,10 @@
         <section class="mf-hero">
           <div>
             <img class="mf-icon" src="../assets/massframe-icon.png" alt="The MassFrame app icon" width="60" height="60" />
-            <h1 class="mf-title">A training notebook. Every session a stamp.</h1>
+            <h1 class="mf-title">Train, eat, and see it work — in one app.</h1>
             <p class="mf-lede">
-              Open today's page, log the sets, stamp it done. The month fills up as an album
-              you can read across the room. Plans print the days ahead, a progress photo is
-              read for how you're building, and a photographed meal for what's on the plate —
-              on a phone that never asks you to sign in.
+              Log your workouts, track your meals, and read your progress from a photo.
+              MassFrame connects the three, so you can see what's actually changing your body.
             </p>
             <div class="mf-cta">
               <span class="postmark">Coming to TestFlight</span>
@@ -97,96 +95,99 @@
             </div>
           </div>
 
-          <figure class="print">
-            <img
-              src="../assets/massframe-day.webp"
-              width="720"
-              height="1565"
-              alt="A day's page: the totals under the date, the session with each movement's top set and last time's under it, the bodyweight card with its trend, the plate of meals against the protein target, and the check-in."
-            />
-          </figure>
+          <div class="mf-fan" aria-label="Three screens from the app: a workout, a meal and a progress report">
+            <figure class="print">
+              <img src="../assets/massframe-session.webp" width="720" height="1565" alt="A workout: each set with last time's numbers beside it, and a record stamped on the bench press." />
+            </figure>
+            <figure class="print">
+              <img src="../assets/massframe-meal.webp" width="720" height="1565" alt="A meal: its calories, protein, fat and carbs, and where the calories come from." />
+            </figure>
+            <figure class="print">
+              <img src="../assets/massframe-report.webp" width="720" height="1565" alt="A progress report: the body shaded by development, a score for each part, the band and body fat." />
+            </figure>
+          </div>
         </section>
 
         <hr class="rule" />
 
         <section class="mf-band">
-          <h2 class="ruled">Three things, in order</h2>
-          <ol class="mf-steps">
+          <h2 class="ruled">Three parts of one picture</h2>
+
+          <div class="mf-pillar">
+            <div class="mf-pillar-text">
+              <span class="stamp" style="--tilt: 3deg"><svg viewBox="0 0 32 34" aria-hidden="true"><use href="#g-lift" /></svg></span>
+              <h3>Training</h3>
+              <ul class="mf-ticks">
+                <li>Plans matched to the days you really have, at the gym, at home or with dumbbells</li>
+                <li>Every session starts with its movements written in and last time's numbers beside them</li>
+                <li>Strength curves, estimated maxes and records for each lift</li>
+              </ul>
+            </div>
+            <div class="mf-pair">
+              <figure class="print" style="--tilt: -1.4deg"><img src="../assets/massframe-session.webp" width="720" height="1565" loading="lazy" decoding="async" alt="A workout in progress, set by set." /></figure>
+              <figure class="print" style="--tilt: 1.2deg"><img src="../assets/massframe-plans.webp" width="720" height="1565" loading="lazy" decoding="async" alt="Plans: the running plan's week, the one before it, and ways to find or build another." /></figure>
+            </div>
+          </div>
+
+          <div class="mf-pillar">
+            <div class="mf-pillar-text">
+              <span class="stamp ink-record" style="--tilt: -4deg"><svg viewBox="0 0 32 34" aria-hidden="true"><use href="#g-meal" /></svg></span>
+              <h3>Nutrition</h3>
+              <ul class="mf-ticks">
+                <li>Calorie and macro targets worked out from your body and the phase you're in — cut, recomp, maintain or lean bulk</li>
+                <li>Photograph a meal and it's read for calories and macros, or write it in yourself</li>
+                <li>Each day's plate against its targets, at a glance</li>
+              </ul>
+            </div>
+            <div class="mf-pair">
+              <figure class="print" style="--tilt: 1.3deg"><img src="../assets/massframe-plate.webp" width="720" height="1565" loading="lazy" decoding="async" alt="The day's plate: calories, protein, fat and carbs against their targets, and the meals eaten." /></figure>
+              <figure class="print" style="--tilt: -1deg"><img src="../assets/massframe-meal.webp" width="720" height="1565" loading="lazy" decoding="async" alt="A meal read for its calories and macros." /></figure>
+            </div>
+          </div>
+
+          <div class="mf-pillar">
+            <div class="mf-pillar-text">
+              <span class="stamp ink-body" style="--tilt: -2deg"><svg viewBox="0 0 32 34" aria-hidden="true"><use href="#g-compare" /></svg></span>
+              <h3>Your body</h3>
+              <ul class="mf-ticks">
+                <li>A progress report from one photo: body fat, lean mass and each muscle group scored</li>
+                <li>Your weight's trend, and a projection of where you're heading in three, six or twelve months</li>
+                <li>A drawing of your future body, and two check-ins side by side</li>
+              </ul>
+            </div>
+            <div class="mf-pair">
+              <figure class="print" style="--tilt: -1.2deg"><img src="../assets/massframe-report.webp" width="720" height="1565" loading="lazy" decoding="async" alt="A progress report from one photo." /></figure>
+              <figure class="print" style="--tilt: 1.4deg"><img src="../assets/massframe-trends.webp" width="720" height="1565" loading="lazy" decoding="async" alt="Trends: the body's parts scored, body fat, lean mass and the bodyweight line." /></figure>
+            </div>
+          </div>
+        </section>
+
+        <hr class="rule" />
+
+        <section class="mf-band">
+          <h2 class="ruled">How they work together</h2>
+          <ol class="mf-loop">
             <li class="sketch">
               <span class="mf-step-num">1</span>
-              <h3>Open today's page</h3>
-              <p>
-                The session your plan asks for is already printed on it, with a weigh-in, a
-                note and a photo if you take one. Any past day can be written on too.
-              </p>
+              <h3>Your body and your goal</h3>
+              <p>set your plan and your daily targets.</p>
             </li>
             <li class="sketch">
               <span class="mf-step-num">2</span>
-              <h3>Log the sets</h3>
-              <p>
-                Last time's numbers are pencilled in. Change what changed, and a personal
-                record gets its postmark the moment it happens.
-              </p>
+              <h3>You train and you eat</h3>
+              <p>and the app keeps the sets and the plates.</p>
             </li>
             <li class="sketch">
               <span class="mf-step-num">3</span>
-              <h3>Stamp it done</h3>
-              <p>
-                The day goes into the album as a stamp, and Apple Health gets the workout if
-                you let it. A month of training reads at a glance.
-              </p>
+              <h3>A check-in photo</h3>
+              <p>shows what actually changed: fat, muscle, weight.</p>
+            </li>
+            <li class="sketch">
+              <span class="mf-step-num">4</span>
+              <h3>Your targets follow</h3>
+              <p>your body as it changes, and the next block begins.</p>
             </li>
           </ol>
-        </section>
-
-        <hr class="rule" />
-
-        <section class="mf-band">
-          <h2 class="ruled">What it looks like</h2>
-          <ul class="mf-prints">
-            <li>
-              <figure class="print">
-                <img
-                  src="../assets/massframe-album.webp"
-                  width="720"
-                  height="1565"
-                  loading="lazy"
-                  decoding="async"
-                  alt="The album: a month of training days as stamps on a page, today's with a progress photograph mounted on it, the days joined by the plan they belong to."
-                />
-              </figure>
-              <h3>The album</h3>
-              <p>Every day you trained, as a stamp on the month.</p>
-            </li>
-            <li>
-              <figure class="print">
-                <img
-                  src="../assets/massframe-trends.webp"
-                  width="720"
-                  height="1565"
-                  loading="lazy"
-                  decoding="async"
-                  alt="Trends: a drawn figure of the body with each muscle group's score, body fat and lean mass, and the projection for the months ahead."
-                />
-              </figure>
-              <h3>Your body, read</h3>
-              <p>Each part scored from your photos, with body fat, lean mass and where it's heading.</p>
-            </li>
-            <li>
-              <figure class="print">
-                <img
-                  src="../assets/massframe-report.webp"
-                  width="720"
-                  height="1565"
-                  loading="lazy"
-                  decoding="async"
-                  alt="A progress report: the figure shaded by development, the scores for each part, the band and body fat."
-                />
-              </figure>
-              <h3>The progress report</h3>
-              <p>One photo, read: what leads, what's furthest behind, and the figures behind it.</p>
-            </li>
-          </ul>
         </section>
 
         <hr class="rule" />
@@ -247,42 +248,16 @@
         <hr class="rule" />
 
         <section class="mf-band">
-          <h2 class="ruled">What it is, and what it isn't</h2>
-          <div class="mf-facts">
-            <div class="sketch">
-              <h3>It is</h3>
-              <ul>
-                <li>A notebook that keeps every session, set and personal record on your phone</li>
-                <li>An album of stamps — the month at a glance, the years behind it</li>
-                <li>Fifteen training plans matched to your week, or your own</li>
-                <li>Eating targets worked out from your body and the phase you're in</li>
-                <li>A progress report from one photo, with body fat, lean mass and an estimate of where you're heading</li>
-                <li>Apple Health, read and written, each only with your permission</li>
-                <li>Your whole notebook exported to a file whenever you like, free</li>
-              </ul>
-            </div>
-            <div class="sketch is-not">
-              <h3>It isn't</h3>
-              <ul>
-                <li>A coach, a dietitian or a doctor — its numbers are estimates, not medical advice</li>
-                <li>An account. Nothing to sign up for, no server holding your notebook</li>
-                <li>A social network. Nobody sees your album but you</li>
-                <li>Watching you. No analytics, no tracking, no ads</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <hr class="rule" />
-
-        <section class="mf-band">
-          <h2 class="ruled">Your notebook doesn't go anywhere</h2>
+          <h2 class="ruled">Private by design</h2>
           <p class="mf-note">
-            Everything you write stays in the app on your phone, behind its passcode. A photo
-            leaves only when you ask for it to be read — a progress photo with four body
-            figures, or a meal — and only after you've agreed once to AI readings, which you
-            can turn off in Settings. Purchases go through Apple; we never see your name or
-            card. Apple Health is never used for advertising or sold.
+            No account and no server holding your data: everything stays in the app on your
+            phone. A photo leaves only when you ask for it to be read, after you've agreed
+            once, and that can be turned off any time. Purchases go through Apple, and Apple
+            Health is never used for advertising or sold.
+          </p>
+          <p class="mf-note mf-small">
+            MassFrame gives estimates, not medical advice — it isn't a coach, a dietitian or
+            a doctor.
           </p>
           <p><a href="privacy/">Read the privacy policy</a></p>
         </section>
