@@ -20,7 +20,7 @@
 
       <main class="doc">
         <h1 class="doc-title">Privacy Policy</h1>
-        <p class="doc-date">Karaoke Mic · Effective 31 July 2026</p>
+        <p class="doc-date">Karaoke Mic · Effective 28 October 2026</p>
 
         <h2>1. Controller and contact details</h2>
 
@@ -65,11 +65,12 @@
         </p>
 
         <p>
-          The Application derives a numerical measure of signal level from the incoming
-          audio many times per second. This measure drives the on-screen level indicator,
-          the noise gate, and the detection of acoustic feedback. It exists only in
-          volatile memory for the duration of the audio session and is neither stored nor
-          transmitted.
+          The Application derives numerical measures from the incoming audio many times
+          per second: its signal level, and how that signal is distributed across
+          frequencies. These measures drive the on-screen level indicator, the noise gate
+          used by some voice characters, and the detection of acoustic feedback, including
+          the frequency at which feedback is occurring. They exist only in volatile memory
+          for the duration of the audio session and are neither stored nor transmitted.
         </p>
 
         <p>
@@ -95,7 +96,7 @@
         <h3>3.1 Advertising data</h3>
 
         <p>
-          Where you do not hold an active Premium subscription, the Application displays
+          Where you do not hold active Premium, the Application displays
           advertising supplied by Google AdMob. In that context Google may process your
           device's advertising identifier (IDFA), technical device information such as
           device model and operating system version, an approximate location inferred from
@@ -123,16 +124,17 @@
           your identity.
         </p>
 
-        <h3>3.2 Subscription and purchase data</h3>
+        <h3>3.2 Purchase and advertising attribution data</h3>
 
         <p>
-          Where you purchase a Premium subscription, payment is processed by Apple. We do
+          Where you purchase Premium, whether as a subscription or as a one-time purchase,
+          payment is processed by Apple. We do
           not receive or have access to your payment card details, billing address, or
           Apple Account credentials.
         </p>
 
         <p>
-          We use RevenueCat, Inc. to determine whether a subscription is active. RevenueCat
+          We use RevenueCat, Inc. to determine whether Premium is active. RevenueCat
           assigns your installation a randomly generated anonymous identifier and processes
           the associated transaction and entitlement status received from Apple.
         </p>
@@ -145,6 +147,33 @@
         <p>
           <strong>Legal basis:</strong> performance of a contract to which you are party,
           under Article 6(1)(b) GDPR.
+        </p>
+
+        <p>
+          Where the Application was installed after an advertisement shown on the App
+          Store through Apple Search Ads, Apple's AdServices framework makes an attribution
+          token available to the Application. The Application passes this token to
+          RevenueCat, which uses it to obtain from Apple the advertising campaign
+          information associated with the install, such as the campaign, ad group, and
+          search keyword, and associates that information with the anonymous identifier
+          described above. The token does not contain your advertising identifier or any
+          information that identifies you, and Apple does not require App Tracking
+          Transparency permission for it. Where the Application was not installed from
+          such an advertisement, no campaign information exists.
+        </p>
+
+        <p>
+          <strong>Purpose:</strong> measuring the effectiveness of our advertising on the
+          App Store, by relating installs and purchases to the advertisement that led to
+          them.
+        </p>
+
+        <p>
+          <strong>Legal basis:</strong> our legitimate interest in measuring the
+          effectiveness of our advertising, under Article 6(1)(f) GDPR. The information is
+          limited to campaign details, is not linked to your identity, and is not used to
+          build a profile of you or to show you advertising. You may object to this
+          processing as described in clause 9.
         </p>
 
         <h3>3.3 Consent records</h3>
@@ -165,9 +194,12 @@
 
         <p>
           Your selected voice character and its parameters, microphone sensitivity, output
-          level, echo reduction setting, screen-awake preference, haptics preference,
-          selected application icon, whether the introduction has been completed, and
-          whether a rating prompt has been shown are stored locally on your device.
+          level, bass and treble settings, echo reduction setting, selected microphone
+          design, screen-awake preference, haptics preference, selected application icon,
+          language preference, whether the introduction has been completed, whether a
+          voice's tuning panel has been opened, and, for deciding when to request an App
+          Store rating, how many sessions have been long enough to count and when a rating
+          was last requested are stored locally on your device.
         </p>
 
         <p>
@@ -185,7 +217,7 @@
           <li>contacts, photographs, calendar entries, or health data;</li>
           <li>precise geolocation data;</li>
           <li>
-            any advertising data at all where you hold an active Premium subscription, as
+            any advertising data at all where you hold active Premium, as
             the advertising software is not initialised in that case.
           </li>
         </ul>
@@ -214,12 +246,14 @@
             >
           </li>
           <li>
-            <strong>RevenueCat, Inc.</strong> — subscription entitlement verification.
+            <strong>RevenueCat, Inc.</strong> — Premium entitlement verification, and
+            attribution of installs to Apple Search Ads campaigns.
             <a href="https://www.revenuecat.com/privacy" rel="noopener">Privacy policy</a>
           </li>
           <li>
             <strong>Apple Inc. and Apple Distribution International Ltd.</strong> —
-            distribution of the Application and processing of payments.
+            distribution of the Application, processing of payments, and, where applicable,
+            Apple Search Ads attribution.
             <a href="https://www.apple.com/legal/privacy/" rel="noopener">Privacy policy</a>
           </li>
         </ul>
@@ -294,7 +328,7 @@
             association with any previously collected advertising data.
           </li>
           <li>
-            <strong>Premium subscription.</strong> While a subscription is active, the
+            <strong>Premium.</strong> While Premium is active, the
             advertising software is not initialised, no advertising request is made, and no
             identifier is shared.
           </li>
