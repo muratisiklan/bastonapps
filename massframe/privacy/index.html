@@ -21,7 +21,7 @@
 
       <main class="doc">
         <h1 class="doc-title">Privacy Policy</h1>
-        <p class="doc-date">MassFrame · Effective 6 October 2026</p>
+        <p class="doc-date">MassFrame · Effective 30 October 2026</p>
 
         <div class="summary">
           <p class="summary-head">The short version</p>
@@ -30,7 +30,8 @@
             <li>Apple Health is read and written only with your permission, and is never used for advertising or sold.</li>
             <li>Photographs leave only when you ask: a progress photo, with four body figures that may have come from Apple Health, to be read or drawn from; and a meal photo, to be read for what is in it. They go through a relay we run to OpenAI, only after you have agreed once to AI readings in the app, and you can turn that off at any time.</li>
             <li>If you buy MassFrame+, the purchase is made with Apple and checked by RevenueCat under an anonymous ID; we never see your name, email or card.</li>
-            <li>No analytics, no tracking, no advertising, no location.</li>
+            <li>If you installed MassFrame from an Apple Search Ads ad, RevenueCat learns which campaign it came from, under the same anonymous ID — never who you are.</li>
+            <li>No analytics SDKs, no tracking, no ads in the app, no location.</li>
           </ul>
         </div>
 
@@ -294,11 +295,27 @@
         </p>
 
         <p>
-          <strong>Purpose:</strong> selling and providing MassFrame+.
+          Where the Application was installed after an advertisement shown on the App
+          Store through Apple Search Ads, Apple's AdServices framework makes an attribution
+          token available to the Application. The Application passes this token to
+          RevenueCat, which uses it to obtain from Apple the advertising campaign
+          information associated with the install, such as the campaign, ad group and
+          search keyword, and associates that information with the random identifier
+          described above, so that we can see which of our advertisements bring people who
+          buy MassFrame+. The token does not contain your advertising identifier or any
+          information that identifies you, and Apple does not require App Tracking
+          Transparency permission for it. Where the Application was not installed from
+          such an advertisement, no campaign information exists.
+        </p>
+
+        <p>
+          <strong>Purpose:</strong> selling and providing MassFrame+, and measuring which
+          of our App Store advertisements work.
           <strong>Legal basis:</strong> performance of the contract you enter into when you
           buy it, under Article 6(1)(b) GDPR and Article 5(2)(c) KVKK, and our legitimate
           interest in keeping accurate records of sales, under Article 6(1)(f) GDPR and
-          Article 5(2)(f) KVKK.
+          Article 5(2)(f) KVKK, and in measuring the effectiveness of our advertising,
+          under the same provisions.
         </p>
 
         <h2>8. Reminders</h2>
@@ -320,15 +337,15 @@
           <li>your notebook, or any figure, note, plan or photograph in it, except the photographs and figures you ask to have read or drawn from, as described in clause 5;</li>
           <li>any data read from Apple Health, except the figures sent with a progress photograph as described in clauses 3 and 5;</li>
           <li>precise or approximate geolocation data;</li>
-          <li>device identifiers, advertising identifiers, or usage analytics of any kind — the random number sent with a meal, and the one RevenueCat uses, are made by software in the Application, not taken from your device.</li>
+          <li>device identifiers, advertising identifiers, or usage analytics of any kind — the random number sent with a meal, and the one RevenueCat uses, are made by software in the Application, not taken from your device; the Apple Search Ads campaign information in clause 7 says which advertisement led to an install, not what you do in the Application.</li>
         </ul>
 
         <p>
           We operate no analytics service, crash reporting service, advertising software,
           or social network software development kit, and we maintain no user accounts.
           The Application makes network requests of two kinds: the readings described in
-          clause 5, only when you ask; and the purchase checks with RevenueCat described in
-          clause 7.
+          clause 5, only when you ask; and the purchase checks and Apple Search Ads
+          attribution with RevenueCat described in clause 7.
         </p>
 
         <h2>10. Recipients, third parties and international transfers</h2>
@@ -354,13 +371,15 @@
           </li>
           <li>
             <strong>RevenueCat, Inc.</strong> — confirming and restoring MassFrame+
-            purchases, as described in clause 7, as our processor, in the United States.
+            purchases, and attributing installs to Apple Search Ads campaigns, as described
+            in clause 7, as our processor, in the United States.
             <a href="https://www.revenuecat.com/privacy/" rel="noopener">Privacy policy</a>
           </li>
           <li>
             <strong>Apple Inc. and Apple Distribution International Ltd.</strong> —
-            distribution of the Application, payment for MassFrame+, and Apple Health, as
-            independent controllers under their own policies.
+            distribution of the Application, payment for MassFrame+, Apple Health and, where
+            applicable, Apple Search Ads attribution, as independent controllers under their
+            own policies.
             <a href="https://www.apple.com/legal/privacy/" rel="noopener">Privacy policy</a>
           </li>
         </ul>
