@@ -13,7 +13,7 @@
     <link rel="icon" href="assets/bastonapps-icon-192.png" sizes="192x192" type="image/png" />
     <link rel="apple-touch-icon" href="assets/bastonapps-touch.png" />
     <link rel="stylesheet" href="assets/home.css" />
-    <meta name="theme-color" content="#f8f3ec" />
+    <meta name="theme-color" content="#f1efe9" />
     <meta property="og:title" content="Baston Apps" />
     <meta property="og:description" content="Small, single-purpose iPhone apps." />
     <meta property="og:type" content="website" />
@@ -24,16 +24,17 @@
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
-    <div class="page">
-      <div class="shaft" aria-hidden="true"></div>
+    <div class="page" id="top">
+      <div class="shaft" aria-hidden="true"><span class="shaft-fill"></span></div>
       <div class="ferrule" aria-hidden="true"></div>
 
       <header class="topline">
-        <span class="house">
+        <a class="house" href="#top">
           <svg class="house-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" /><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round" /></svg>
           Baston Apps
-        </span>
+        </a>
         <nav class="top-nav">
+          <a class="top-link" href="#apps">Apps</a>
           <a class="top-link" href="mailto:support@bastonapps.com">Support</a>
           <a class="giveaway-tag" href="giveaways/"><span class="giveaway-hole" aria-hidden="true"></span>Giveaways<span class="giveaway-sub">· free codes</span></a>
         </nav>
@@ -47,7 +48,7 @@
           </svg>
           <!-- A tag on the crook: the count hangs from the stick like the apps do. -->
           <div class="crook-tag" aria-hidden="true"><span>3 apps</span><span>so far</span></div>
-          <h1>Small apps that do one thing.</h1>
+          <h1 class="rise"><span style="--i: 0">Small</span> <span style="--i: 1">apps</span> <span style="--i: 2">that</span> <span style="--i: 3">do</span> <span style="--i: 4">one</span> <span style="--i: 5">thing.</span></h1>
           <p>
             Independently made for iPhone. No accounts, no dashboards, nothing that needs
             explaining twice.
@@ -56,24 +57,42 @@
 
         <p class="count">Three apps, so far.</p>
 
-        <ul class="tags">
+        <ul class="tags" id="apps">
 
           <li class="tag tag--massframe">
             <div>
               <div class="tag-head">
                 <img class="tag-icon" src="assets/massframe-icon.png" width="512" height="512" alt="" />
-                <h2><a href="massframe/">MassFrame</a></h2>
+                <div>
+                  <h2><a href="massframe/">MassFrame</a></h2>
+                  <p class="meta">Workouts · Meals · Progress photos</p>
+                </div>
               </div>
               <p class="tag-line">
                 Train, eat, and see it work — in one app. Log your workouts, track your
                 meals, and read your progress from a photo, in a hand-drawn notebook with no
                 account needed.
               </p>
-              <p class="status">Coming soon to the App Store.</p>
-              <a class="open" href="massframe/">Visit MassFrame</a>
+              <div class="actions">
+                <span class="pill">Coming soon to the App Store</span>
+                <a class="open" href="massframe/">Visit MassFrame <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
             </div>
-            <div class="phone">
-              <img src="assets/massframe-projection.webp" width="720" height="1564" alt="MassFrame's projection: today's photo beside a drawing of the body three months on" loading="lazy" />
+            <div class="showcase">
+              <div class="phone tilt" data-carousel>
+                <div class="shots">
+                  <img class="is-on" src="assets/massframe-projection.webp" width="720" height="1564" alt="MassFrame's projection: today's photo beside a drawing of the body three months on" loading="lazy" decoding="async" />
+                  <img src="assets/massframe-report.webp" width="720" height="1564" alt="A MassFrame progress report read from a photo" loading="lazy" decoding="async" />
+                  <img src="assets/massframe-meal.webp" width="720" height="1564" alt="A meal read by MassFrame, with its calories and protein" loading="lazy" decoding="async" />
+                  <img src="assets/massframe-compare.webp" width="720" height="1564" alt="Two MassFrame check-ins side by side, 84 days apart, with every measurement compared" loading="lazy" decoding="async" />
+                </div>
+              </div>
+              <div class="dots" role="group" aria-label="MassFrame screens">
+                <button class="dot" type="button" aria-pressed="true">Projection</button>
+                <button class="dot" type="button" aria-pressed="false">Report</button>
+                <button class="dot" type="button" aria-pressed="false">Meal</button>
+                <button class="dot" type="button" aria-pressed="false">Compared</button>
+              </div>
             </div>
           </li>
 
@@ -81,7 +100,10 @@
             <div>
               <div class="tag-head">
                 <img class="tag-icon" src="assets/speedometer-lite-icon.png" width="512" height="512" alt="" />
-                <h2><a href="speedometer-lite/">Speedometer Lite</a></h2>
+                <div>
+                  <h2><a href="speedometer-lite/">Speedometer Lite</a></h2>
+                  <p class="meta">Free · GPS speed · Works offline</p>
+                </div>
               </div>
               <p class="tag-line">
                 Your speed, read off the GPS and shown on a dial you pick. Record a drive
@@ -91,26 +113,49 @@
               <div class="try">
                 <p class="try-label" id="sl-themes">Fifteen themes. Try one:</p>
                 <div class="chips" role="group" aria-labelledby="sl-themes">
-                  <button class="chip" type="button" data-hue="#c7d0e0" aria-pressed="false">Pure Minimal</button>
-                  <button class="chip" type="button" data-hue="#22d3ee" aria-pressed="true">Cyberpunk</button>
-                  <button class="chip" type="button" data-hue="#ff7a2f" aria-pressed="false">Track Day</button>
-                  <button class="chip" type="button" data-hue="#f2b134" aria-pressed="false">Aviation</button>
-                  <button class="chip" type="button" data-hue="#ff4d4d" aria-pressed="false">Stealth</button>
-                  <button class="chip" type="button" data-hue="#3ddc84" aria-pressed="false">Eco Touring</button>
+                  <button class="chip" type="button" data-hue="#c7d0e0" data-spot="0,0" aria-pressed="false">Pure Minimal</button>
+                  <button class="chip" type="button" data-hue="#22d3ee" data-spot="1,0" aria-pressed="true">Cyberpunk</button>
+                  <button class="chip" type="button" data-hue="#ff7a2f" data-spot="0,1" aria-pressed="false">Track Day</button>
+                  <button class="chip" type="button" data-hue="#f2b134" data-spot="2,1" aria-pressed="false">Aviation</button>
+                  <button class="chip" type="button" data-hue="#ff4d4d" data-spot="0,2" aria-pressed="false">Stealth</button>
+                  <button class="chip" type="button" data-hue="#3ddc84" data-spot="2,2" aria-pressed="false">Eco Touring</button>
                 </div>
               </div>
-              <a class="open" href="speedometer-lite/">Visit Speedometer Lite</a>
+              <div class="actions">
+                <a class="badge" href="https://apps.apple.com/app/id6761606601">
+                  <img src="assets/app-store-badge.svg" alt="Download Speedometer Lite on the App Store" width="120" height="40" />
+                </a>
+                <a class="open" href="speedometer-lite/">Visit Speedometer Lite <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
               <a class="sticker" href="giveaways/">Free lifetime Pro code</a>
             </div>
-            <div class="phone">
-              <img src="assets/speedometer-lite-main.webp" width="720" height="1565" alt="Speedometer Lite showing a speed dial" loading="lazy" />
+            <div class="showcase">
+              <div class="phone tilt" data-views>
+                <div class="shots">
+                  <img class="is-on" data-view="dial" src="assets/speedometer-lite-main.webp" width="720" height="1565" alt="Speedometer Lite showing a speed dial" loading="lazy" decoding="async" />
+                  <img data-view="themes" src="assets/speedometer-lite-themes.webp" width="720" height="1565" alt="Speedometer Lite's theme picker, fifteen dials in a grid" loading="lazy" decoding="async" />
+                  <img data-view="hud" src="assets/speedometer-lite-hud.webp" width="720" height="1565" alt="Speedometer Lite's HUD mode, mirrored to reflect in a windscreen" loading="lazy" decoding="async" />
+                  <img data-view="trip" src="assets/speedometer-lite-trip.webp" width="720" height="1565" alt="A recorded trip on a map with its speed graph" loading="lazy" decoding="async" />
+                  <span class="spot" aria-hidden="true"></span>
+                </div>
+              </div>
+              <div class="dots" role="group" aria-label="Speedometer Lite screens">
+                <button class="dot" type="button" data-show="dial" aria-pressed="true">Dial</button>
+                <button class="dot" type="button" data-show="themes" aria-pressed="false">Themes</button>
+                <button class="dot" type="button" data-show="hud" aria-pressed="false">HUD</button>
+                <button class="dot" type="button" data-show="trip" aria-pressed="false">Trip</button>
+              </div>
             </div>
           </li>
-          <li class="tag tag--karaoke">
+
+          <li class="tag tag--karaoke" data-voice="megaphone">
             <div>
               <div class="tag-head">
                 <img class="tag-icon" src="assets/karaoke-mic-icon.png" width="512" height="512" alt="" />
-                <h2><a href="karaoke-mic/">Karaoke Mic</a></h2>
+                <div>
+                  <h2><a href="karaoke-mic/">Karaoke Mic</a></h2>
+                  <p class="meta">Free · Bluetooth · Nothing recorded</p>
+                </div>
               </div>
               <p class="tag-line">
                 Your phone becomes the microphone. Tap the button and your voice comes out
@@ -120,37 +165,62 @@
               <div class="try">
                 <p class="try-label" id="km-voices">Eleven voices. Try one:</p>
                 <div class="chips" role="group" aria-labelledby="km-voices">
-                  <button class="chip" type="button" data-hue="#b9aa98" aria-pressed="false">Plain</button>
-                  <button class="chip" type="button" data-hue="#e6b325" aria-pressed="false">Chipmunk</button>
-                  <button class="chip" type="button" data-hue="#e8502e" aria-pressed="true">Megaphone</button>
-                  <button class="chip" type="button" data-hue="#4fb3cf" aria-pressed="false">Robot</button>
-                  <button class="chip" type="button" data-hue="#9a8cf0" aria-pressed="false">Alien</button>
-                  <button class="chip" type="button" data-hue="#4fa596" aria-pressed="false">Cave</button>
+                  <button class="chip" type="button" data-hue="#b9aa98" data-voice="plain" aria-pressed="false">Plain</button>
+                  <button class="chip" type="button" data-hue="#e6b325" data-voice="chipmunk" aria-pressed="false">Chipmunk</button>
+                  <button class="chip" type="button" data-hue="#e8502e" data-voice="megaphone" aria-pressed="true">Megaphone</button>
+                  <button class="chip" type="button" data-hue="#4fb3cf" data-voice="robot" aria-pressed="false">Robot</button>
+                  <button class="chip" type="button" data-hue="#9a8cf0" data-voice="alien" aria-pressed="false">Alien</button>
+                  <button class="chip" type="button" data-hue="#4fa596" data-voice="cave" aria-pressed="false">Cave</button>
                 </div>
               </div>
-              <a class="open" href="karaoke-mic/">Visit Karaoke Mic</a>
+              <div class="actions">
+                <a class="badge" href="https://apps.apple.com/app/id6796284317">
+                  <img src="assets/app-store-badge.svg" alt="Download Karaoke Mic on the App Store" width="120" height="40" />
+                </a>
+                <a class="open" href="karaoke-mic/">Visit Karaoke Mic <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
               <a class="sticker" href="giveaways/">Free lifetime Premium code</a>
             </div>
-            <div class="stage" aria-hidden="true">
-              <img src="assets/karaoke-mic-icon.png" width="512" height="512" alt="" />
+            <div class="showcase">
+              <!-- The stage: the icon, with the chosen voice leaving it as rings and a meter. -->
+              <div class="stage tilt" aria-hidden="true">
+                <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+                <img src="assets/karaoke-mic-icon.png" width="512" height="512" alt="" />
+                <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
+              </div>
             </div>
           </li>
         </ul>
 
+        <p class="sr-only" aria-live="polite" id="announce"></p>
+
+        <dialog class="zoom" aria-label="Enlarged screen">
+          <button class="zoom-close" type="button" aria-label="Close">×</button>
+          <span class="zoom-frame"><img alt="" /></span>
+        </dialog>
+
         <section class="creed">
           <h2 class="creed-title">What small means here</h2>
-          <div>
+          <div class="creed-item" style="--i: 0">
+            <svg class="creed-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" /><path d="M13 12 L17 9 L17 23" /></svg>
             <h3>One job</h3>
             <p>If it needs a tutorial, it's the wrong app. Each one does a single thing and then gets out of the way.</p>
           </div>
-          <div>
+          <div class="creed-item" style="--i: 1">
+            <svg class="creed-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="14" width="18" height="13" rx="3" /><path d="M11 14 V10 A5 5 0 0 1 21 9" /></svg>
             <h3>Nothing to sign in to</h3>
             <p>No account, no profile, no password to forget. Open the app and it works.</p>
           </div>
-          <div>
+          <div class="creed-item" style="--i: 2">
+            <svg class="creed-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" /><path d="M19.5 11.5 C18 10 13 10 13 13.2 C13 16.4 19.5 15.2 19.5 18.6 C19.5 22 14 22 12.5 20.5 M16 8 V10.5 M16 21.8 V24" /></svg>
             <h3>Plain about money</h3>
             <p>Free where it can be. Where there's a subscription, you're told exactly what it unlocks, and what it costs, before you pay.</p>
           </div>
+        </section>
+
+        <section class="write-in">
+          <p>Questions, ideas, a bug you found? Every email is read by the person who made the app.</p>
+          <a class="giveaway-tag write-tag" href="mailto:support@bastonapps.com"><span class="giveaway-hole" aria-hidden="true"></span>Write to us</a>
         </section>
       </main>
 
@@ -165,33 +235,249 @@
     </div>
 
     <script>
-      // Tags swing in on their strings as they come into view, and the cane
-      // taps the ground when the foot arrives. Classes only; the CSS decides
-      // whether anything moves (it doesn't under reduced motion).
       (function () {
-        if (!('IntersectionObserver' in window)) return;
-        document.documentElement.classList.add('js');
-        var seen = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('in');
-            seen.unobserve(entry.target);
-          });
-        }, { threshold: 0.25 });
-        document.querySelectorAll('.tag, .foot').forEach(function (el) { seen.observe(el); });
-      })();
+        var root = document.documentElement;
+        var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        var announce = document.getElementById('announce');
+        function say(text) { announce.textContent = text; }
 
-      // A chip retints only its own tag, so each app keeps its own colours.
-      document.querySelectorAll('.tag').forEach(function (tag) {
-        tag.addEventListener('click', function (event) {
-          var chip = event.target.closest('.chip');
-          if (!chip) return;
-          tag.querySelectorAll('.chip').forEach(function (c) {
-            c.setAttribute('aria-pressed', String(c === chip));
+        // Tags swing in on their strings as they come into view, and the cane
+        // taps the ground when the foot arrives. Classes only; the CSS decides
+        // whether anything moves (it doesn't under reduced motion).
+        if ('IntersectionObserver' in window) {
+          root.classList.add('js');
+          var seen = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              var el = entry.target;
+              el.classList.add('in');
+              seen.unobserve(el);
+              // The swing lasts 1.6s. After it the tag is settled: the CSS
+              // drops the entrance, so hovering off can't replay it.
+              if (el.classList.contains('tag')) setTimeout(function () { el.classList.add('settled'); }, 1700);
+            });
+          }, { threshold: 0.25 });
+          document.querySelectorAll('.tag, .foot, .creed').forEach(function (el) { seen.observe(el); });
+          // The top line settles into a bar once the masthead has gone by.
+          var topline = document.querySelector('.topline');
+          new IntersectionObserver(function (entries) {
+            topline.classList.toggle('stuck', !entries[0].isIntersecting);
+          }, { rootMargin: '-80px 0px 0px 0px' }).observe(document.querySelector('.masthead h1'));
+        }
+
+        // One stack of screens per phone: show(name or index) crossfades to it.
+        function stack(phone) {
+          var shots = Array.prototype.slice.call(phone.querySelectorAll('.shots img'));
+          return {
+            shots: shots,
+            show: function (n) {
+              shots.forEach(function (img, i) {
+                var on = typeof n === 'number' ? i === n : img.dataset.view === n;
+                img.classList.toggle('is-on', on);
+                if (on) img.loading = 'eager';
+              });
+            }
+          };
+        }
+
+        function press(group, button) {
+          group.querySelectorAll('button').forEach(function (b) {
+            b.setAttribute('aria-pressed', String(b === button));
           });
-          tag.style.setProperty('--tint', chip.dataset.hue);
+        }
+
+        // MassFrame: a slow slideshow that waits while you look, and can be swiped.
+        document.querySelectorAll('[data-carousel]').forEach(function (phone) {
+          var s = stack(phone);
+          var dots = phone.parentNode.querySelector('.dots');
+          var buttons = Array.prototype.slice.call(dots.querySelectorAll('button'));
+          var at = 0, held = false, visible = false;
+
+          function go(i, spoken) {
+            at = (i + s.shots.length) % s.shots.length;
+            s.show(at);
+            press(dots, buttons[at]);
+            if (spoken) say(s.shots[at].alt);
+          }
+
+          buttons.forEach(function (b, i) { b.addEventListener('click', function () { go(i, true); }); });
+          phone.parentNode.addEventListener('pointerenter', function () { held = true; });
+          phone.parentNode.addEventListener('pointerleave', function () { held = false; });
+          phone.parentNode.addEventListener('focusin', function () { held = true; });
+          phone.parentNode.addEventListener('focusout', function () { held = false; });
+
+          var x0 = null;
+          phone.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+          phone.addEventListener('pointerup', function (e) {
+            if (x0 === null) return;
+            var dx = e.clientX - x0;
+            x0 = null;
+            if (Math.abs(dx) > 40) go(at + (dx < 0 ? 1 : -1), true);
+          });
+
+          if (still || !('IntersectionObserver' in window)) return;
+          new IntersectionObserver(function (entries) {
+            visible = entries[0].isIntersecting;
+            // Fetch the whole set once it's in view, so no slide fades in blank.
+            if (visible) s.shots.forEach(function (img) { img.loading = 'eager'; });
+          }, { threshold: 0.4 }).observe(phone);
+          setInterval(function () {
+            if (visible && !held && !document.hidden) go(at + 1, false);
+          }, 4200);
         });
-      });
+
+        // Speedometer Lite: a row of screens, and a theme chip opens the theme
+        // picker with the chosen dial circled.
+        document.querySelectorAll('[data-views]').forEach(function (phone) {
+          var s = stack(phone);
+          var tag = phone.closest('.tag');
+          var dots = phone.parentNode.querySelector('.dots');
+          var spot = phone.querySelector('.spot');
+
+          function view(name) {
+            s.show(name);
+            press(dots, dots.querySelector('[data-show="' + name + '"]'));
+            phone.classList.toggle('picking', name === 'themes');
+          }
+
+          dots.addEventListener('click', function (e) {
+            var b = e.target.closest('button');
+            if (!b) return;
+            view(b.dataset.show);
+            say(phone.querySelector('[data-view="' + b.dataset.show + '"]').alt);
+          });
+
+          tag.querySelector('.chips').addEventListener('click', function (e) {
+            var chip = e.target.closest('.chip');
+            if (!chip) return;
+            var xy = chip.dataset.spot.split(',');
+            spot.style.setProperty('--col', xy[0]);
+            spot.style.setProperty('--row', xy[1]);
+            view('themes');
+            spot.classList.remove('ping');
+            void spot.offsetWidth;
+            spot.classList.add('ping');
+            say(chip.textContent + ' theme, shown in the theme picker');
+          });
+        });
+
+        // A chip retints only its own tag, so each app keeps its own colours;
+        // on Karaoke Mic it also changes how the voice leaves the stage.
+        document.querySelectorAll('.tag').forEach(function (tag) {
+          tag.addEventListener('click', function (event) {
+            var chip = event.target.closest('.chip');
+            if (!chip) return;
+            press(chip.parentNode, chip);
+            tag.style.setProperty('--tint', chip.dataset.hue);
+            if (chip.dataset.voice) tag.dataset.voice = chip.dataset.voice;
+          });
+        });
+
+        // Tap a phone to read its screen at close to full size. A swipe on
+        // MassFrame's slideshow is a swipe, not a tap.
+        var zoom = document.querySelector('.zoom');
+        if (zoom && zoom.showModal) {
+          var zoomImg = zoom.querySelector('img');
+          document.querySelectorAll('.phone').forEach(function (phone) {
+            var x0 = null, moved = false;
+            phone.setAttribute('role', 'button');
+            phone.setAttribute('tabindex', '0');
+            phone.setAttribute('aria-label', 'Enlarge this screen');
+            phone.addEventListener('pointerdown', function (e) { x0 = e.clientX; moved = false; });
+            phone.addEventListener('pointerup', function (e) { moved = x0 !== null && Math.abs(e.clientX - x0) > 10; });
+            function open() {
+              var shot = phone.querySelector('.shots img.is-on');
+              zoomImg.src = shot.currentSrc || shot.src;
+              zoomImg.alt = shot.alt;
+              zoom.dataset.metal = phone.closest('.tag--massframe') ? 'natural' : 'black';
+              zoom.showModal();
+            }
+            phone.addEventListener('click', function () { if (!moved) open(); });
+            phone.addEventListener('keydown', function (e) {
+              if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+            });
+          });
+          // Anywhere on the dialog closes it: the screen, the dark, or the ×.
+          zoom.addEventListener('click', function () { zoom.close(); });
+        }
+
+        if (still) return;
+
+        // The phones lean toward the pointer.
+        if (fine) {
+          document.querySelectorAll('.tilt').forEach(function (el) {
+            el.addEventListener('pointermove', function (e) {
+              var r = el.getBoundingClientRect();
+              var x = (e.clientX - r.left) / r.width - 0.5;
+              var y = (e.clientY - r.top) / r.height - 0.5;
+              el.style.setProperty('--ry', (x * 12).toFixed(2) + 'deg');
+              el.style.setProperty('--rx', (-y * 12).toFixed(2) + 'deg');
+            });
+            el.addEventListener('pointerleave', function () {
+              el.style.setProperty('--ry', '0deg');
+              el.style.setProperty('--rx', '0deg');
+            });
+          });
+        }
+
+        // One frame loop for everything tied to scroll: brass climbs down the
+        // shaft to wherever the middle of the screen is, and each phone drifts
+        // a little against the page.
+        var page = document.querySelector('.page');
+        var shaft = document.querySelector('.shaft');
+        var fill = shaft.querySelector('.shaft-fill');
+        var drifters = Array.prototype.slice.call(document.querySelectorAll('.showcase'));
+        var queued = false;
+
+        // Measured from layout boxes (offsetTop), which the drift itself
+        // doesn't move, and only on resize; each frame then needs just scrollY.
+        var shaftTop, shaftLen, centres;
+        function measure() {
+          var y = window.scrollY;
+          shaftTop = page.getBoundingClientRect().top + y + shaft.offsetTop;
+          shaftLen = shaft.offsetHeight;
+          centres = drifters.map(function (el) {
+            var top = 0, n = el;
+            while (n) { top += n.offsetTop; n = n.offsetParent; }
+            return top + el.offsetHeight / 2;
+          });
+        }
+
+        // All reads first, then writes; and each value goes only on the
+        // element that uses it, so a scroll restyles three boxes, not the page.
+        function frame() {
+          queued = false;
+          var y = window.scrollY, vh = window.innerHeight;
+          var p = Math.max(0, Math.min(1, (y + vh * 0.5 - shaftTop) / shaftLen));
+          fill.style.transform = 'scaleY(' + p.toFixed(4) + ')';
+          if (narrow.matches) return;
+          drifters.forEach(function (el, i) {
+            var v = Math.max(-1, Math.min(1, (centres[i] - y - vh / 2) / vh));
+            el.style.transform = 'translate3d(0,' + (v * -30).toFixed(1) + 'px,0)';
+          });
+        }
+
+        function queue() {
+          if (queued) return;
+          queued = true;
+          requestAnimationFrame(frame);
+        }
+
+        root.classList.add('live');
+        window.addEventListener('scroll', queue, { passive: true });
+        // No drift on small screens: the phones sit still there.
+        var narrow = window.matchMedia('(max-width: 860px)');
+        function remeasure() {
+          if (narrow.matches) drifters.forEach(function (el) { el.style.transform = ''; });
+          measure();
+          queue();
+        }
+        window.addEventListener('resize', remeasure);
+        window.addEventListener('load', remeasure);
+        measure();
+        frame();
+      })();
     </script>
   </body>
 </html>
