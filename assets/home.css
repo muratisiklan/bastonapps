@@ -63,7 +63,7 @@ a {
 
 .page {
   position: relative;
-  max-width: 1180px;
+  max-width: 78rem;
   margin: 0 auto;
   padding: 0 32px 0 calc(var(--spine-x) + 56px);
 }
@@ -309,24 +309,6 @@ a {
   border-radius: 28px;
 }
 
-/* Karaoke Mic has no screenshot here; its stage is the icon, lit by the voice. */
-.stage {
-  width: 236px;
-  height: 236px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle, color-mix(in srgb, var(--tint) 38%, transparent) 0%, transparent 68%);
-  transition: background 0.35s;
-}
-
-.stage img {
-  width: 148px;
-  height: 148px;
-  border-radius: 34px;
-  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.6);
-}
-
 /* Each app's own world. */
 .tag--karaoke {
   --tag-bg: #1e1814;
@@ -525,18 +507,12 @@ a {
     border-radius: 12px;
   }
 
-  .phone,
-  .stage {
+  .phone {
     justify-self: center;
   }
 
   .phone {
     width: 200px;
-  }
-
-  .stage {
-    width: 200px;
-    height: 200px;
   }
 
   .creed {
@@ -1068,11 +1044,6 @@ html {
   border-radius: 0;
 }
 
-.stage {
-  width: 280px;
-  height: 280px;
-}
-
 @media (min-width: 861px) and (max-width: 1080px) {
   .phone {
     --w: 276px;
@@ -1246,18 +1217,7 @@ html {
   color: #fff;
 }
 
-/* ---- Karaoke Mic's stage: the voice leaves the icon as rings ---- */
-
-.stage {
-  position: relative;
-  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-  transition: background 0.35s, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-
-.stage img {
-  position: relative;
-  z-index: 1;
-}
+/* ---- Karaoke Mic: the voice leaves the phone as rings ---- */
 
 .ring {
   position: absolute;
@@ -1487,8 +1447,7 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .shots img,
   .spot,
-  .phone,
-  .stage {
+  .phone {
     transition: none;
   }
 }
@@ -1514,11 +1473,6 @@ html {
     --w: 272px;
   }
 
-  .stage {
-    width: 240px;
-    height: 240px;
-  }
-
   .zoom-frame {
     --h: min(80vh, calc(86vw / 0.46));
   }
@@ -1534,5 +1488,72 @@ html {
 
   .write-in p {
     font-size: 18px;
+  }
+}
+
+/* ---- Karaoke Mic's phone, in the voice's rings ---- */
+
+.km-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  /* The phone's own width at each size. A fixed width here, not a share: on
+     wide screens the showcase column is sized by its content, so a percentage
+     has nothing to resolve against and the stage collapses. */
+  width: 312px;
+}
+
+.km-stage::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  width: 150%;
+  aspect-ratio: 1;
+  left: -25%;
+  top: 50%;
+  translate: 0 -50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--tint) 34%, transparent) 0%, transparent 62%);
+  transition: background 0.35s;
+}
+
+/* Each ring a share of the stage, centred on the phone's upper half. */
+.km-stage .ring {
+  z-index: -1;
+  inset: auto;
+  left: 2%;
+  top: 46%;
+  width: 96%;
+  height: auto;
+  aspect-ratio: 1;
+  margin-top: -48%;
+}
+
+.km-stage .phone {
+  position: relative;
+  z-index: 1;
+}
+
+.km-stage .shots img {
+  object-position: top;
+  background: #ece7e0;
+}
+
+/* The rings stay inside the card. */
+.tag--karaoke {
+  overflow: clip;
+}
+
+@media (min-width: 861px) and (max-width: 1080px) {
+  .km-stage {
+    width: 276px;
+  }
+}
+
+/* One column on phones, so the share resolves, and the tag can be narrower
+   than the phone's 272px. */
+@media (max-width: 860px) {
+  .km-stage {
+    width: min(100%, 272px);
   }
 }

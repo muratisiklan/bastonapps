@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-app="speedometer-lite">
+<html style="--accent: #22d3ee" lang="en" data-app="speedometer-lite">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,261 +22,188 @@
       property="og:image"
       content="https://bastonapps.com/assets/speedometer-lite-icon.png"
     />
+    <link rel="stylesheet" href="../assets/shell.css" />
   </head>
   <body>
-    <div class="shell">
-      <div class="topline">
-        <a class="topline-mark" href="../"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a>
-        <span class="topline-here">Speedometer Lite</span>
-      </div>
-
-      <main>
-        <section class="hero">
+    <div class="apphero" data-world="night">
+      <div class="wrap">
+      <header class="sitebar">
+        <a class="brand" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a>
+        <nav aria-label="Site">
+          <a href="../karaoke-mic/">Karaoke Mic</a> <a href="../speedometer-lite/" aria-current="page">Speedometer Lite</a> <a href="../massframe/">MassFrame</a>
+          <span class="sep" aria-hidden="true"></span>
+          <a href="mailto:support@speedometerlite.app">Support</a>
+          <a class="gift" href="../giveaways/">Giveaways</a>
+        </nav>
+      </header>
+        <section class="apphero-grid">
           <div>
-            <img
-              class="app-mark rise"
-              src="../assets/speedometer-lite-icon.png"
-              alt="The Speedometer Lite app icon"
-              width="52"
-              height="52"
-            />
-            <p class="eyebrow rise">iPhone · GPS · works offline</p>
-            <h1 class="hero-title rise rise-2">A dial worth looking at.</h1>
-            <p class="lede rise rise-3">
-              Your speed, read straight off the iPhone's GPS and shown on a face you
-              pick — fifteen of them, from a hairline arc to a full instrument cluster.
-              Record a drive and get the route, the distance and your average and top
-              speed back on a map.
+            <img class="app-icon" src="../assets/speedometer-lite-icon.png" alt="The Speedometer Lite app icon" width="64" height="64" />
+            <h1>A dial worth looking at.</h1>
+            <p class="lede">
+              Your speed, read straight off the iPhone's GPS and shown on a face you pick — fifteen of
+              them, from a hairline arc to a full instrument cluster. Record a drive and get the route,
+              the distance and your average and top speed back on a map.
             </p>
-
-            <div class="swatches">
-              <p class="swatches-label" id="themes-label">
-                Fifteen themes — Pure Minimal is free
-              </p>
-              <!-- Six of the fifteen, chosen for colour spread and sized to fit one
-                   line. Each hue is that theme's identity darkened to paper: the app
-                   is dark-first, so its raw accents (Cyberpunk ships #22d3ee at
-                   1.64:1 here) would vanish on this background. Opens on Cyberpunk
-                   because cyan is the app's brand colour — see brand.ts, which
-                   art-directs onboarding and the paywall to it whatever theme is
-                   set — not a claim about what's free. The label says that. -->
-              <div class="swatch-list" role="group" aria-labelledby="themes-label">
-                <button class="swatch" type="button" data-hue="#6E645B" aria-pressed="false">Pure Minimal</button>
-                <button class="swatch" type="button" data-hue="#0891b2" aria-pressed="true">Cyberpunk</button>
-                <button class="swatch" type="button" data-hue="#d0500f" aria-pressed="false">Track Day</button>
-                <button class="swatch" type="button" data-hue="#b07408" aria-pressed="false">Aviation</button>
-                <button class="swatch" type="button" data-hue="#c02b2b" aria-pressed="false">Stealth</button>
-                <button class="swatch" type="button" data-hue="#1a8c46" aria-pressed="false">Eco Touring</button>
-              </div>
+            <p class="hint" id="tints-label">Fifteen themes, Pure Minimal is free. Tap one to light the dial.</p>
+            <div class="chips" id="tints" role="group" aria-labelledby="tints-label">
+                <button class="chip" type="button" data-hue="#c7d0e0" aria-pressed="false">Pure Minimal</button>
+                <button class="chip" type="button" data-hue="#22d3ee" aria-pressed="true">Cyberpunk</button>
+                <button class="chip" type="button" data-hue="#ff7a2f" aria-pressed="false">Track Day</button>
+                <button class="chip" type="button" data-hue="#f2b134" aria-pressed="false">Aviation</button>
+                <button class="chip" type="button" data-hue="#ff4d4d" aria-pressed="false">Stealth</button>
+                <button class="chip" type="button" data-hue="#3ddc84" aria-pressed="false">Eco Touring</button>
             </div>
-
             <div class="cta-row">
-              <a class="badge" href="https://apps.apple.com/app/id6761606601">
-                <img
-                  src="../assets/app-store-badge.svg"
-                  alt="Download on the App Store"
-                  width="120"
-                  height="40"
-                />
-              </a>
-              <span class="caption">
-                Free to use · Pro unlocks the other fourteen themes and unlimited trips
-              </span>
+              <a class="badge" href="https://apps.apple.com/app/id6761606601"><img src="../assets/app-store-badge.svg" alt="Download Speedometer Lite on the App Store" width="120" height="40" /></a>
+              <span class="caption">Free to use. Pro unlocks the other fourteen themes and unlimited trips.</span>
             </div>
           </div>
-
-          <div class="hero-stage hero-stage-tall">
-            <img
-              class="phone-screen hero-screen"
-              src="../assets/speedometer-lite-main.webp"
-              width="720"
-              height="1565"
-              alt="The main screen: a large speed readout in km/h, peak G-force, a duration and stopped timer, a speed limit control, and a Start Trip button."
-            />
+          <div class="visual">
+            <div class="dash">
+              <svg class="dial" viewBox="-200 -200 400 400" aria-hidden="true">
+                <path class="arc" d="M -170 60 A 180 180 0 1 1 170 60" />
+                <line class="tick major" x1="-129.9" y1="75.0" x2="-157.6" y2="91.0" />
+                <line class="tick" x1="-148.0" y1="65.9" x2="-164.4" y2="73.2" />
+                <line class="tick" x1="-154.1" y1="50.1" x2="-171.2" y2="55.6" />
+                <line class="tick" x1="-158.5" y1="33.7" x2="-176.1" y2="37.4" />
+                <line class="tick" x1="-161.1" y1="16.9" x2="-179.0" y2="18.8" />
+                <line class="tick major" x1="-150.0" y1="-0.0" x2="-182.0" y2="-0.0" />
+                <line class="tick" x1="-161.1" y1="-16.9" x2="-179.0" y2="-18.8" />
+                <line class="tick" x1="-158.5" y1="-33.7" x2="-176.1" y2="-37.4" />
+                <line class="tick" x1="-154.1" y1="-50.1" x2="-171.2" y2="-55.6" />
+                <line class="tick" x1="-148.0" y1="-65.9" x2="-164.4" y2="-73.2" />
+                <line class="tick major" x1="-129.9" y1="-75.0" x2="-157.6" y2="-91.0" />
+                <line class="tick" x1="-131.1" y1="-95.2" x2="-145.6" y2="-105.8" />
+                <line class="tick" x1="-120.4" y1="-108.4" x2="-133.8" y2="-120.4" />
+                <line class="tick" x1="-108.4" y1="-120.4" x2="-120.4" y2="-133.8" />
+                <line class="tick" x1="-95.2" y1="-131.1" x2="-105.8" y2="-145.6" />
+                <line class="tick major" x1="-75.0" y1="-129.9" x2="-91.0" y2="-157.6" />
+                <line class="tick" x1="-65.9" y1="-148.0" x2="-73.2" y2="-164.4" />
+                <line class="tick" x1="-50.1" y1="-154.1" x2="-55.6" y2="-171.2" />
+                <line class="tick" x1="-33.7" y1="-158.5" x2="-37.4" y2="-176.1" />
+                <line class="tick" x1="-16.9" y1="-161.1" x2="-18.8" y2="-179.0" />
+                <line class="tick major" x1="0.0" y1="-150.0" x2="0.0" y2="-182.0" />
+                <line class="tick" x1="16.9" y1="-161.1" x2="18.8" y2="-179.0" />
+                <line class="tick" x1="33.7" y1="-158.5" x2="37.4" y2="-176.1" />
+                <line class="tick" x1="50.1" y1="-154.1" x2="55.6" y2="-171.2" />
+                <line class="tick" x1="65.9" y1="-148.0" x2="73.2" y2="-164.4" />
+                <line class="tick major" x1="75.0" y1="-129.9" x2="91.0" y2="-157.6" />
+                <line class="tick" x1="95.2" y1="-131.1" x2="105.8" y2="-145.6" />
+                <line class="tick" x1="108.4" y1="-120.4" x2="120.4" y2="-133.8" />
+                <line class="tick" x1="120.4" y1="-108.4" x2="133.8" y2="-120.4" />
+                <line class="tick" x1="131.1" y1="-95.2" x2="145.6" y2="-105.8" />
+                <line class="tick major" x1="129.9" y1="-75.0" x2="157.6" y2="-91.0" />
+                <line class="tick" x1="148.0" y1="-65.9" x2="164.4" y2="-73.2" />
+                <line class="tick" x1="154.1" y1="-50.1" x2="171.2" y2="-55.6" />
+                <line class="tick" x1="158.5" y1="-33.7" x2="176.1" y2="-37.4" />
+                <line class="tick" x1="161.1" y1="-16.9" x2="179.0" y2="-18.8" />
+                <line class="tick major" x1="150.0" y1="-0.0" x2="182.0" y2="-0.0" />
+                <line class="tick" x1="161.1" y1="16.9" x2="179.0" y2="18.8" />
+                <line class="tick" x1="158.5" y1="33.7" x2="176.1" y2="37.4" />
+                <line class="tick" x1="154.1" y1="50.1" x2="171.2" y2="55.6" />
+                <line class="tick" x1="148.0" y1="65.9" x2="164.4" y2="73.2" />
+                <line class="tick major" x1="129.9" y1="75.0" x2="157.6" y2="91.0" />
+              </svg>
+              <div class="device"><div class="glass"><img src="../assets/speedometer-lite-main.webp" width="720" height="1565" alt="The main screen: a large speed readout in km/h, peak G-force, trip timers, a speed limit control and a Start Trip button" fetchpriority="high" /></div></div>
+            </div>
           </div>
         </section>
+      </div>
+    </div>
 
-        <hr class="rule" />
-
-        <section class="band">
-          <h2 class="section-title">Three things, in order</h2>
-          <ol class="steps">
-            <li>
-              <span class="step-num">01</span>
-              <h3 class="step-name">Allow location</h3>
-              <p class="step-text">
-                Asked once. The speed comes from GPS, so without it there is nothing to
-                put on the dial. While you're just watching the speed it only needs
-                location while the app is open — recording a trip is what asks to keep
-                reading in the background, and only for as long as the trip runs.
-              </p>
-            </li>
-            <li>
-              <span class="step-num">02</span>
-              <h3 class="step-name">Drive, or walk, or cycle</h3>
-              <p class="step-text">
-                The dial reads live, with altitude, heading and G-force beside it if you
-                want them. No connection required — GPS works with the phone offline.
-                Accuracy follows the sky: open road is best, tunnels and city canyons
-                are worst.
-              </p>
-            </li>
-            <li>
-              <span class="step-num">03</span>
-              <h3 class="step-name">Record the drive, if you want it</h3>
-              <p class="step-text">
-                Start a trip and it keeps the route, the distance, the duration and your
-                average and top speed. Afterwards you get it back on a map. It's stored
-                on the phone, and it stays there.
-              </p>
-            </li>
+    <div class="wrap">
+      <main>
+        <section class="sec">
+          <h2 class="sec-title">Three things, in order</h2>
+          <ol class="flow">
+            <li><h3>Allow location</h3><p>Asked once. The speed comes from GPS, so without it there is nothing to put on the dial. While you're just watching the speed it only needs location while the app is open — recording a trip is what asks to keep reading in the background, and only for as long as the trip runs.</p></li>
+            <li><h3>Drive, or walk, or cycle</h3><p>The dial reads live, with altitude, heading and G-force beside it if you want them. No connection required — GPS works with the phone offline. Accuracy follows the sky: open road is best, tunnels and city canyons are worst.</p></li>
+            <li><h3>Record the drive, if you want it</h3><p>Start a trip and it keeps the route, the distance, the duration and your average and top speed. Afterwards you get it back on a map. It's stored on the phone, and it stays there.</p></li>
           </ol>
         </section>
 
-        <hr class="rule" />
-
-        <section class="band">
-          <h2 class="section-title">What it actually looks like</h2>
-          <ul class="phones">
-            <li class="phone">
-              <img
-                class="phone-screen"
-                src="../assets/speedometer-lite-themes.webp"
-                width="720"
-                height="1565"
-                loading="lazy"
-                decoding="async"
-                alt="The theme picker, a grid of dial faces including Pure Minimal, Cyberpunk, Retro Arcade, Track Day, Chronograph, Aviation, Stealth, Vintage Classic, Eco Touring, Digital Sport, Synthwave and Liquid Core."
-              />
-              <p class="phone-caption">
-                <b>Fifteen faces</b>
-                The same speed, drawn fifteen ways. Each one brings its own app icon
-                with it.
-              </p>
-            </li>
-            <li class="phone">
-              <img
-                class="phone-screen"
-                src="../assets/speedometer-lite-trip.webp"
-                width="720"
-                height="1565"
-                loading="lazy"
-                decoding="async"
-                alt="A recorded trip: the route drawn on a map, start and end points, distance, maximum altitude, average and maximum speed, and a speed-over-time graph."
-              />
-              <p class="phone-caption">
-                <b>The drive, afterwards</b>
-                Route on a map, distance, average and top speed, and the whole run as a
-                graph.
-              </p>
-            </li>
-            <li class="phone">
-              <img
-                class="phone-screen"
-                src="../assets/speedometer-lite-hud.webp"
-                width="720"
-                height="1565"
-                loading="lazy"
-                decoding="async"
-                alt="HUD mirror mode: the speed readout drawn upside down and mirrored, so it reads the right way round when reflected in the windscreen."
-              />
-              <p class="phone-caption">
-                <b>Mirror mode</b>
-                Drawn upside down and back to front on purpose — it reads correctly in
-                the windscreen.
-              </p>
-            </li>
+        <section class="sec">
+          <h2 class="sec-title">What it actually looks like</h2>
+          <ul class="gallery">
+            <li><div class="device"><div class="glass"><img src="../assets/speedometer-lite-themes.webp" width="720" height="1565" alt="The theme picker, a grid of dial faces including Pure Minimal, Cyberpunk, Retro Arcade, Track Day, Chronograph, Aviation, Stealth, Vintage Classic, Eco Touring, Digital Sport, Synthwave and Liquid Core." loading="lazy" decoding="async" /></div></div><p><b>Fifteen faces</b>The same speed, drawn fifteen ways. Each one brings its own app icon with it.</p></li>
+            <li><div class="device"><div class="glass"><img src="../assets/speedometer-lite-trip.webp" width="720" height="1565" alt="A recorded trip: the route on a map, start and end points, distance, maximum altitude, average and maximum speed, and a speed-over-time graph." loading="lazy" decoding="async" /></div></div><p><b>The drive, afterwards</b>Route on a map, distance, average and top speed, and the whole run as a graph.</p></li>
+            <li><div class="device"><div class="glass"><img src="../assets/speedometer-lite-hud.webp" width="720" height="1565" alt="HUD mirror mode: the speed readout drawn upside down and mirrored, so it reads the right way round when reflected in the windscreen." loading="lazy" decoding="async" /></div></div><p><b>Mirror mode</b>Drawn upside down and back to front on purpose — it reads correctly in the windscreen.</p></li>
           </ul>
         </section>
 
-        <hr class="rule" />
-
-        <section class="band">
-          <h2 class="section-title">What it is, and what it isn't</h2>
-          <div class="facts">
+        <section class="sec split">
+          <h2 class="sec-title">What it is, and what it isn't</h2>
+          <div class="lists">
             <div>
-              <p class="facts-head">It is</p>
-              <ul class="facts-list">
+              <h3>It is</h3>
+              <ul>
                 <li>A GPS speed readout, in km/h, mph or knots</li>
-                <li>Fifteen dial faces, from a bare hairline arc to a tachometer with a
-                  redline, each with a matching app icon</li>
-                <li>A trip recorder — route, distance, duration, average and top speed,
-                  reviewed afterwards on a map</li>
+                <li>Fifteen dial faces, from a bare hairline arc to a tachometer with a redline, each with a matching app icon</li>
+                <li>A trip recorder — route, distance, duration, average and top speed, reviewed afterwards on a map</li>
                 <li>Live altitude, heading and G-force alongside the speed</li>
-                <li>A mirror mode that throws a high-contrast readout onto the
-                  windscreen at night</li>
-                <li>A speed limit you set yourself, with a haptic or a sound when you
-                  pass it</li>
+                <li>A mirror mode that throws a high-contrast readout onto the windscreen at night</li>
+                <li>A speed limit you set yourself, with a haptic or a sound when you pass it</li>
                 <li>Working offline, and in eleven languages</li>
                 <li>Free, with an optional Pro upgrade</li>
               </ul>
             </div>
-            <div>
-              <p class="facts-head">It isn't</p>
-              <ul class="facts-list facts-no">
-                <li>A certified instrument. GPS speed is an estimate — your car's own
-                  dial is the legal reference, and this is not evidence of anything</li>
+            <div class="no">
+              <h3>It isn't</h3>
+              <ul>
+                <li>A certified instrument. GPS speed is an estimate — your car's own dial is the legal reference, and this is not evidence of anything</li>
                 <li>A navigation app. There is no routing and no turn-by-turn</li>
                 <li>A speed camera or police detector</li>
-                <li>Reliable without a view of the sky — indoors, underground and
-                  between tall buildings, GPS degrades and so does the reading</li>
+                <li>Reliable without a view of the sky — indoors, underground and between tall buildings, GPS degrades and so does the reading</li>
                 <li>Something to operate while you're driving. Set it before you move</li>
               </ul>
             </div>
           </div>
         </section>
 
-        <hr class="rule" />
-
-        <section class="band">
-          <h2 class="section-title">Your drives stay on the phone</h2>
-          <p class="lede lede-wide">
-            Trips and routes are recorded and kept on the device. There is no account to
-            make, and the app does not upload where you have been. The one exception is
-            the optional speed-limit lookup: turn it on and an approximate position goes
-            out to find the posted limit for the road you're on. Leave it off and nothing
-            about your location leaves the phone.
-          </p>
-          <p class="link-row">
+        <section class="sec side">
+          <div>
+            <h2 class="sec-title">Your drives stay on the phone</h2>
+            <p>Trips and routes are recorded and kept on the device. There is no account to make, and the app does not upload where you have been.</p>
             <a href="https://speedometerlite.app/privacy">Read the privacy policy</a>
-          </p>
+          </div>
+          <div class="stays">
+            <div><h3>Stays on your iPhone</h3><p>Every trip, route, speed and time. No account, no upload.</p></div>
+            <div class="out"><h3>Leaves only if you turn it on</h3><p>The optional speed-limit lookup sends an approximate position to find the posted limit for the road you're on. Leave it off and nothing about your location leaves the phone.</p></div>
+          </div>
         </section>
       </main>
+    </div>
 
-      <!-- Privacy and Terms leave the house on purpose. Speedometer Lite shipped
-           with those URLs compiled into it, and the App Store listing points at
-           them, so they stay where the installed app expects to find them rather
-           than being copied here to drift out of sync. -->
-      <footer class="foot">
-        <div class="foot-links">
-          <a href="https://speedometerlite.app/privacy">Privacy</a>
-          <a href="https://speedometerlite.app/terms">Terms</a>
-          <a href="mailto:support@speedometerlite.app">Support</a>
-          <a href="../">Baston Apps</a>
-        </div>
-        <span>© 2026 Baston Apps</span>
-        <p class="foot-legal">
-          Apple and the Apple logo are trademarks of Apple Inc., registered in the
-          U.S. and other countries and regions. App Store is a service mark of
-          Apple Inc.
-        </p>
+    <div class="closer-band" data-world="night">
+      <div class="wrap">
+        <section class="closer">
+          <div><h2 class="sec-title">Get Speedometer Lite</h2><p>Free to use. Pro unlocks the other fourteen themes and unlimited trips.</p></div>
+          <a class="badge" href="https://apps.apple.com/app/id6761606601"><img src="../assets/app-store-badge.svg" alt="Download Speedometer Lite on the App Store" width="120" height="40" /></a>
+        </section>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <footer class="sitefoot">
+        <div><a class="brand" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a><p class="tagline">Small apps that do one thing.</p></div>
+        <div><h2>Apps</h2><ul><li><a href="../karaoke-mic/">Karaoke Mic</a></li><li><a href="../speedometer-lite/">Speedometer Lite</a></li><li><a href="../massframe/">MassFrame</a></li></ul></div>
+        <div><h2>Help</h2><ul><li><a href="../giveaways/">Giveaways</a></li><li><a href="mailto:support@bastonapps.com">Email us</a></li></ul></div>
+        <div><h2>Speedometer Lite</h2><ul><li><a href="https://speedometerlite.app/privacy">Privacy</a></li><li><a href="https://speedometerlite.app/terms">Terms</a></li><li><a href="mailto:support@speedometerlite.app">Support</a></li></ul></div>
+        <div class="legal"><span>© 2026 Baston Apps</span><span>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</span></div>
       </footer>
     </div>
 
     <script>
-      // The app's signature: the whole face takes the theme's colour. Same
-      // mechanism as Karaoke Mic's voice buttons, with the hues held in data-hue.
+      // Choosing a voice or a theme re-tints the page, as it does the app.
       (function () {
-        var list = document.querySelector('.swatch-list');
+        var list = document.getElementById('tints');
         if (!list) return;
         list.addEventListener('click', function (event) {
-          var button = event.target.closest('.swatch');
-          if (!button) return;
-          var buttons = list.querySelectorAll('.swatch');
-          for (var i = 0; i < buttons.length; i++) {
-            buttons[i].setAttribute('aria-pressed', String(buttons[i] === button));
-          }
-          document.documentElement.style.setProperty('--accent', button.dataset.hue);
+          var chip = event.target.closest('.chip');
+          if (!chip) return;
+          list.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+          document.documentElement.style.setProperty('--accent', chip.dataset.hue);
         });
       })();
     </script>

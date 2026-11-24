@@ -19,194 +19,99 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://bastonapps.com/karaoke-mic/" />
     <meta property="og:image" content="https://bastonapps.com/assets/karaoke-mic-icon.png" />
+    <link rel="stylesheet" href="../assets/shell.css" />
   </head>
   <body>
-    <div class="shell">
-      <div class="topline">
-        <a class="topline-mark" href="../"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a>
-        <span class="topline-here">Karaoke Mic</span>
-      </div>
-
-      <main>
-        <section class="hero">
+    <div class="apphero" data-world="stage">
+      <div class="lights" aria-hidden="true"><span class="l1"></span><span class="l2"></span><span class="l3"></span><span class="floor"></span></div>
+      <div class="wrap">
+      <header class="sitebar">
+        <a class="brand" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a>
+        <nav aria-label="Site">
+          <a href="../karaoke-mic/" aria-current="page">Karaoke Mic</a> <a href="../speedometer-lite/">Speedometer Lite</a> <a href="../massframe/">MassFrame</a>
+          <span class="sep" aria-hidden="true"></span>
+          <a href="../karaoke-mic/support/">Support</a>
+          <a class="gift" href="../giveaways/">Giveaways</a>
+        </nav>
+      </header>
+        <section class="apphero-grid">
           <div>
-            <img
-              class="app-mark rise"
-              src="../assets/karaoke-mic-icon.svg"
-              alt="The Karaoke Mic app icon"
-              width="52"
-              height="52"
-            />
-            <p class="eyebrow rise">iPhone · Bluetooth or AirPlay</p>
-            <h1 class="hero-title rise rise-2">Your phone is the microphone.</h1>
-            <p class="lede rise rise-3">
-              Tap the button and your voice comes out of the speaker across the room. No
-              cable, no mixer, nothing to sign up for — just you, loud. Start a song in
-              your own music app and sing straight over it.
+            <img class="app-icon" src="../assets/karaoke-mic-icon.svg" alt="The Karaoke Mic app icon" width="64" height="64" />
+            <h1>Your phone is the microphone.</h1>
+            <p class="lede">
+              Tap the button and your voice comes out of the speaker across the room. No cable, no
+              mixer, nothing to sign up for — just you, loud. Start a song in your own music app and
+              sing straight over it.
             </p>
-
-            <div class="voices">
-              <p class="voices-label">Eleven voices — Chipmunk and Megaphone are free</p>
-              <div class="voice-list" id="voices" role="group" aria-label="Preview a voice colour">
-                <button class="voice" type="button" data-hue="#6E645B" aria-pressed="false">
-                  Plain
-                </button>
-                <button class="voice" type="button" data-hue="#D9A21B" aria-pressed="false">
-                  Chipmunk
-                </button>
-                <button class="voice" type="button" data-hue="#E8502E" aria-pressed="true">
-                  Megaphone
-                </button>
-                <button class="voice" type="button" data-hue="#3B8FA8" aria-pressed="false">
-                  Robot
-                </button>
-                <button class="voice" type="button" data-hue="#4E7A44" aria-pressed="false">
-                  Monster
-                </button>
-                <button class="voice" type="button" data-hue="#7B6CC4" aria-pressed="false">
-                  Alien
-                </button>
-                <button class="voice" type="button" data-hue="#4A3F7A" aria-pressed="false">
-                  Giant
-                </button>
-                <button class="voice" type="button" data-hue="#8A6A2E" aria-pressed="false">
-                  Walkie-talkie
-                </button>
-                <button class="voice" type="button" data-hue="#4A6FA5" aria-pressed="false">
-                  Telephone
-                </button>
-                <button class="voice" type="button" data-hue="#C2622B" aria-pressed="false">
-                  Stadium
-                </button>
-                <button class="voice" type="button" data-hue="#8A8FA8" aria-pressed="false">
-                  Ghost
-                </button>
-                <button class="voice" type="button" data-hue="#2F6B63" aria-pressed="false">
-                  Cave
-                </button>
-              </div>
+            <p class="hint" id="tints-label">Eleven voices with Premium. Tap one to see its colour.</p>
+            <div class="chips" id="tints" role="group" aria-labelledby="tints-label">
+                <button class="chip" type="button" data-hue="#6E645B" aria-pressed="false">Plain</button>
+                <button class="chip" type="button" data-hue="#D9A21B" aria-pressed="false">Chipmunk</button>
+                <button class="chip" type="button" data-hue="#E8502E" aria-pressed="true">Megaphone</button>
+                <button class="chip" type="button" data-hue="#3B8FA8" aria-pressed="false">Robot</button>
+                <button class="chip" type="button" data-hue="#4E7A44" aria-pressed="false">Monster</button>
+                <button class="chip" type="button" data-hue="#7B6CC4" aria-pressed="false">Alien</button>
+                <button class="chip" type="button" data-hue="#4A3F7A" aria-pressed="false">Giant</button>
+                <button class="chip" type="button" data-hue="#8A6A2E" aria-pressed="false">Walkie-talkie</button>
+                <button class="chip" type="button" data-hue="#4A6FA5" aria-pressed="false">Telephone</button>
+                <button class="chip" type="button" data-hue="#C2622B" aria-pressed="false">Stadium</button>
+                <button class="chip" type="button" data-hue="#8A8FA8" aria-pressed="false">Ghost</button>
+                <button class="chip" type="button" data-hue="#2F6B63" aria-pressed="false">Cave</button>
             </div>
-
             <div class="cta-row">
-              <a class="badge" href="https://apps.apple.com/app/id6796284317">
-                <img
-                  src="../assets/app-store-badge.svg"
-                  alt="Download on the App Store"
-                  width="120"
-                  height="40"
-                />
-              </a>
-              <span class="caption">Free to use · Premium unlocks nine more voices</span>
+              <a class="badge" href="https://apps.apple.com/app/id6796284317"><img src="../assets/app-store-badge.svg" alt="Download Karaoke Mic on the App Store" width="120" height="40" /></a>
+              <span class="caption">Free to use. Premium unlocks all eleven voices.</span>
             </div>
           </div>
-
-          <div class="hero-stage hero-stage-tall">
-            <svg class="screen hero-screen" viewBox="0 0 360 782" role="img"
-                 aria-label="The Karaoke Mic screen while live: the talk button is filled with the chosen voice’s colour and the microphone rings are lit.">
-              <rect class="s-paper" x="0" y="0" width="360" height="782" />
-
-              <text class="s-time" x="30" y="36">9:41</text>
-              <rect class="s-batt" x="308" y="25" width="24" height="12" rx="3.5" />
-
-              <rect class="s-pill" x="24" y="56" width="312" height="56" rx="18" />
-              <circle class="s-dot" cx="48" cy="84" r="5" />
-              <text class="s-name" x="66" y="80">Kitchen Speaker</text>
-              <text class="s-detail" x="66" y="98">Bluetooth · 180 ms</text>
-              <path class="s-chev" d="M310 78 L316 84 L310 90" />
-
-              <g transform="translate(42,120) scale(1.0625)">
-                <path class="s-ring s-ring-outer" d="M34 96 C10 148 10 208 34 260" />
-                <path class="s-ring s-ring-outer" d="M226 96 C250 148 250 208 226 260" />
-                <path class="s-ring" d="M58 118 C42 156 42 200 58 238" />
-                <path class="s-ring" d="M202 118 C218 156 218 200 202 238" />
-                <path class="s-yoke" d="M74 156 C74 212 100 240 130 240" />
-                <path class="s-yoke" d="M186 156 C186 212 160 240 130 240" />
-                <rect class="s-body" x="122" y="236" width="16" height="44" rx="3" />
-                <rect class="s-body" x="86" y="274" width="88" height="22" rx="11" />
-                <rect class="s-body" x="88" y="44" width="84" height="124" rx="42" />
-                <rect class="s-grille" x="104" y="80" width="52" height="9" rx="4.5" />
-                <rect class="s-grille" x="104" y="101" width="52" height="9" rx="4.5" />
-                <rect class="s-grille" x="104" y="122" width="52" height="9" rx="4.5" />
-                <circle class="s-stud" cx="74" cy="156" r="13" />
-                <circle class="s-stud" cx="186" cy="156" r="13" />
-              </g>
-
-              <rect class="s-talk s-talk-on" x="80" y="500" width="200" height="58" rx="29" />
-              <text class="s-talk-label s-talk-label-on" x="180" y="536">Live</text>
-
-              <rect class="s-track" x="60" y="580" width="240" height="44" rx="22" />
-              <rect class="s-track-fill" x="60" y="580" width="150" height="44" rx="22" />
-
-              <rect class="s-card" x="18" y="650" width="72" height="74" rx="18" />
-              <text class="s-card-label" x="54" y="694">Plain</text>
-              <rect class="s-card" x="102" y="650" width="72" height="74" rx="18" />
-              <text class="s-card-label" x="138" y="694">Chipmunk</text>
-              <rect class="s-card s-card-on" x="186" y="650" width="72" height="74" rx="18" />
-              <text class="s-card-label s-card-on" x="222" y="694">Megaphone</text>
-              <rect class="s-card" x="270" y="650" width="72" height="74" rx="18" />
-              <text class="s-card-label" x="306" y="694">Robot</text>
-              <rect class="s-home" x="130" y="756" width="100" height="5" rx="2.5" />
-            </svg>
+          <div class="visual">
+            <div class="rings">
+              <span></span><span></span><span></span>
+              <div class="device"><div class="glass"><img src="../assets/karaoke-mic-stage.jpg" width="720" height="1520" alt="Karaoke Mic's main screen: the microphone, the Live button and the voices along the bottom" fetchpriority="high" /></div></div>
+            </div>
           </div>
         </section>
+      </div>
+    </div>
 
-        <hr class="rule" />
-
-        <section class="band">
-          <h2 class="section-title">Three things, in order</h2>
-          <ol class="steps">
+    <div class="wrap">
+      <main>
+        <section class="sec">
+          <h2 class="sec-title">Three things, in order</h2>
+          <ol class="flow">
             <li>
-              <span class="step-num">01</span>
-              <h3 class="step-name">Pair your speaker</h3>
-              <p class="step-text">
-                Any Bluetooth speaker, soundbar, or AirPlay device. Pair it in iOS Settings
-                first — the app shows you which output it's using and lets you switch.
-              </p>
+              <h3>Pair your speaker</h3>
+              <p>Any Bluetooth speaker, soundbar, or AirPlay device. Pair it in iOS Settings first — the app shows you which output it's using and lets you switch.</p>
             </li>
             <li>
-              <span class="step-num">02</span>
-              <h3 class="step-name">Allow the microphone</h3>
-              <p class="step-text">
-                Asked once, on first launch. Without it there's nothing to send to the
-                speaker.
-              </p>
+              <h3>Allow the microphone</h3>
+              <p>Asked once, on first launch. Without it there's nothing to send to the speaker.</p>
             </li>
             <li>
-              <span class="step-num">03</span>
-              <h3 class="step-name">Tap and talk</h3>
-              <p class="step-text">
-                One tap goes live, another mutes you — muted is the resting state, so
-                you're never live by accident. Set the level with the fader, pick a voice,
-                and the whole screen takes on its colour.
-              </p>
+              <h3>Tap and talk</h3>
+              <p>One tap goes live, another mutes you — muted is the resting state, so you're never live by accident. Pick a voice, and the whole screen takes on its colour.</p>
             </li>
           </ol>
         </section>
 
-        <hr class="rule" />
-
-        <section class="band">
-          <h2 class="section-title">What it is, and what it isn't</h2>
-          <div class="facts">
+        <section class="sec split">
+          <h2 class="sec-title">What it is, and what it isn't</h2>
+          <div class="lists">
             <div>
-              <p class="facts-head">It is</p>
-              <ul class="facts-list">
+              <h3>It is</h3>
+              <ul>
                 <li>A live microphone that plays through a speaker you already own</li>
                 <li>Eleven character voices, applied to your voice as you speak</li>
-                <li>Happy to share the speaker — keep playing music from any other app
-                  and sing over the top of it</li>
-                <li>A level fader, a noise gate, and feedback warnings when the mic
-                  starts to hear itself</li>
+                <li>Happy to share the speaker — keep playing music from any other app and sing over the top of it</li>
+                <li>A level fader, a noise gate, and automatic protection against howling when the mic starts to hear itself</li>
                 <li>Live only while it's open, so nothing listens in the background</li>
                 <li>Four app icons you can switch between</li>
                 <li>Free, with an optional Premium subscription</li>
               </ul>
             </div>
-            <div>
-              <p class="facts-head">It isn't</p>
-              <ul class="facts-list facts-no">
-                <li>A karaoke library — it supplies no songs, lyrics, or backing tracks;
-                  bring your own from the music app you already pay for</li>
+            <div class="no">
+              <h3>It isn't</h3>
+              <ul>
+                <li>A karaoke library — it supplies no songs, lyrics, or backing tracks; bring your own from the music app you already pay for</li>
                 <li>A recorder. Nothing is captured or saved, by design</li>
                 <li>A scoring game</li>
                 <li>Latency-free — Bluetooth adds a short delay no app can remove</li>
@@ -215,52 +120,70 @@
           </div>
         </section>
 
-        <hr class="rule" />
-
-        <section class="band">
-          <h2 class="section-title">Your voice doesn't go anywhere</h2>
-          <p class="lede lede-wide">
-            Audio is processed on the device and played straight out again. It is never
-            recorded to a file, never stored, and never transmitted — not to us, not to
-            anyone. The only thing the app measures is loudness, as a number, to move the
-            meter and open the noise gate.
-          </p>
-          <p class="link-row">
+        <section class="sec side">
+          <div>
+            <h2 class="sec-title">Your voice doesn't go anywhere</h2>
+            <p>
+              Audio is processed on the device and played straight out again. It is never recorded to a
+              file, never stored, and never transmitted — not to us, not to anyone. The only thing the app
+              measures is loudness, as a number, to move the meter and open the noise gate.
+            </p>
             <a href="privacy/">Read the privacy policy</a>
-          </p>
+          </div>
+          <svg class="path" viewBox="0 -10 560 340" role="img" aria-label="Your voice goes from the microphone to your iPhone and out to the speaker. Nothing goes to the internet.">
+            <path class="cut" d="M280 128 V62" />
+            <path class="glyph" style="stroke: var(--sh-muted)" d="M258 50 a16 16 0 0 1 4 -31 a20 20 0 0 1 37 4 a14 14 0 0 1 3 27 z" />
+            <path class="x" d="M268 84 l24 24 M292 84 l-24 24" />
+            <text class="note" x="318" y="40" style="text-anchor: start">Internet: nothing sent</text>
+            <path class="flowline" d="M118 200 H222" />
+            <path class="head" d="M222 192 l14 8 l-14 8 z" />
+            <path class="flowline" d="M338 200 H442" />
+            <path class="head" d="M442 192 l14 8 l-14 8 z" />
+            <circle class="node" cx="70" cy="200" r="46" />
+            <rect class="glyph" x="60" y="178" width="20" height="30" rx="10" />
+            <path class="glyph" d="M52 200 a18 18 0 0 0 36 0 M70 218 v8" />
+            <text x="70" y="275">Your voice</text>
+            <rect class="node" x="246" y="140" width="68" height="120" rx="14" />
+            <path class="glyph" d="M270 152 h20" />
+            <text x="280" y="290">iPhone</text>
+            <text class="note" x="280" y="312">processed here, not kept</text>
+            <circle class="node" cx="500" cy="200" r="46" />
+            <path class="glyph" d="M484 190 h10 l14 -12 v44 l-14 -12 h-10 z M516 188 a16 16 0 0 1 0 24" />
+            <text x="500" y="275">Speaker</text>
+          </svg>
         </section>
       </main>
+    </div>
 
-      <footer class="foot">
-        <div class="foot-links">
-          <a href="privacy/">Privacy</a>
-          <a href="terms/">Terms</a>
-          <a href="support/">Support</a>
-          <a href="../">Baston Apps</a>
-        </div>
-        <span>© 2026 Baston Apps</span>
-        <p class="foot-legal">
-          Apple and the Apple logo are trademarks of Apple Inc., registered in the
-          U.S. and other countries and regions. App Store is a service mark of
-          Apple Inc.
-        </p>
+    <div class="closer-band">
+      <div class="wrap">
+        <section class="closer">
+          <div><h2 class="sec-title">Get Karaoke Mic</h2><p>Free to use. Premium unlocks all eleven voices.</p></div>
+          <a class="badge" href="https://apps.apple.com/app/id6796284317"><img src="../assets/app-store-badge.svg" alt="Download Karaoke Mic on the App Store" width="120" height="40" /></a>
+        </section>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <footer class="sitefoot">
+        <div><a class="brand" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a><p class="tagline">Small apps that do one thing.</p></div>
+        <div><h2>Apps</h2><ul><li><a href="../karaoke-mic/">Karaoke Mic</a></li><li><a href="../speedometer-lite/">Speedometer Lite</a></li><li><a href="../massframe/">MassFrame</a></li></ul></div>
+        <div><h2>Help</h2><ul><li><a href="../giveaways/">Giveaways</a></li><li><a href="mailto:support@bastonapps.com">Email us</a></li></ul></div>
+        <div><h2>Karaoke Mic</h2><ul><li><a href="../karaoke-mic/privacy/">Privacy</a></li><li><a href="../karaoke-mic/terms/">Terms</a></li><li><a href="../karaoke-mic/support/">Support</a></li></ul></div>
+        <div class="legal"><span>© 2026 Baston Apps</span><span>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</span></div>
       </footer>
     </div>
 
     <script>
-      // The app's signature: choosing a voice re-tints everything. Same hues as
-      // src/ui/theme.ts, kept in data-hue on each button.
+      // Choosing a voice or a theme re-tints the page, as it does the app.
       (function () {
-        var list = document.getElementById('voices');
+        var list = document.getElementById('tints');
         if (!list) return;
         list.addEventListener('click', function (event) {
-          var button = event.target.closest('.voice');
-          if (!button) return;
-          var buttons = list.querySelectorAll('.voice');
-          for (var i = 0; i < buttons.length; i++) {
-            buttons[i].setAttribute('aria-pressed', String(buttons[i] === button));
-          }
-          document.documentElement.style.setProperty('--accent', button.dataset.hue);
+          var chip = event.target.closest('.chip');
+          if (!chip) return;
+          list.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+          document.documentElement.style.setProperty('--accent', chip.dataset.hue);
         });
       })();
     </script>

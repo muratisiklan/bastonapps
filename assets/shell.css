@@ -1,0 +1,977 @@
+/* Baston Apps — the parts every page shares.
+
+   Loaded after site.css (app and document pages) or home.css (the home page),
+   so it reads their tokens where they exist and falls back where they don't:
+   home.css defines only a few of site.css's variables.
+
+   - the site header and footer
+   - the drawn iPhone, the same one the home page cards use
+   - the app-page hero, set in each app's own world (stage, night drive)
+   - the wide sections below a hero
+   - the support page layout */
+
+:root {
+  --sh-ink: var(--ink, #241f1c);
+  --sh-soft: var(--ink-soft, #5c534c);
+  --sh-muted: var(--muted, #726960);
+  --sh-raised: var(--paper-raised, #fffbf6);
+  --sh-line: var(--hairline, rgba(36, 31, 28, 0.12));
+  --sh-display: var(--font-display, 'Futura', 'Futura PT', 'Jost', 'Century Gothic', sans-serif);
+  --sh-body: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif);
+  --sh-gutter: var(--gutter, clamp(1.25rem, 5vw, 2.5rem));
+  --sh-brass: #c08a3e;
+
+  --ti-natural: linear-gradient(145deg, #e4e1db 0%, #9a968f 16%, #efece6 36%, #858179 60%, #d2cec7 80%, #8f8b84 100%);
+  --ti-natural-btn: linear-gradient(90deg, #8d8981, #d6d2cb 50%, #8d8981);
+  --ti-black: linear-gradient(145deg, #55575c 0%, #1d1e21 18%, #5f6166 40%, #18191b 64%, #4a4c50 84%, #232427 100%);
+  --ti-black-btn: linear-gradient(90deg, #1c1d20, #55575c 50%, #1c1d20);
+}
+
+/* The page's one width. Text inside still keeps to a reading measure. */
+.wrap {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 var(--sh-gutter);
+}
+
+/* ---- header ------------------------------------------------------------- */
+
+.sitebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.4rem;
+  font-family: var(--sh-display);
+  font-size: 0.9375rem;
+}
+
+.sitebar .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.sitebar .brand svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+}
+
+.sitebar nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem 1.5rem;
+}
+
+.sitebar nav a {
+  color: inherit;
+  opacity: 0.72;
+  text-decoration: none;
+  padding-block: 0.35rem;
+  border-bottom: 2px solid transparent;
+}
+
+.sitebar nav a:hover {
+  opacity: 1;
+}
+
+.sitebar nav a[aria-current='page'] {
+  opacity: 1;
+  border-bottom-color: var(--accent, var(--sh-brass));
+}
+
+.sitebar .sep {
+  width: 1px;
+  height: 1.1rem;
+  background: currentColor;
+  opacity: 0.2;
+}
+
+.sitebar nav .gift {
+  opacity: 1;
+  padding: 0.4rem 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--sh-brass);
+  color: #241f1c;
+  font-weight: 500;
+}
+
+/* ---- footer ------------------------------------------------------------- */
+
+.sitefoot {
+  margin-top: clamp(3rem, 7vw, 5rem);
+  padding-block: 3.5rem 2.5rem;
+  border-top: 1px solid var(--sh-line);
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  font-family: var(--sh-body);
+  font-size: 0.9375rem;
+  color: var(--sh-ink);
+}
+
+.sitefoot .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font: 500 1rem var(--sh-display);
+}
+
+.sitefoot .brand svg {
+  width: 1.05em;
+  height: 1.05em;
+}
+
+.sitefoot .tagline {
+  font: 500 1.375rem/1.2 var(--sh-display);
+  margin: 0.75rem 0 0;
+  max-width: 14ch;
+}
+
+.sitefoot h2 {
+  font: 500 0.9375rem/1 var(--sh-display);
+  margin: 0 0 1rem;
+  color: var(--sh-muted);
+}
+
+.sitefoot ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.sitefoot a {
+  color: var(--sh-ink);
+  text-decoration: none;
+}
+
+.sitefoot a:hover {
+  text-decoration: underline;
+}
+
+.sitefoot .legal {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--sh-line);
+  color: var(--sh-muted);
+  font-size: 0.8125rem;
+}
+
+/* ---- the iPhone ------------------------------------------------------------
+   An iPhone 15/16 Pro drawn from one width, --w: titanium band, black border,
+   glass, Action and volume buttons on the left, the side button on the right.
+   Same proportions as the home page cards. */
+
+.device {
+  --w: 330px;
+  --band: calc(var(--w) * 0.013);
+  --bezel: calc(var(--w) * 0.028);
+  --corner: calc(var(--w) * 0.175);
+  position: relative;
+  width: min(100%, var(--w));
+  padding: var(--band);
+  border-radius: var(--corner);
+  background: var(--metal, var(--ti-black));
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.55),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.35),
+    0 1px 2px rgba(0, 0, 0, 0.25),
+    0 34px 60px -26px rgba(0, 0, 0, 0.6),
+    0 12px 22px -14px rgba(0, 0, 0, 0.35);
+  transform: rotate(var(--tilt, 1.5deg));
+}
+
+.device.natural {
+  --metal: var(--ti-natural);
+  --metal-btn: var(--ti-natural-btn);
+}
+
+.device::before,
+.device::after {
+  content: '';
+  position: absolute;
+  width: calc(var(--band) + 2px);
+  background: var(--metal-btn, var(--ti-black-btn));
+}
+
+.device::before {
+  left: calc(-2px - var(--band) + 1px);
+  top: 17%;
+  height: 21.5%;
+  border-radius: 2px 0 0 2px;
+  -webkit-mask: linear-gradient(#000 0 15%, transparent 15% 30%, #000 30% 61%, transparent 61% 69%, #000 69% 100%);
+  mask: linear-gradient(#000 0 15%, transparent 15% 30%, #000 30% 61%, transparent 61% 69%, #000 69% 100%);
+}
+
+.device::after {
+  right: calc(-2px - var(--band) + 1px);
+  top: 26%;
+  height: 11%;
+  border-radius: 0 2px 2px 0;
+}
+
+.device .glass {
+  position: relative;
+  aspect-ratio: 720 / 1565;
+  border: var(--bezel) solid #000;
+  border-radius: calc(var(--corner) - var(--band));
+  background: #000;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.device .glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: calc(var(--corner) - var(--band) - var(--bezel));
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.04) 26%, rgba(255, 255, 255, 0) 42%);
+  pointer-events: none;
+}
+
+.device img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: top;
+  border-radius: calc(var(--corner) - var(--band) - var(--bezel));
+}
+
+/* ---- app hero: the app's own world, full width ---------------------------- */
+
+.apphero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--hero-ink, #f4eadb);
+  background: var(--hero-bg, #1e1814);
+  --chip-line: rgba(255, 255, 255, 0.22);
+}
+
+.apphero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(4rem, 8vw, 6.5rem);
+}
+
+.apphero-grid > div {
+  min-width: 0;
+}
+
+.apphero .app-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 15px;
+}
+
+.apphero h1 {
+  font-family: var(--sh-display);
+  font-weight: 500;
+  font-size: clamp(3.25rem, 7.2vw, 6.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin: 1.75rem 0 1.5rem;
+  max-width: 9ch;
+  color: var(--hero-title, #fbf4e8);
+}
+
+.apphero .lede {
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: var(--hero-soft, #c9bba8);
+  max-width: 33rem;
+  margin: 0;
+}
+
+.apphero .hint {
+  margin: 2rem 0 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--hero-quiet, #b7a893);
+}
+
+.apphero .cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.apphero .cta-row .caption {
+  color: var(--hero-quiet, #b7a893);
+  font-size: 0.9375rem;
+}
+
+.apphero .visual {
+  display: grid;
+  place-items: center;
+  padding-block: 2rem;
+}
+
+/* Choices that re-tint the page: voices, themes. Scoped to the hero: the
+   home page has its own .chips and .chip. */
+.apphero .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 34rem;
+}
+
+.apphero .chip {
+  font: 500 0.9375rem/1 var(--sh-display);
+  letter-spacing: 0.02em;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--chip-line, rgba(36, 31, 28, 0.16));
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.apphero .chip:hover {
+  border-color: var(--accent);
+}
+
+.apphero .chip[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--chip-on, #fff);
+}
+
+.apphero .badge img,
+.closer .badge img {
+  display: block;
+  height: 3.25rem;
+  width: auto;
+}
+
+/* Stage (Karaoke Mic): three beams from the rig; the centre one is the voice. */
+.lights {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Blur on the outer layer, the cone's shape on the inner one, so the beam's
+   edges soften instead of being cut sharp. */
+.lights span {
+  position: absolute;
+  top: -8%;
+  width: 34%;
+  height: 115%;
+  filter: blur(26px);
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}
+
+.lights span::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--beam);
+  clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%);
+  transition: background 0.5s;
+}
+
+.lights .l1 { left: 30%; transform: rotate(14deg); --beam: linear-gradient(#e6b325 0%, transparent 70%); opacity: 0.22; }
+.lights .l2 { left: 54%; --beam: linear-gradient(var(--accent) 0%, transparent 78%); }
+.lights .l3 { left: 74%; transform: rotate(-14deg); --beam: linear-gradient(#4fb3cf 0%, transparent 70%); opacity: 0.2; }
+
+.lights .floor {
+  top: auto;
+  bottom: -6%;
+  left: 50%;
+  width: 46%;
+  height: 26%;
+  filter: blur(40px);
+  opacity: 0.45;
+  background: radial-gradient(closest-side, var(--accent), transparent);
+}
+
+.lights .floor::before {
+  display: none;
+}
+
+/* The voice leaving the phone as rings. */
+.rings {
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  width: 330px;
+  max-width: 100%;
+}
+
+.rings::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  inset: -20% -30%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 32%, transparent), transparent);
+  transition: background 0.4s;
+}
+
+.rings > span {
+  position: absolute;
+  z-index: -1;
+  width: 120%;
+  aspect-ratio: 1;
+  top: 50%;
+  left: 50%;
+  margin: -60% 0 0 -60%;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  opacity: 0.25;
+  transition: border-color 0.4s;
+}
+
+.rings > span:nth-child(2) { width: 150%; margin: -75% 0 0 -75%; opacity: 0.14; }
+.rings > span:nth-child(3) { width: 185%; margin: -92.5% 0 0 -92.5%; opacity: 0.07; }
+
+/* Night drive (Speedometer Lite): a dial around the phone, lit by the theme. */
+.dash {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 360px;
+  isolation: isolate;
+}
+
+.dash::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  inset: -25% -45%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 30%, transparent), transparent);
+  transition: background 0.4s;
+}
+
+.dial {
+  position: absolute;
+  z-index: -1;
+  width: 190%;
+  max-width: none;
+  left: -45%;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: visible;
+}
+
+.dial .tick { stroke: color-mix(in srgb, var(--accent) 55%, transparent); stroke-width: 3; stroke-linecap: round; transition: stroke 0.4s; }
+.dial .tick.major { stroke: var(--accent); stroke-width: 5; }
+.dial .arc { fill: none; stroke: var(--accent); stroke-width: 3; opacity: 0.5; transition: stroke 0.4s; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .rings > span { animation: sh-breathe 3.2s ease-in-out infinite; }
+  .rings > span:nth-child(2) { animation-delay: -1s; }
+  .rings > span:nth-child(3) { animation-delay: -2s; }
+
+  @keyframes sh-breathe {
+    50% { transform: scale(1.04); }
+  }
+}
+
+/* ---- sections below the hero ---------------------------------------------- */
+
+.sec {
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+  border-top: 1px solid var(--sh-line);
+}
+
+.sec:first-child {
+  border-top: 0;
+}
+
+.sec-title {
+  font-family: var(--sh-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+  max-width: 24ch;
+}
+
+/* A real sequence, so it carries numbers, joined by a line. */
+.flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin: 3.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.flow li {
+  position: relative;
+  counter-increment: step;
+  padding-top: 4.25rem;
+}
+
+.flow li::before {
+  content: counter(step);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--chip-on, #fff);
+  font: 500 1.125rem/1 var(--sh-display);
+  transition: background 0.4s;
+}
+
+.flow li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 1.375rem;
+  left: 3.5rem;
+  right: calc(-1 * clamp(1.5rem, 4vw, 4rem) + 0.75rem);
+  border-top: 2px dotted color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.flow h3 {
+  font: 500 1.375rem/1.2 var(--sh-display);
+  margin: 0 0 0.6rem;
+}
+
+.flow p {
+  margin: 0;
+  color: var(--sh-soft);
+  line-height: 1.6;
+  max-width: 32ch;
+}
+
+/* Heading on the left, two lists side by side on the right. */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.split .sec-title {
+  position: sticky;
+  top: 2rem;
+  max-width: 14ch;
+}
+
+.lists {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.lists h3 {
+  font: 500 1.125rem/1.2 var(--sh-display);
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+  transition: border-color 0.4s;
+}
+
+.lists .no h3 {
+  border-bottom-color: var(--sh-line);
+}
+
+.lists ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.lists li {
+  line-height: 1.55;
+}
+
+.lists .no li {
+  color: var(--sh-soft);
+}
+
+/* Words on one side, a picture of them on the other. */
+.side {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.side p {
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  color: var(--sh-soft);
+  max-width: 32rem;
+  margin: 1.5rem 0 1.25rem;
+}
+
+.side a {
+  color: var(--sh-ink);
+}
+
+/* The audio's whole journey (Karaoke Mic privacy). */
+.path {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.path .node { fill: var(--sh-raised); stroke: var(--sh-ink); stroke-width: 2; }
+.path .glyph { fill: none; stroke: var(--sh-ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.path .flowline { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; transition: stroke 0.4s; }
+.path .head { fill: var(--accent); transition: fill 0.4s; }
+.path .cut { fill: none; stroke: var(--sh-muted); stroke-width: 2; stroke-dasharray: 3 7; stroke-linecap: round; }
+.path .x { stroke: var(--sh-muted); stroke-width: 2.4; stroke-linecap: round; }
+.path text { font: 500 15px var(--sh-display); fill: var(--sh-ink); text-anchor: middle; }
+.path .note { font: 14px var(--sh-body); fill: var(--sh-muted); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .path .flowline { stroke-dasharray: 10 10; animation: sh-travel 1.4s linear infinite; }
+
+  @keyframes sh-travel {
+    to { stroke-dashoffset: -40; }
+  }
+}
+
+/* What stays and what can leave (Speedometer Lite privacy). */
+.stays {
+  display: grid;
+  gap: 1rem;
+}
+
+.stays div {
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--sh-line);
+  background: var(--sh-raised);
+}
+
+.stays h3 {
+  font: 500 1.0625rem/1.3 var(--sh-display);
+  margin: 0 0 0.35rem;
+}
+
+.stays p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--sh-soft);
+}
+
+.stays .out {
+  background: transparent;
+  border-style: dashed;
+}
+
+/* Screens in a row, each with its caption. */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  margin: 3.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gallery li {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+}
+
+.gallery .device {
+  --w: 290px;
+}
+
+.gallery p {
+  margin: 0;
+  max-width: 30ch;
+  color: var(--sh-soft);
+  line-height: 1.55;
+  text-align: center;
+}
+
+.gallery b {
+  display: block;
+  color: var(--sh-ink);
+  font: 500 1.125rem/1.3 var(--sh-display);
+  margin-bottom: 0.25rem;
+}
+
+/* The closing call to action, in the hero's world. */
+.closer-band {
+  background: var(--hero-bg, #1e1814);
+  color: var(--hero-title, #fbf4e8);
+}
+
+.closer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.closer .sec-title {
+  max-width: none;
+}
+
+.closer p {
+  margin: 0.75rem 0 0;
+  color: var(--hero-quiet, #b7a893);
+}
+
+.closer-band + .wrap .sitefoot {
+  margin-top: 0;
+  border-top: 0;
+}
+
+/* ---- support ---------------------------------------------------------------- */
+
+.sup-head {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-block: clamp(2rem, 5vw, 3.5rem) 2rem;
+}
+
+.sup-head img {
+  width: 64px;
+  height: 64px;
+  border-radius: 15px;
+}
+
+.sup-head h1 {
+  font: 500 clamp(2.5rem, 5vw, 3.75rem)/1 var(--sh-display);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.sup-head p {
+  margin: 0.4rem 0 0;
+  color: var(--sh-soft);
+}
+
+.quick {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.quick a {
+  display: block;
+  padding: 1.25rem 1.4rem;
+  border-radius: 16px;
+  background: var(--sh-raised);
+  border: 1px solid var(--sh-line);
+  color: var(--sh-ink);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.quick a:hover {
+  border-color: var(--accent);
+}
+
+.quick b {
+  display: block;
+  font: 500 1.125rem/1.3 var(--sh-display);
+  margin-bottom: 0.35rem;
+}
+
+.quick span {
+  color: var(--sh-soft);
+  line-height: 1.5;
+}
+
+.sup {
+  display: grid;
+  grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.toc {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.toc h2 {
+  font: 500 0.9375rem/1 var(--sh-display);
+  color: var(--sh-muted);
+  margin: 0 0 1rem;
+}
+
+.toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.15rem;
+  border-left: 2px solid var(--sh-line);
+}
+
+.toc a {
+  display: block;
+  padding: 0.4rem 0 0.4rem 1rem;
+  margin-left: -2px;
+  border-left: 2px solid transparent;
+  color: var(--sh-soft);
+  text-decoration: none;
+  line-height: 1.35;
+}
+
+.toc a:hover {
+  color: var(--sh-ink);
+  border-left-color: var(--accent);
+}
+
+.qa {
+  max-width: 40rem;
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--sh-line);
+  scroll-margin-top: 1.5rem;
+}
+
+.qa:last-child {
+  border-bottom: 0;
+}
+
+.qa h2 {
+  font: 500 1.625rem/1.2 var(--sh-display);
+  margin: 0 0 1rem;
+}
+
+.qa p,
+.qa li {
+  color: var(--sh-soft);
+  line-height: 1.65;
+}
+
+.qa ul {
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.qa strong {
+  color: var(--sh-ink);
+}
+
+/* ---- small screens ------------------------------------------------------------ */
+
+@media (max-width: 860px) {
+  .sitebar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .sitebar nav {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .sitebar .sep {
+    display: none;
+  }
+
+  .sitefoot {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sitefoot > div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .apphero-grid,
+  .flow,
+  .split,
+  .lists,
+  .side,
+  .gallery,
+  .closer,
+  .quick,
+  .sup {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .flow li:not(:last-child)::after {
+    display: none;
+  }
+
+  .split .sec-title,
+  .toc {
+    position: static;
+  }
+
+  .apphero .chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    max-width: none;
+    padding-bottom: 0.25rem;
+    scrollbar-width: none;
+  }
+
+  .apphero .chip {
+    flex: none;
+  }
+
+  .apphero .device {
+    --w: 280px;
+  }
+
+  .rings {
+    width: 280px;
+  }
+
+  .dash {
+    width: 290px;
+  }
+
+  .lights .l1,
+  .lights .l3 {
+    display: none;
+  }
+
+  .lights .l2 {
+    left: 15%;
+    width: 70%;
+  }
+}
+
+/* Night drive's colours (Speedometer Lite). The stage's are the defaults above. */
+[data-world='night'] {
+  --hero-bg: #0b1226;
+  --hero-title: #f2f6ff;
+  --hero-ink: #eaf2ff;
+  --hero-soft: #a9b6cf;
+  --hero-quiet: #8f9cb6;
+  --chip-on: #0b1226;
+}

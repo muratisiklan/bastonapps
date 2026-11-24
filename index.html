@@ -22,6 +22,7 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="assets/shell.css" />
   </head>
   <body>
     <div class="page" id="top">
@@ -81,7 +82,7 @@
             <div class="showcase">
               <div class="phone tilt" data-carousel>
                 <div class="shots">
-                  <img class="is-on" src="assets/massframe-projection.webp" width="720" height="1564" alt="MassFrame's projection: today's photo beside a drawing of the body three months on" loading="lazy" decoding="async" />
+                  <img class="is-on" src="assets/massframe-projection.webp" width="720" height="1564" alt="MassFrame's projection: today's photo beside a drawing of the body three months on" loading="eager" fetchpriority="high" decoding="async" />
                   <img src="assets/massframe-report.webp" width="720" height="1564" alt="A MassFrame progress report read from a photo" loading="lazy" decoding="async" />
                   <img src="assets/massframe-meal.webp" width="720" height="1564" alt="A meal read by MassFrame, with its calories and protein" loading="lazy" decoding="async" />
                   <img src="assets/massframe-compare.webp" width="720" height="1564" alt="Two MassFrame check-ins side by side, 84 days apart, with every measurement compared" loading="lazy" decoding="async" />
@@ -92,6 +93,52 @@
                 <button class="dot" type="button" aria-pressed="false">Report</button>
                 <button class="dot" type="button" aria-pressed="false">Meal</button>
                 <button class="dot" type="button" aria-pressed="false">Compared</button>
+              </div>
+            </div>
+          </li>
+
+          <li class="tag tag--karaoke" data-voice="megaphone">
+            <div>
+              <div class="tag-head">
+                <img class="tag-icon" src="assets/karaoke-mic-icon.png" width="512" height="512" alt="" />
+                <div>
+                  <h2><a href="karaoke-mic/">Karaoke Mic</a></h2>
+                  <p class="meta">Free · Bluetooth · Nothing recorded</p>
+                </div>
+              </div>
+              <p class="tag-line">
+                Your phone becomes the microphone. Tap the button and your voice comes out
+                of the Bluetooth speaker across the room — no cable, no mixer, and nothing
+                is ever recorded.
+              </p>
+              <div class="try">
+                <p class="try-label" id="km-voices">Eleven voices. Try one:</p>
+                <div class="chips" role="group" aria-labelledby="km-voices">
+                  <button class="chip" type="button" data-hue="#b9aa98" data-voice="plain" aria-pressed="false">Plain</button>
+                  <button class="chip" type="button" data-hue="#e6b325" data-voice="chipmunk" aria-pressed="false">Chipmunk</button>
+                  <button class="chip" type="button" data-hue="#e8502e" data-voice="megaphone" aria-pressed="true">Megaphone</button>
+                  <button class="chip" type="button" data-hue="#4fb3cf" data-voice="robot" aria-pressed="false">Robot</button>
+                  <button class="chip" type="button" data-hue="#9a8cf0" data-voice="alien" aria-pressed="false">Alien</button>
+                  <button class="chip" type="button" data-hue="#4fa596" data-voice="cave" aria-pressed="false">Cave</button>
+                </div>
+              </div>
+              <div class="actions">
+                <a class="badge" href="https://apps.apple.com/app/id6796284317">
+                  <img src="assets/app-store-badge.svg" alt="Download Karaoke Mic on the App Store" width="120" height="40" />
+                </a>
+                <a class="open" href="karaoke-mic/">Visit Karaoke Mic <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
+              <a class="sticker" href="giveaways/">Free lifetime Premium code</a>
+            </div>
+            <div class="showcase">
+              <!-- The phone, with the chosen voice leaving it as rings. -->
+              <div class="km-stage">
+                <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+                <div class="phone tilt">
+                  <div class="shots">
+                    <img class="is-on" src="assets/karaoke-mic-stage.jpg" width="720" height="1520" alt="Karaoke Mic's main screen: the microphone, the Live button and the voices along the bottom" loading="lazy" decoding="async" />
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -147,49 +194,6 @@
               </div>
             </div>
           </li>
-
-          <li class="tag tag--karaoke" data-voice="megaphone">
-            <div>
-              <div class="tag-head">
-                <img class="tag-icon" src="assets/karaoke-mic-icon.png" width="512" height="512" alt="" />
-                <div>
-                  <h2><a href="karaoke-mic/">Karaoke Mic</a></h2>
-                  <p class="meta">Free · Bluetooth · Nothing recorded</p>
-                </div>
-              </div>
-              <p class="tag-line">
-                Your phone becomes the microphone. Tap the button and your voice comes out
-                of the Bluetooth speaker across the room — no cable, no mixer, and nothing
-                is ever recorded.
-              </p>
-              <div class="try">
-                <p class="try-label" id="km-voices">Eleven voices. Try one:</p>
-                <div class="chips" role="group" aria-labelledby="km-voices">
-                  <button class="chip" type="button" data-hue="#b9aa98" data-voice="plain" aria-pressed="false">Plain</button>
-                  <button class="chip" type="button" data-hue="#e6b325" data-voice="chipmunk" aria-pressed="false">Chipmunk</button>
-                  <button class="chip" type="button" data-hue="#e8502e" data-voice="megaphone" aria-pressed="true">Megaphone</button>
-                  <button class="chip" type="button" data-hue="#4fb3cf" data-voice="robot" aria-pressed="false">Robot</button>
-                  <button class="chip" type="button" data-hue="#9a8cf0" data-voice="alien" aria-pressed="false">Alien</button>
-                  <button class="chip" type="button" data-hue="#4fa596" data-voice="cave" aria-pressed="false">Cave</button>
-                </div>
-              </div>
-              <div class="actions">
-                <a class="badge" href="https://apps.apple.com/app/id6796284317">
-                  <img src="assets/app-store-badge.svg" alt="Download Karaoke Mic on the App Store" width="120" height="40" />
-                </a>
-                <a class="open" href="karaoke-mic/">Visit Karaoke Mic <span class="arrow" aria-hidden="true">→</span></a>
-              </div>
-              <a class="sticker" href="giveaways/">Free lifetime Premium code</a>
-            </div>
-            <div class="showcase">
-              <!-- The stage: the icon, with the chosen voice leaving it as rings and a meter. -->
-              <div class="stage tilt" aria-hidden="true">
-                <span class="ring"></span><span class="ring"></span><span class="ring"></span>
-                <img src="assets/karaoke-mic-icon.png" width="512" height="512" alt="" />
-                <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
-              </div>
-            </div>
-          </li>
         </ul>
 
         <p class="sr-only" aria-live="polite" id="announce"></p>
@@ -225,12 +229,12 @@
       </main>
 
       <div class="ground" aria-hidden="true"><span></span><span></span></div>
-      <footer class="foot">
-        <nav>
-          <a href="giveaways/">Giveaways</a>
-          <a href="mailto:support@bastonapps.com">support@bastonapps.com</a>
-        </nav>
-        <span>© 2026 Baston Apps</span>
+      <footer class="foot sitefoot">
+        <div><a class="brand" href="./"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a><p class="tagline">Small apps that do one thing.</p></div>
+        <div><h2>Apps</h2><ul><li><a href="karaoke-mic/">Karaoke Mic</a></li><li><a href="speedometer-lite/">Speedometer Lite</a></li><li><a href="massframe/">MassFrame</a></li></ul></div>
+        <div><h2>Help</h2><ul><li><a href="giveaways/">Giveaways</a></li><li><a href="mailto:support@bastonapps.com">Email us</a></li></ul></div>
+        <div><h2>Contact</h2><ul><li><a href="mailto:support@bastonapps.com">support@bastonapps.com</a></li></ul></div>
+        <div class="legal"><span>© 2026 Baston Apps</span><span>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</span></div>
       </footer>
     </div>
 

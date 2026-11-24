@@ -726,3 +726,49 @@
     margin-inline: auto;
   }
 }
+
+/* The prints are real iPhones now (assets/shell.css, natural titanium, as on
+   the home card): no paper, border or tape around them. The figure keeps its
+   place and its tilt in the fan and the pairs. */
+[data-app='massframe'] .print {
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+
+[data-app='massframe'] .print::after {
+  display: none;
+}
+
+[data-app='massframe'] .print .device {
+  --w: 280px;
+  --tilt: 0deg;
+  width: 100%;
+}
+
+[data-app='massframe'] .mf-pair .print .device {
+  --w: 230px;
+}
+
+[data-app='massframe'] .print .device img {
+  height: 100%;
+  border: 0;
+  background: #f6f1e8;
+}
+
+[data-app='massframe'] .mf-pair {
+  max-width: 560px;
+}
+
+[data-app='massframe'] .mf-fan {
+  height: clamp(520px, 56vw, 700px);
+}
+
+[data-app='massframe'] .mf-fan .print {
+  max-width: 300px;
+}
+
+[data-app='massframe'] .mf-fan .print .device {
+  --w: 300px;
+}

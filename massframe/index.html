@@ -20,6 +20,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://bastonapps.com/massframe/" />
     <meta property="og:image" content="https://bastonapps.com/assets/massframe-icon.png" />
+    <link rel="stylesheet" href="../assets/shell.css" />
   </head>
   <body>
     <!-- The paywall's six marks, drawn once and used by reference below. -->
@@ -75,10 +76,15 @@
     </svg>
 
     <div class="shell">
-      <div class="topline">
-        <a class="topline-mark" href="../"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a>
-        <span class="topline-here">MassFrame</span>
-      </div>
+      <header class="sitebar">
+        <a class="brand" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a>
+        <nav aria-label="Site">
+          <a href="../karaoke-mic/">Karaoke Mic</a> <a href="../speedometer-lite/">Speedometer Lite</a> <a href="../massframe/" aria-current="page">MassFrame</a>
+          <span class="sep" aria-hidden="true"></span>
+          <a href="../massframe/support/">Support</a>
+          <a class="gift" href="../giveaways/">Giveaways</a>
+        </nav>
+      </header>
 
       <main>
         <section class="mf-hero">
@@ -96,15 +102,9 @@
           </div>
 
           <div class="mf-fan" aria-label="Three screens from the app: a workout, a meal and a progress report">
-            <figure class="print">
-              <img src="../assets/massframe-report.webp" width="720" height="1565" alt="A progress report: her check-in photo read into a muscle map, a score for each part, body fat and the band." />
-            </figure>
-            <figure class="print">
-              <img src="../assets/massframe-meal.webp" width="720" height="1565" alt="A meal photographed from above and read: its calories, protein, fat and carbs." />
-            </figure>
-            <figure class="print">
-              <img src="../assets/massframe-compare.webp" width="720" height="1565" alt="Two check-ins twelve weeks apart, side by side, with what changed in each part, body fat, lean mass and weight." />
-            </figure>
+            <figure class="print"><div class="device natural"><div class="glass"><img src="../assets/massframe-report.webp" width="720" height="1565" alt="A progress report: her check-in photo read into a muscle map, a score for each part, body fat and the band." /></div></div></figure>
+            <figure class="print"><div class="device natural"><div class="glass"><img src="../assets/massframe-meal.webp" width="720" height="1565" alt="A meal photographed from above and read: its calories, protein, fat and carbs." /></div></div></figure>
+            <figure class="print"><div class="device natural"><div class="glass"><img src="../assets/massframe-compare.webp" width="720" height="1565" alt="Two check-ins twelve weeks apart, side by side, with what changed in each part, body fat, lean mass and weight." /></div></div></figure>
           </div>
         </section>
 
@@ -124,8 +124,8 @@
               </ul>
             </div>
             <div class="mf-pair">
-              <figure class="print" style="--tilt: -1.4deg"><img src="../assets/massframe-session.webp" width="720" height="1565" loading="lazy" decoding="async" alt="A workout in progress, set by set." /></figure>
-              <figure class="print" style="--tilt: 1.2deg"><img src="../assets/massframe-plans.webp" width="720" height="1565" loading="lazy" decoding="async" alt="Plans: the running plan's week, the one before it, and ways to find or build another." /></figure>
+              <figure class="print" style="--tilt: -1.4deg"><div class="device natural"><div class="glass"><img src="../assets/massframe-session.webp" width="720" height="1565" loading="lazy" decoding="async" alt="A workout in progress, set by set." /></div></div></figure>
+              <figure class="print" style="--tilt: 1.2deg"><div class="device natural"><div class="glass"><img src="../assets/massframe-plans.webp" width="720" height="1565" loading="lazy" decoding="async" alt="Plans: the running plan's week, the one before it, and ways to find or build another." /></div></div></figure>
             </div>
           </div>
 
@@ -140,8 +140,8 @@
               </ul>
             </div>
             <div class="mf-pair">
-              <figure class="print" style="--tilt: 1.3deg"><img src="../assets/massframe-meal.webp" width="720" height="1565" loading="lazy" decoding="async" alt="A meal read from its photo: calories and macros, and where the calories come from." /></figure>
-              <figure class="print" style="--tilt: -1deg"><img src="../assets/massframe-phase.webp" width="720" height="1565" loading="lazy" decoding="async" alt="An eating phase: its daily calories, protein, fat and carbs, and how they were worked out from her body." /></figure>
+              <figure class="print" style="--tilt: 1.3deg"><div class="device natural"><div class="glass"><img src="../assets/massframe-meal.webp" width="720" height="1565" loading="lazy" decoding="async" alt="A meal read from its photo: calories and macros, and where the calories come from." /></div></div></figure>
+              <figure class="print" style="--tilt: -1deg"><div class="device natural"><div class="glass"><img src="../assets/massframe-phase.webp" width="720" height="1565" loading="lazy" decoding="async" alt="An eating phase: its daily calories, protein, fat and carbs, and how they were worked out from her body." /></div></div></figure>
             </div>
           </div>
 
@@ -156,8 +156,8 @@
               </ul>
             </div>
             <div class="mf-pair">
-              <figure class="print" style="--tilt: -1.2deg"><img src="../assets/massframe-report.webp" width="720" height="1565" loading="lazy" decoding="async" alt="A progress report from one photo." /></figure>
-              <figure class="print" style="--tilt: 1.4deg"><img src="../assets/massframe-projection.webp" width="720" height="1565" loading="lazy" decoding="async" alt="Her projection: the first check-in beside the body three months on, with weight, body fat and lean mass for each." /></figure>
+              <figure class="print" style="--tilt: -1.2deg"><div class="device natural"><div class="glass"><img src="../assets/massframe-report.webp" width="720" height="1565" loading="lazy" decoding="async" alt="A progress report from one photo." /></div></div></figure>
+              <figure class="print" style="--tilt: 1.4deg"><div class="device natural"><div class="glass"><img src="../assets/massframe-projection.webp" width="720" height="1565" loading="lazy" decoding="async" alt="Her projection: the first check-in beside the body three months on, with weight, body fat and lean mass for each." /></div></div></figure>
             </div>
           </div>
         </section>
@@ -261,18 +261,12 @@
         </section>
       </main>
 
-      <footer class="foot">
-        <div class="foot-links">
-          <a href="privacy/">Privacy</a>
-          <a href="terms/">Terms</a>
-          <a href="support/">Support</a>
-          <a href="../">Baston Apps</a>
-        </div>
-        <span>© 2026 Baston Apps</span>
-        <p class="foot-legal">
-          Apple, the Apple logo and Apple Health are trademarks of Apple Inc., registered in
-          the U.S. and other countries and regions. App Store is a service mark of Apple Inc.
-        </p>
+      <footer class="sitefoot">
+        <div><a class="brand" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M40 57 L40 13 A8 8 0 0 0 24 13 L24 20" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><path d="M40 50 L40 57" fill="none" stroke="#c08a3e" stroke-width="6.5" stroke-linecap="round"/></svg><span>Baston Apps</span></a><p class="tagline">Small apps that do one thing.</p></div>
+        <div><h2>Apps</h2><ul><li><a href="../karaoke-mic/">Karaoke Mic</a></li><li><a href="../speedometer-lite/">Speedometer Lite</a></li><li><a href="../massframe/">MassFrame</a></li></ul></div>
+        <div><h2>Help</h2><ul><li><a href="../giveaways/">Giveaways</a></li><li><a href="mailto:support@bastonapps.com">Email us</a></li></ul></div>
+        <div><h2>MassFrame</h2><ul><li><a href="../massframe/privacy/">Privacy</a></li><li><a href="../massframe/terms/">Terms</a></li><li><a href="../massframe/support/">Support</a></li></ul></div>
+        <div class="legal"><span>© 2026 Baston Apps</span><span>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</span></div>
       </footer>
     </div>
   </body>

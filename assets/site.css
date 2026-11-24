@@ -165,7 +165,7 @@ a:hover {
 /* --- shell ---------------------------------------------------------------- */
 
 .shell {
-  max-width: 64rem;
+  max-width: 78rem;
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
