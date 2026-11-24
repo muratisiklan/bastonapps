@@ -713,28 +713,6 @@
   text-align: center;
 }
 
-/* Four screens: one row on wide pages, two by two on tablets. */
-.gallery.four {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(1.25rem, 3vw, 2.5rem);
-}
-
-.gallery.four .device {
-  --w: 250px;
-}
-
-@media (min-width: 861px) and (max-width: 1080px) {
-  .gallery.four {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 860px) {
-  .gallery.four {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 .gallery b {
   display: block;
   color: var(--sh-ink);
